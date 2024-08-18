@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "blue-core",
+	"id": "bluecore",
 	"version": "${version}",
 	"name": "Blue Core",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.crystal.bluecore.BlueCore"
+		],
+		"client" :[
+			"com.crystal.bluecore.BlueCoreClient"
 		],
 		"fabric-datagen": [
 			"com.crystal.bluecore.BlueCoreDataGenerator"

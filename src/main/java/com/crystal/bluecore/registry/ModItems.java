@@ -9,18 +9,15 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-
-    public static final Item ITEM = new Item(new Item.Settings());
-    public static final Item RAW_PINK_GEMSTONE = registerModItems("raw_pink_gemstone", ITEM);
-    public static final Item PINK_GEMSTONE = registerModItems("pink_gemstone", ITEM);
+    // 物品 Items
+    public static final Item RAW_PINK_GEMSTONE = registerModItems("raw_pink_gemstone",  new Item(new Item.Settings()));
+    public static final Item PINK_GEMSTONE = registerModItems("pink_gemstone",  new Item(new Item.Settings()));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {
         // 注册物品的ID和模组命名空间“Bluecore”
         return Registry.register(Registries.ITEM, Identifier.of(BlueCore.MOD_ID, id), item);
     }
-
-    // 发送注册物品成功信息
 
     /**
      * -- 以下是原版创造标签页 --
@@ -40,6 +37,8 @@ public class ModItems {
      * 14. Inventory 生存模式物品栏
      */
     public static void registerModItemsInfo() {
+        // 发送注册物品成功信息
+        BlueCore.LOGGER.info(BlueCore.MOD_ID + ": Registered Mod Items Success");
         // 物品组是创造模式物品栏内存储物品的标签页。
         // 这个物品组添加事件处理器，类型于给原版物品组添加物品的方式。
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
@@ -47,6 +46,5 @@ public class ModItems {
             entries.add(RAW_PINK_GEMSTONE);
             entries.add(PINK_GEMSTONE);
         });
-        BlueCore.LOGGER.info("Registered Mod Items Success");
     }
 }
