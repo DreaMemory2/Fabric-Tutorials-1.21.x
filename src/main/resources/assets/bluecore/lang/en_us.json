@@ -1,8 +1,10 @@
 {
-  "item.bluecore.xxx": "xxx",
   "item.bluecore.raw_pink_gemstone": "Raw Pink Gemstone",
   "item.bluecore.pink_gemstone": "Pink Gemstone",
 
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
-  "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore"
+  "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
+  "block.bluecore.deepslate_pink_gemstone_ore": "Deepslate Pink Gemstone Ore",
+
+  "itemgroup.bluecore.blue_core_groups" : "Blue Core"
 }

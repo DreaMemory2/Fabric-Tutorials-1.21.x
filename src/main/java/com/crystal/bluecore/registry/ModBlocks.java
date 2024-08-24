@@ -16,7 +16,7 @@ public class ModBlocks {
     // 方块 Blocks
     public static final Block PINK_GEMSTONE_BLOCK = registerModBlocks("pink_gemstone_block", new Block(Settings.copy(Blocks.DIAMOND_BLOCK)));
     public static final Block PINK_GEMSTONE_ORE = registerModBlocks("pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
-    public static final Block PINK_GEMSTONE_DEEPSLATE_ORE = registerModBlocks("pink_gemstone_deepslate_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
+    public static final Block DEEPSLATE_PINK_GEMSTONE_ORE = registerModBlocks("deepslate_pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
@@ -44,7 +44,7 @@ public class ModBlocks {
             // 添加你的方块到创造模式物品栏内
             entries.add(PINK_GEMSTONE_BLOCK);
             entries.add(PINK_GEMSTONE_ORE);
-            entries.add(PINK_GEMSTONE_DEEPSLATE_ORE);
+            entries.add(DEEPSLATE_PINK_GEMSTONE_ORE);
         });
     }
 }

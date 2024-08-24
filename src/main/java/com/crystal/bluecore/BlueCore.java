@@ -1,6 +1,7 @@
 package com.crystal.bluecore;
 
 import com.crystal.bluecore.registry.ModBlocks;
+import com.crystal.bluecore.registry.ModItemGroups;
 import com.crystal.bluecore.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -16,5 +17,8 @@ public class BlueCore implements ModInitializer {
 		// 物品与方块的初始化
 		ModItems.registerModItemsInfo();
 		ModBlocks.registerModBlocksInfo();
+
+		// 物品组或创造标签页的初始化
+		ModItemGroups.registerItemGroupsInfo();
 	}
 }
