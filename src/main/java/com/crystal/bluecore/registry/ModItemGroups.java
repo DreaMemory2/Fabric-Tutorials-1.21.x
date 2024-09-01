@@ -36,6 +36,9 @@ public class ModItemGroups {
             containers.add(ModItems.RAW_PINK_GEMSTONE);
             containers.add(ModItems.PINK_GEMSTONE);
             containers.add(ModItems.CHISEL);
+            containers.add(ModItems.ONESIES_DISC);
+            containers.add(ModItems.OCTOPUS_DISC);
+            containers.add(ModItems.BLUEY_THEME_DISC);
             // Blocks
             containers.add(ModBlocks.PINK_GEMSTONE_BLOCK);
             containers.add(ModBlocks.PINK_GEMSTONE_ORE);

@@ -2,6 +2,9 @@
   "item.bluecore.raw_pink_gemstone": "Raw Pink Gemstone",
   "item.bluecore.pink_gemstone": "Pink Gemstone",
   "item.bluecore.chisel": "Chisel",
+  "item.bluecore.onesies_disc": "Music Disc",
+  "item.bluecore.octopus_disc": "Music Disc",
+  "item.bluecore.bluey_theme_disc": "Music Disc",
 
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
@@ -9,5 +12,8 @@
   "block.bluecore.raw_pink_gemstone_block": "Raw Pink Gemstone Block",
   "block.bluecore.magic_block": "Magic Block",
 
+  "jukebox_song.bluecore.onesies": "Onesies",
+  "jukebox_song.bluecore.octopus": "Octopus",
+  "jukebox_song.bluecore.bluey_theme": "Bluey Theme",
   "itemgroup.bluecore.blue_core_groups" : "Blue Core"
 }

@@ -3,6 +3,7 @@ package com.crystal.bluecore;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItemGroups;
 import com.crystal.bluecore.registry.ModItems;
+import com.crystal.bluecore.registry.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -20,5 +21,7 @@ public class BlueCore implements ModInitializer {
 
 		// 物品组或创造标签页的初始化
 		ModItemGroups.registerItemGroupsInfo();
+		// 音效和唱片初始化
+		ModSounds.registerSoundsInfo();
 	}
 }

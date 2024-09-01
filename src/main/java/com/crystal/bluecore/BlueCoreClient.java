@@ -1,6 +1,9 @@
 package com.crystal.bluecore;
 
+import com.crystal.bluecore.registry.ModSounds;
 import net.fabricmc.api.ClientModInitializer;
+import net.minecraft.registry.RegistryBuilder;
+import net.minecraft.registry.RegistryKeys;
 
 public class BlueCoreClient implements ClientModInitializer {
     /**
@@ -8,6 +11,6 @@ public class BlueCoreClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-
+        new RegistryBuilder().addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
     }
 }

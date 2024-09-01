@@ -1,0 +1,11 @@
+{
+  "music_onesies": {
+    "sounds": ["bluecore:onesies"]
+  },
+  "music_octopus": {
+    "sounds": ["bluecore:octopus"]
+  },
+  "music_bluey_theme": {
+    "sounds": ["bluecore:bluey_theme"]
+  }
+}

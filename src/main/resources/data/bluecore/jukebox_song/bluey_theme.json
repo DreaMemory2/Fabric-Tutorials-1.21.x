@@ -1,0 +1,8 @@
+{
+  "comparator_output": 1,
+  "description": {
+    "translate": "jukebox_song.bluecore.bluey_theme"
+  },
+  "length_in_seconds": 25.0,
+  "sound_event": "bluecore:music_bluey_theme"
+}

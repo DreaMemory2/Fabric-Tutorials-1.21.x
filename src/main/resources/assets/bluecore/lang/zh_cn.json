@@ -2,6 +2,9 @@
   "item.bluecore.raw_pink_gemstone": "粗粉红色宝石",
   "item.bluecore.pink_gemstone": "粉红色宝石",
   "item.bluecore.chisel": "凿子",
+  "item.bluecore.onesies_disc": "音乐唱片",
+  "item.bluecore.octopus_disc": "音乐唱片",
+  "item.bluecore.bluey_theme_disc": "音乐唱片",
 
   "block.bluecore.pink_gemstone_block": "粉红色宝石块",
   "block.bluecore.pink_gemstone_ore": "粉红色宝石矿石",
@@ -9,5 +12,8 @@
   "block.bluecore.raw_pink_gemstone_block": "粗粉红色宝石块",
   "block.bluecore.magic_block": "魔法石块",
 
+  "jukebox_song.bluecore.onesies": "Onesies",
+  "jukebox_song.bluecore.octopus": "Octopus",
+  "jukebox_song.bluecore.bluey_theme": "Bluey Theme",
   "itemgroup.bluecore.blue_core_groups" : "蓝色核心"
 }

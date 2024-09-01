@@ -8,12 +8,19 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class ModItems {
     // 物品 Items
     public static final Item RAW_PINK_GEMSTONE = registerModItems("raw_pink_gemstone",  new Item(new Item.Settings()));
     public static final Item PINK_GEMSTONE = registerModItems("pink_gemstone",  new Item(new Item.Settings()));
     public static final Item CHISEL = registerModItems("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
+    public static final Item ONESIES_DISC = registerModItems("onesies_disc", new Item(
+            new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.ONESIES)));
+    public static final Item OCTOPUS_DISC = registerModItems("octopus_disc", new Item(
+            new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.OCTOPUS)));
+    public static final Item BLUEY_THEME_DISC = registerModItems("bluey_theme_disc", new Item(
+            new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.BLUEY_THEME)));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {

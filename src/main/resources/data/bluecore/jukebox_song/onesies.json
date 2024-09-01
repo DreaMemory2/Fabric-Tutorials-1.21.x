@@ -1,0 +1,8 @@
+{
+  "comparator_output": 1,
+  "description": {
+    "translate": "jukebox_song.bluecore.onesies"
+  },
+  "length_in_seconds": 204.0,
+  "sound_event": "bluecore:music_onesies"
+}
