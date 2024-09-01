@@ -35,10 +35,13 @@ public class ModItemGroups {
             // Items
             containers.add(ModItems.RAW_PINK_GEMSTONE);
             containers.add(ModItems.PINK_GEMSTONE);
+            containers.add(ModItems.CHISEL);
             // Blocks
             containers.add(ModBlocks.PINK_GEMSTONE_BLOCK);
             containers.add(ModBlocks.PINK_GEMSTONE_ORE);
             containers.add(ModBlocks.DEEPSLATE_PINK_GEMSTONE_ORE);
+            containers.add(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
+            containers.add(ModBlocks.MAGIC_BLOCK);
         };
     }
 }

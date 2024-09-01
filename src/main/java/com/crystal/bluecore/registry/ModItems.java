@@ -1,6 +1,7 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.item.custom.ChiselItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -12,6 +13,7 @@ public class ModItems {
     // 物品 Items
     public static final Item RAW_PINK_GEMSTONE = registerModItems("raw_pink_gemstone",  new Item(new Item.Settings()));
     public static final Item PINK_GEMSTONE = registerModItems("pink_gemstone",  new Item(new Item.Settings()));
+    public static final Item CHISEL = registerModItems("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {

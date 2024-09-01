@@ -1,6 +1,7 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.block.custom.MagicBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Block;
@@ -17,6 +18,8 @@ public class ModBlocks {
     public static final Block PINK_GEMSTONE_BLOCK = registerModBlocks("pink_gemstone_block", new Block(Settings.copy(Blocks.DIAMOND_BLOCK)));
     public static final Block PINK_GEMSTONE_ORE = registerModBlocks("pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
     public static final Block DEEPSLATE_PINK_GEMSTONE_ORE = registerModBlocks("deepslate_pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
+    public static final Block RAW_PINK_GEMSTONE_BLOCK = registerModBlocks("raw_pink_gemstone_block", new Block(Settings.copy(Blocks.RAW_IRON_BLOCK)));
+    public static final Block MAGIC_BLOCK = registerModBlocks("magic_block", new MagicBlock(Settings.copy(Blocks.IRON_BLOCK)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {

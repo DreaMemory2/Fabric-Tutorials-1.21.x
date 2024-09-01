@@ -1,10 +1,13 @@
 {
   "item.bluecore.raw_pink_gemstone": "粗粉红色宝石",
   "item.bluecore.pink_gemstone": "粉红色宝石",
+  "item.bluecore.chisel": "凿子",
 
   "block.bluecore.pink_gemstone_block": "粉红色宝石块",
   "block.bluecore.pink_gemstone_ore": "粉红色宝石矿石",
   "block.bluecore.deepslate_pink_gemstone_ore": "深层粉红色宝石矿石",
+  "block.bluecore.raw_pink_gemstone_block": "粗粉红色宝石块",
+  "block.bluecore.magic_block": "魔法石块",
 
   "itemgroup.bluecore.blue_core_groups" : "蓝色核心"
 }

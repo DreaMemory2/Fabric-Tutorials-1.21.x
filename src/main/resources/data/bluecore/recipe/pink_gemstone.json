@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "bluecore:pink_gemstone_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "bluecore:pink_gemstone"
+  }
+}
