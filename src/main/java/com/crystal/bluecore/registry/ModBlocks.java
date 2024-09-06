@@ -1,7 +1,7 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
-import com.crystal.bluecore.block.custom.MagicBlock;
+import com.crystal.bluecore.block.custom.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Block;
@@ -20,6 +20,10 @@ public class ModBlocks {
     public static final Block DEEPSLATE_PINK_GEMSTONE_ORE = registerModBlocks("deepslate_pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
     public static final Block RAW_PINK_GEMSTONE_BLOCK = registerModBlocks("raw_pink_gemstone_block", new Block(Settings.copy(Blocks.RAW_IRON_BLOCK)));
     public static final Block MAGIC_BLOCK = registerModBlocks("magic_block", new MagicBlock(Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block PIG_GENERATOR = registerModBlocks("pig_generator", new PigGenerator(
+            Settings.create().strength(1.5F, 6.0F).requiresTool()));
+    public static final Block VERTICAL_EXCAVATION_PROCESSOR = registerModBlocks("vertical_excavation_processor",
+            new VerticalExcavationProcessor(Settings.create().strength(1.5F, 6.0F).requiresTool()));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
@@ -40,7 +44,7 @@ public class ModBlocks {
      * @see ModItems#registerModItemsInfo() 原版创造标签页具体汉译
      */
     public static void registerModBlocksInfo() {
-        // 发送注册物品成功信息
+        // 发送注册方块成功信息
         BlueCore.LOGGER.info(BlueCore.MOD_ID + ": Registered Mod Blocks Success");
         // 方块组是创造模式物品栏内存储物品的标签页。
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {

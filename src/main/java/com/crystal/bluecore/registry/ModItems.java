@@ -5,10 +5,15 @@ import com.crystal.bluecore.item.custom.ChiselItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+
+import java.util.List;
 
 public class ModItems {
     // 物品 Items
@@ -21,6 +26,15 @@ public class ModItems {
             new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.OCTOPUS)));
     public static final Item BLUEY_THEME_DISC = registerModItems("bluey_theme_disc", new Item(
             new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.BLUEY_THEME)));
+    public static final Item CAULIFLOWER = registerModItems("cauliflower", new Item(new Item.Settings().food(ModFoodComponents.CAULIFLOWER)) {
+        // 给物品添加文本信息
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            tooltip.add(Text.translatable("tooltip.bluecore.cauliflower.tooltip"));
+            super.appendTooltip(stack, context, tooltip, type);
+        }
+    });
+    public static final Item STARLIGHT_ASHES = registerModItems("starlight_ashes", new Item(new Item.Settings()));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {

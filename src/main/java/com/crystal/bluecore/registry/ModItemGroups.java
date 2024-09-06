@@ -39,6 +39,8 @@ public class ModItemGroups {
             containers.add(ModItems.ONESIES_DISC);
             containers.add(ModItems.OCTOPUS_DISC);
             containers.add(ModItems.BLUEY_THEME_DISC);
+            containers.add(ModItems.CAULIFLOWER);
+            containers.add(ModItems.STARLIGHT_ASHES);
             // Blocks
             containers.add(ModBlocks.PINK_GEMSTONE_BLOCK);
             containers.add(ModBlocks.PINK_GEMSTONE_ORE);

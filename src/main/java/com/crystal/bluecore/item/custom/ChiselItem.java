@@ -3,16 +3,22 @@ package com.crystal.bluecore.item.custom;
 import com.crystal.bluecore.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -54,5 +60,26 @@ public class ChiselItem extends Item {
 
         }
         return ActionResult.SUCCESS;
+    }
+
+    /**
+     * 获取使用方式
+     * @param stack 物品栏中的物品
+     * @return 更改使用方式
+     */
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BLOCK;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if (Screen.hasShiftDown()) {
+            // 需要按下Shift键，可以展示更多信息
+            tooltip.add(Text.translatable("tooltip.bluecore.chisel.shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.bluecore.chisel.text"));
+        }
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

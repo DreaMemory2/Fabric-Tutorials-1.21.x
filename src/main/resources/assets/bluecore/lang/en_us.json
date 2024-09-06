@@ -5,6 +5,8 @@
   "item.bluecore.onesies_disc": "Music Disc",
   "item.bluecore.octopus_disc": "Music Disc",
   "item.bluecore.bluey_theme_disc": "Music Disc",
+  "item.bluecore.cauliflower": "Cauliflower",
+  "item.bluecore.starlight_ashes": "Starlight Ashes",
 
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
@@ -15,5 +17,10 @@
   "jukebox_song.bluecore.onesies": "Onesies",
   "jukebox_song.bluecore.octopus": "Octopus",
   "jukebox_song.bluecore.bluey_theme": "Bluey Theme",
-  "itemgroup.bluecore.blue_core_groups" : "Blue Core"
+
+  "itemgroup.bluecore.blue_core_groups" : "Blue Core",
+  "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
+  "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",
+  "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
+  "tooltip.bluecore.cauliflower.tooltip": "This is delicious!"
 }
