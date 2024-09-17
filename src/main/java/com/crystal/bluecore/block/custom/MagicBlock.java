@@ -1,6 +1,7 @@
 package com.crystal.bluecore.block.custom;
 
 import com.crystal.bluecore.registry.ModItems;
+import com.crystal.bluecore.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -39,10 +40,19 @@ public class MagicBlock extends Block {
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof ItemEntity itemEntity) {
-            if (itemEntity.getStack().getItem() == ModItems.PINK_GEMSTONE)
+            if (isValidItem(itemEntity.getStack()))
                 itemEntity.setStack(new ItemStack(Items.DIAMOND, itemEntity.getStack().getCount()));
         }
         super.onSteppedOn(world, pos, state, entity);
+    }
+
+    /**
+     * 使用标签，实现多个物品进行物质转换。
+     * @param stack 可以多个物品转换
+     * @return 如果可以进行物品转换，则返回成功，否则相反。
+     */
+    private boolean isValidItem(ItemStack stack) {
+        return stack.isIn(ModTags.Items.GEMSTONE_ITEM);
     }
 
     /**

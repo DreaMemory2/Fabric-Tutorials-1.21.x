@@ -19,6 +19,7 @@
   "jukebox_song.bluecore.bluey_theme": "Bluey Theme",
 
   "itemgroup.bluecore.blue_core_groups" : "蓝色核心",
+  "bluecore.gemstone_item": "宝石物品标签",
   "tooltip.bluecore.magic_block.tooltip": "这个方块非常有§9魔力",
   "tooltip.bluecore.chisel.shift_down": "该工具可将方块凿成砖块！",
   "tooltip.bluecore.chisel.text": "按下§eShift§r了解更多信息",

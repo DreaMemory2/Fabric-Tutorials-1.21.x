@@ -19,6 +19,7 @@
   "jukebox_song.bluecore.bluey_theme": "Bluey Theme",
 
   "itemgroup.bluecore.blue_core_groups" : "Blue Core",
+  "bluecore.gemstone_item": "Gemstone Item Tags",
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
   "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
