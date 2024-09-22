@@ -1,11 +1,13 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
-import com.crystal.bluecore.block.custom.*;
+import com.crystal.bluecore.block.custom.MagicBlock;
+import com.crystal.bluecore.block.custom.PigGenerator;
+import com.crystal.bluecore.block.custom.PinkGemStoneLamp;
+import com.crystal.bluecore.block.custom.VerticalExcavationProcessor;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock.Settings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -24,6 +26,29 @@ public class ModBlocks {
             Settings.create().strength(1.5F, 6.0F).requiresTool()));
     public static final Block VERTICAL_EXCAVATION_PROCESSOR = registerModBlocks("vertical_excavation_processor",
             new VerticalExcavationProcessor(Settings.create().strength(1.5F, 6.0F).requiresTool()));
+    // 一些装饰方块，例如：楼梯，半砖，按钮，压力板，栅栏，栅栏门，石墙，铁门，活把门
+    public static final Block PINK_GEMSTONE_STAIRS = registerModBlocks("pink_gemstone_stair",
+            new StairsBlock(ModBlocks.PINK_GEMSTONE_BLOCK.getDefaultState(), Settings.create().strength(2f).requiresTool()));
+    public static final Block PINK_GEMSTONE_SLAB = registerModBlocks("pink_gemstone_slab",
+            new SlabBlock(Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS)));
+    public static final Block PINK_GEMSTONE_BUTTON = registerModBlocks("pink_gemstone_button",
+            new ButtonBlock(BlockSetType.IRON, 2, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS).noCollision()));
+    public static final Block PINK_GEMSTONE_PRESSURE_PLATE = registerModBlocks("pink_gemstone_pressure_plate",
+            new PressurePlateBlock(BlockSetType.IRON, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS)));
+    public static final Block PINK_GEMSTONE_FENCE = registerModBlocks("pink_gemstone_fence",
+            new FenceBlock(Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS)));
+    public static final Block PINK_GEMSTONE_FENCE_GATE = registerModBlocks("pink_gemstone_fence_gate",
+            new FenceGateBlock(WoodType.OAK, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS)));
+    public static final Block PINK_GEMSTONE_WALL = registerModBlocks("pink_gemstone_wall",
+            new WallBlock(Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS)));
+    public static final Block PINK_GEMSTONE_DOOR = registerModBlocks("pink_gemstone_door",
+            new DoorBlock(BlockSetType.IRON, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS).nonOpaque()));
+    public static final Block PINK_GEMSTONE_TRAPDOOR = registerModBlocks("pink_gemstone_trapdoor",
+            new TrapdoorBlock(BlockSetType.IRON, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS).nonOpaque()));
+    public static final Block PINK_GEMSTONE_LAMP = registerModBlocks("pink_gemstone_lamp",
+            new PinkGemStoneLamp(Settings.copy(Blocks.REDSTONE_LAMP)
+                    // 设置粉色宝石灯的亮度（当粉色宝石灯被点击时），最大为15，最小为0
+                    .luminance(state -> state.get(PinkGemStoneLamp.CLICKED) ? 15 : 0)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {

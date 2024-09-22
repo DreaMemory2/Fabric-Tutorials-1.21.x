@@ -1,7 +1,10 @@
 package com.crystal.bluecore;
 
+import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModSounds;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
@@ -11,6 +14,12 @@ public class BlueCoreClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-        new RegistryBuilder().addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
+        RegistryBuilder builder = new RegistryBuilder();
+
+        builder.addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
+
+        // 渲染粉红色宝石门和活把门的空白纹理
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_TRAPDOOR, RenderLayer.getCutout());
     }
 }

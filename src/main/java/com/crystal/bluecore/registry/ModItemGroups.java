@@ -2,6 +2,7 @@ package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroup.EntryCollector;
 import net.minecraft.item.ItemStack;
@@ -21,8 +22,12 @@ public class ModItemGroups {
                     // 信息文本显示
                     .displayName(Text.translatable("itemgroup.bluecore.blue_core_groups"))
                     // 物品内容
-                    .entries(groups())
-                    .build());
+                    .entries(groups()).build());
+    public static final ItemGroup BLUE_TUTORIAL_GROUPS = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(BlueCore.MOD_ID, "blue_tutorial_groups"), FabricItemGroup.builder()
+                    .icon(() -> new ItemStack(Blocks.COMMAND_BLOCK.asItem()))
+                    .displayName(Text.translatable("itemgroup.blue_tutorial_groups"))
+                    .entries(tutorial()).build());
 
     public static void registerItemGroupsInfo() {
         // 发送注册物品创造标签页成功信息
@@ -30,7 +35,7 @@ public class ModItemGroups {
     }
 
     // 物品创造标签页：蓝色核心物品组
-    public static EntryCollector groups () {
+    public static EntryCollector groups() {
         return (displayContext, containers) -> {
             // Items
             containers.add(ModItems.RAW_PINK_GEMSTONE);
@@ -47,6 +52,25 @@ public class ModItemGroups {
             containers.add(ModBlocks.DEEPSLATE_PINK_GEMSTONE_ORE);
             containers.add(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
             containers.add(ModBlocks.MAGIC_BLOCK);
+            containers.add(ModBlocks.PINK_GEMSTONE_LAMP);
+
+            containers.add(ModBlocks.PINK_GEMSTONE_STAIRS);
+            containers.add(ModBlocks.PINK_GEMSTONE_SLAB);
+            containers.add(ModBlocks.PINK_GEMSTONE_BUTTON);
+            containers.add(ModBlocks.PINK_GEMSTONE_PRESSURE_PLATE);
+            containers.add(ModBlocks.PINK_GEMSTONE_FENCE);
+            containers.add(ModBlocks.PINK_GEMSTONE_FENCE_GATE);
+            containers.add(ModBlocks.PINK_GEMSTONE_WALL);
+            containers.add(ModBlocks.PINK_GEMSTONE_DOOR);
+            containers.add(ModBlocks.PINK_GEMSTONE_TRAPDOOR);
         };
     }
+
+    public static EntryCollector tutorial() {
+        return ((displayContext, containers) -> {
+            containers.add(ModBlocks.PIG_GENERATOR);
+            containers.add(ModBlocks.VERTICAL_EXCAVATION_PROCESSOR);
+        });
+    }
+
 }

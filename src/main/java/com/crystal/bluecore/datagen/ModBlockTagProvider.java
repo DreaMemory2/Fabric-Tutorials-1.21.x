@@ -1,0 +1,34 @@
+package com.crystal.bluecore.datagen;
+
+import com.crystal.bluecore.registry.ModBlocks;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.BlockTagProvider;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+
+import java.util.concurrent.CompletableFuture;
+
+public class ModBlockTagProvider extends BlockTagProvider {
+
+    public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
+    }
+
+    @Override
+    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        // 添加一些需要镐子来挖掘的方块标签
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.PINK_GEMSTONE_BLOCK)
+                .add(ModBlocks.PINK_GEMSTONE_ORE)
+                .add(ModBlocks.RAW_PINK_GEMSTONE_BLOCK)
+                .add(ModBlocks.DEEPSLATE_PINK_GEMSTONE_ORE)
+                .add(ModBlocks.MAGIC_BLOCK);
+        // 添加一些需要钻石稿来挖掘的方块标签
+        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
+        // 添加一些装饰物标签，例如：栅栏、栅栏门和石墙标签
+        getOrCreateTagBuilder(BlockTags.FENCES).add(ModBlocks.PINK_GEMSTONE_FENCE);
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.PINK_GEMSTONE_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.PINK_GEMSTONE_WALL);
+
+    }
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "bluecore:block/deepslate_pink_gemstone_ore"
-  }
-}
