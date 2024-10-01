@@ -70,6 +70,7 @@ public class ModItemGroups {
         return ((displayContext, containers) -> {
             containers.add(ModBlocks.PIG_GENERATOR);
             containers.add(ModBlocks.VERTICAL_EXCAVATION_PROCESSOR);
+            containers.add(ModBlocks.OAK_CHEST);
         });
     }
 
