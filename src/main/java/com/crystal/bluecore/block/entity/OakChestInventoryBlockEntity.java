@@ -14,6 +14,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -26,6 +27,8 @@ import org.jetbrains.annotations.Nullable;
  * <p>GUI页面小设计二，箱子页面以及存储物品（橡木箱子）</p>
  */
 public class OakChestInventoryBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPosPayload> {
+    public float lidAngle;
+    private int numPlayersOpen;
     public static final Text TITLE = Text.translatable("container." + BlueCore.MOD_ID + ".oak_chest_inventory");
     // 创建简单库存，大小36物品格
     private final SimpleInventory inventory = new SimpleInventory(36) {
@@ -33,6 +36,28 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
         @Override
         public void markDirty() {
             super.markDirty();
+            update();
+        }
+
+        /**
+         * 当橡木箱子打开时
+         * @param player 玩家
+         */
+        @Override
+        public void onOpen(PlayerEntity player) {
+            super.onOpen(player);
+            OakChestInventoryBlockEntity.this.numPlayersOpen++;
+            update();
+        }
+
+        /**
+         * 当橡木箱子关闭时
+         * @param player 玩家
+         */
+        @Override
+        public void onClose(PlayerEntity player) {
+            super.onClose(player);
+            OakChestInventoryBlockEntity.this.numPlayersOpen--;
             update();
         }
     };
@@ -43,11 +68,9 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
         super(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, pos, state);
     }
 
-    @Override
-    public BlockPosPayload getScreenOpeningData(ServerPlayerEntity player) {
-        return new BlockPosPayload(this.pos);
-    }
-
+    /**
+     * GUI界面的标题
+     */
     @Override
     public Text getDisplayName() {
         return TITLE;
@@ -59,6 +82,9 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
         return new OakChestInventoryScreenHandler(syncId, playerInventory, this);
     }
 
+    /**
+     * 纹理（材质）更新
+     */
     public void update() {
         // 用于渲染物品纹理（材质）
         markDirty();
@@ -69,9 +95,21 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
     }
 
     @Override
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+        var nbt = super.toInitialChunkDataNbt(registryLookup);
+        writeNbt(nbt, registryLookup);
+        nbt.putInt("NumPlayersOpen", this.numPlayersOpen);
+        return nbt;
+    }
+
+    @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
         Inventories.readNbt(nbt, this.inventory.getHeldStacks(), registryLookup);
+
+        if (nbt.contains("NumPlayersOpen", NbtElement.INT_TYPE)) {
+            this.numPlayersOpen = nbt.getInt("NumPlayersOpen");
+        }
     }
 
     @Override
@@ -85,7 +123,21 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
         return inventoryStorage;
     }
 
+    /* 获取打开屏幕的数据 */
+    @Override
+    public BlockPosPayload getScreenOpeningData(ServerPlayerEntity player) {
+        return new BlockPosPayload(this.pos);
+    }
+
     public SimpleInventory getInventory() {
         return this.inventory;
+    }
+
+    public float getLidAngle() {
+        return this.lidAngle;
+    }
+
+    public int getNumPlayersOpen() {
+        return this.numPlayersOpen;
     }
 }

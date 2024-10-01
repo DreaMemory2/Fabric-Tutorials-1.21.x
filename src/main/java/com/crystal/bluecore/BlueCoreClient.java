@@ -1,13 +1,18 @@
 package com.crystal.bluecore;
 
+import com.crystal.bluecore.model.OakChestModel;
+import com.crystal.bluecore.registry.ModBlockEntities;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModScreenHandlerTypes;
 import com.crystal.bluecore.registry.ModSounds;
+import com.crystal.bluecore.renderer.OakChestInventoryRender;
 import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
@@ -21,10 +26,14 @@ public class BlueCoreClient implements ClientModInitializer {
 
         builder.addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
 
-        // Bind Screens to Handlers
-        // 屏幕和处理器绑定
+        // Moder Layers 模型图层
+        EntityModelLayerRegistry.registerModelLayer(OakChestModel.LAYER_LOCATION, OakChestModel::getTexturedModelData);
+
+        // Bind Screens to Handlers 屏幕和处理器绑定
         HandledScreens.register(ModScreenHandlerTypes.OAK_CHEST_INVENTORY_SCREEN_HANDLER, OakChestInventoryBlockScreen::new);
 
+        // Block Entity Render 方块实体渲染
+        BlockEntityRendererFactories.register(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, OakChestInventoryRender::new);
         // 渲染粉红色宝石门和活把门的空白纹理
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_TRAPDOOR, RenderLayer.getCutout());

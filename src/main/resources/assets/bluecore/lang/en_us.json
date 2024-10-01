@@ -23,17 +23,20 @@
   "block.bluecore.pink_gemstone_door": "Pink Gemstone Door",
   "block.bluecore.pink_gemstone_trapdoor": "Pink Gemstone Trapdoor",
   "block.bluecore.pink_gemstone_lamp": "Pink Gemstone Lamp",
+
   "jukebox_song.bluecore.onesies": "Bluey - Onesies",
   "jukebox_song.bluecore.octopus": "Bluey - Octopus",
   "jukebox_song.bluecore.bluey_theme": "Bluey - Theme Sing",
   "itemgroup.blue_tutorial_groups": "Blue Tutorials",
   "itemgroup.bluecore.blue_core_groups": "Blue Core",
+
   "tag.item.bluecore.gemstone_item": "Gemstone Item",
   "container.bluecore.oak_chest_inventory": "Oak Chest",
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
   "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
   "tooltip.bluecore.cauliflower.tooltip": "This is delicious!",
+
   "block.bluecore.pig_generator": "Pig Generator",
   "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor",
   "block.bluecore.oak_chest": "Oak Chest"
