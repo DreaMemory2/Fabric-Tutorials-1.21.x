@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "bluecore:block/raw_pink_gemstone_block"
+  }
+}

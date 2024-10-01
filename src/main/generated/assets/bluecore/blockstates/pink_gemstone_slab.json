@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bluecore:block/pink_gemstone_slab"
+    },
+    "type=double": {
+      "model": "bluecore:block/pink_gemstone_block"
+    },
+    "type=top": {
+      "model": "bluecore:block/pink_gemstone_slab_top"
+    }
+  }
+}

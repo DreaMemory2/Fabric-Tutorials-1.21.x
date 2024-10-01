@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "bluecore:block/pink_gemstone_block",
+    "side": "bluecore:block/pink_gemstone_block",
+    "top": "bluecore:block/pink_gemstone_block"
+  }
+}

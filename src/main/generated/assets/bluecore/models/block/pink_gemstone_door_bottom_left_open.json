@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "bluecore:block/pink_gemstone_door_bottom",
+    "top": "bluecore:block/pink_gemstone_door_top"
+  }
+}

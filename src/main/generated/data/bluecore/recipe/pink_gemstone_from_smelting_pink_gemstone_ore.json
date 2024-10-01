@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "pink_gemstone_smelting",
+  "ingredient": {
+    "item": "bluecore:pink_gemstone_ore"
+  },
+  "result": {
+    "id": "bluecore:pink_gemstone"
+  }
+}

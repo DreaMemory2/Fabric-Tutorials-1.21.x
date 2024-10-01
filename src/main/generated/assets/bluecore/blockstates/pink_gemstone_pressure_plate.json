@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "bluecore:block/pink_gemstone_pressure_plate"
+    },
+    "powered=true": {
+      "model": "bluecore:block/pink_gemstone_pressure_plate_down"
+    }
+  }
+}

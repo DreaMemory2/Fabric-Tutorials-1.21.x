@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "pink_gemstone_blasting",
+  "ingredient": {
+    "item": "bluecore:pink_gemstone_ore"
+  },
+  "result": {
+    "id": "bluecore:pink_gemstone"
+  }
+}

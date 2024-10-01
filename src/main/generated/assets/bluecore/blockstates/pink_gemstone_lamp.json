@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "bluecore:block/pink_gemstone_lamp"
+    },
+    "clicked=true": {
+      "model": "bluecore:block/pink_gemstone_lamp_on"
+    }
+  }
+}
