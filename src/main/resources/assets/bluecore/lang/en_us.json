@@ -7,6 +7,7 @@
   "item.bluecore.bluey_theme_disc": "Music Disc",
   "item.bluecore.cauliflower": "Cauliflower",
   "item.bluecore.starlight_ashes": "Starlight Ashes",
+
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
   "block.bluecore.deepslate_pink_gemstone_ore": "Deepslate Pink Gemstone Ore",
@@ -28,10 +29,12 @@
   "itemgroup.blue_tutorial_groups": "Blue Tutorials",
   "itemgroup.bluecore.blue_core_groups": "Blue Core",
   "tag.item.bluecore.gemstone_item": "Gemstone Item",
+  "container.bluecore.oak_chest_inventory": "Oak Chest",
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
   "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
   "tooltip.bluecore.cauliflower.tooltip": "This is delicious!",
   "block.bluecore.pig_generator": "Pig Generator",
-  "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor"
+  "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor",
+  "block.bluecore.oak_chest": "Oak Chest"
 }

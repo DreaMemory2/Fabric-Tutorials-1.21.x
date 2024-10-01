@@ -13,7 +13,7 @@
   "block.bluecore.raw_pink_gemstone_block": "粗粉红色宝石块",
   "block.bluecore.magic_block": "魔法石块",
   "block.bluecore.pink_gemstone_stair": "粉红色宝石楼梯",
-  "block.bluecore.pink_gemstone_slab": "粉红色宝石半砖",
+  "block.bluecore.pink_gemstone_slab": "粉红色宝石台阶",
   "block.bluecore.pink_gemstone_button": "粉红色宝石按钮",
   "block.bluecore.pink_gemstone_pressure_plate": "粉红色宝石压力板",
   "block.bluecore.pink_gemstone_fence": "粉红色宝石栅栏",
@@ -27,11 +27,13 @@
   "jukebox_song.bluecore.bluey_theme": "Bluey - Theme Sing",
   "itemgroup.blue_tutorial_groups": "蓝色教程",
   "itemgroup.bluecore.blue_core_groups": "蓝色核心",
-  "bluecore.gemstone_item": "宝石物品标签",
+  "tag.item.bluecore.gemstone_item": "宝石物品",
+  "container.bluecore.oak_chest_inventory": "橡木箱子",
   "tooltip.bluecore.magic_block.tooltip": "这个方块非常有§9魔力",
   "tooltip.bluecore.chisel.shift_down": "该工具可将方块凿成砖块！",
   "tooltip.bluecore.chisel.text": "按下§eShift§r了解更多信息",
   "tooltip.bluecore.cauliflower.tooltip": "非常美味可口！",
   "block.bluecore.pig_generator": "小猪生成器",
-  "block.bluecore.vertical_excavation_processor": "垂直挖掘处理器"
+  "block.bluecore.vertical_excavation_processor": "垂直挖掘处理器",
+  "block.bluecore.oak_chest": "橡木箱子"
 }

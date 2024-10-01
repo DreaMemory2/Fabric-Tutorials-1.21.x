@@ -1,9 +1,10 @@
 package com.crystal.bluecore;
 
+import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
 import com.crystal.bluecore.registry.*;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,8 +24,12 @@ public class BlueCore implements ModInitializer {
 		ModItemGroups.registerItemGroupsInfo();
 		// 音效和唱片初始化
 		ModSounds.registerSoundsInfo();
+		// 屏幕处理器初始化
+		ModScreenHandlerTypes.registerModScreenHandlerTypesInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
+		// 注册库存实体（物品存储）
+		ItemStorage.SIDED.registerForBlockEntity(OakChestInventoryBlockEntity::getInventoryProvider, ModBlockEntities.OAK_CHEST_BLOCK_ENTITY);
 	}
 }
