@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "bluecore:pink_gemstone"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "PP ",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bluecore:pink_gemstone_hoe"
+  }
+}
