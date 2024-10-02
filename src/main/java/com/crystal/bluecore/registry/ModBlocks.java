@@ -46,8 +46,11 @@ public class ModBlocks {
             new PinkGemStoneLamp(Settings.copy(Blocks.REDSTONE_LAMP)
                     // 设置粉色宝石灯的亮度（当粉色宝石灯被点击时），最大为15，最小为0
                     .luminance(state -> state.get(PinkGemStoneLamp.CLICKED) ? 15 : 0)));
-    // 不规则物品，例如橡木箱子（大小14*14*14）
+    // <!-- 不规则物品 -->
+    // 橡木箱子（Size: 14 * 14 * 14）
     public static final Block OAK_CHEST = registerModBlocks("oak_chest", new OakChest(Settings.copy(Blocks.CHEST)));
+    // 基础液体储罐（Size: 12 * 12 * 16）
+    public static final Block BASIC_FLUID_TANK = registerModBlocks("basic_fluid_tank", new BasicFluidTank(Settings.copy(Blocks.PISTON)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {

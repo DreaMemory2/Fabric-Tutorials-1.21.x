@@ -78,6 +78,7 @@ public class ModItemGroups {
             containers.add(ModBlocks.PIG_GENERATOR);
             containers.add(ModBlocks.VERTICAL_EXCAVATION_PROCESSOR);
             containers.add(ModBlocks.OAK_CHEST);
+            containers.add(ModBlocks.BASIC_FLUID_TANK);
         });
     }
 

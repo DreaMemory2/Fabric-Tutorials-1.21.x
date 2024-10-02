@@ -45,7 +45,7 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     /**
      * <p>当箱子被玩家破环，移动时，掉落箱子内的物品</p>
      *
-     * @param player    玩家
+     * @param player 玩家
      * @param slotIndex the index of the slot to quick-move from
      * @return 箱子内的物品
      */
@@ -88,12 +88,12 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     /**
      * <p>快捷栏（Hotbar）是游戏中界面最下方的一条物品栏，玩家可以使用数字键1-9或鼠标滚轮来切换快捷栏中选定的槽位</p>
      *
-     * @param PlayerInventory 玩家物品栏
+     * @param playerInventory 玩家物品栏
      * @see <a href="https://www.mcmod.cn/item/282495.html">快捷栏 (Hotbar)</a>
      */
-    private void addPlayerHotbar(PlayerInventory PlayerInventory) {
+    private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int column = 0; column < 9; column++) {
-            addSlot(new Slot(PlayerInventory, column, 8 + (column * 18), 160));
+            addSlot(new Slot(playerInventory, column, 8 + (column * 18), 160));
         }
     }
 

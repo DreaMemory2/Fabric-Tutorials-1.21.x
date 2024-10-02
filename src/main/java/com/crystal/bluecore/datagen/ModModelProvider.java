@@ -1,5 +1,6 @@
 package com.crystal.bluecore.datagen;
 
+import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.block.custom.PinkGemStoneLamp;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
@@ -41,6 +42,9 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.PINK_GEMSTONE_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.PINK_GEMSTONE_LAMP)
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGemStoneLamp.CLICKED, lampOnIdentifier, lampOffIdentifier)));
+        // 创建不规整方块
+        // 基础液体储罐
+        blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASIC_FLUID_TANK, Identifier.of(BlueCore.MOD_ID, "block/custom/basic_fluid_tank"));
     }
 
     @Override

@@ -40,6 +40,7 @@
   "tag.item.bluecore.gemstone_item": "宝石物品",
   "tag.item.bluecore.hammer": "锤子",
   "container.bluecore.oak_chest_inventory": "橡木箱子",
+  "container.bluecore.basic_fluid_tank": "基础液体储罐",
   "tooltip.bluecore.magic_block.tooltip": "这个方块非常有§9魔力",
   "tooltip.bluecore.chisel.shift_down": "该工具可将方块凿成砖块！",
   "tooltip.bluecore.chisel.text": "按下§eShift§r了解更多信息",
@@ -47,5 +48,6 @@
 
   "block.bluecore.pig_generator": "小猪生成器",
   "block.bluecore.vertical_excavation_processor": "垂直挖掘处理器",
-  "block.bluecore.oak_chest": "橡木箱子"
+  "block.bluecore.oak_chest": "橡木箱子",
+  "block.bluecore.basic_fluid_tank": "基础液体储罐"
 }

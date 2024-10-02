@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bluecore:block/custom/basic_fluid_tank"
+    }
+  }
+}

@@ -68,5 +68,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("PPP").pattern("PSP").pattern(" S ")
                 .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
                 .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
+        // 基础液体储罐合成配方
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.BASIC_FLUID_TANK)
+                .pattern("SIS").pattern("I I").pattern("SIS")
+                .input('S', Items.REDSTONE).input('I', Items.IRON_INGOT)
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.REDSTONE)).offerTo(exporter);
     }
 }

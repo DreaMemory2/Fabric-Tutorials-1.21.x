@@ -1,5 +1,6 @@
 package com.crystal.bluecore;
 
+import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
 import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
 import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.registry.component.ModDataComponentTypes;
@@ -34,8 +35,11 @@ public class BlueCore implements ModInitializer {
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
-		// 注册库存实体（物品存储）
+		// 注册方块实体的存储系统
 		ItemStorage.SIDED.registerForBlockEntity(OakChestInventoryBlockEntity::getInventoryProvider, ModBlockEntities.OAK_CHEST_BLOCK_ENTITY);
+		ItemStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getInventoryProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
+		// 注册方块实体的流体系统
+		/*FluidStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getFluidTankProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);*/
 		// 注册事件
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 	}
