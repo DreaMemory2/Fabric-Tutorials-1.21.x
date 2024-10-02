@@ -7,6 +7,12 @@
   "item.bluecore.bluey_theme_disc": "音乐唱片",
   "item.bluecore.cauliflower": "西兰花",
   "item.bluecore.starlight_ashes": "星光灰烬",
+  "item.bluecore.pink_gemstone_sword": "粉红色宝石剑",
+  "item.bluecore.pink_gemstone_pickaxe": "粉红色宝石镐",
+  "item.bluecore.pink_gemstone_shovel": "粉红色宝石铲",
+  "item.bluecore.pink_gemstone_axe": "粉红色宝石斧",
+  "item.bluecore.pink_gemstone_hoe": "粉红色宝石锄",
+  "item.bluecore.pink_gemstone_hammer": "粉红色宝石锤",
 
   "block.bluecore.pink_gemstone_block": "粉红色宝石块",
   "block.bluecore.pink_gemstone_ore": "粉红色宝石矿石",
@@ -32,6 +38,7 @@
   "itemgroup.bluecore.blue_core_groups": "蓝色核心",
 
   "tag.item.bluecore.gemstone_item": "宝石物品",
+  "tag.item.bluecore.hammer": "锤子",
   "container.bluecore.oak_chest_inventory": "橡木箱子",
   "tooltip.bluecore.magic_block.tooltip": "这个方块非常有§9魔力",
   "tooltip.bluecore.chisel.shift_down": "该工具可将方块凿成砖块！",

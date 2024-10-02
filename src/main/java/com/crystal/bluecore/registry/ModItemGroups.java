@@ -46,6 +46,13 @@ public class ModItemGroups {
             containers.add(ModItems.BLUEY_THEME_DISC);
             containers.add(ModItems.CAULIFLOWER);
             containers.add(ModItems.STARLIGHT_ASHES);
+
+            containers.add(ModItems.PINK_GEMSTONE_SWORD);
+            containers.add(ModItems.PINK_GEMSTONE_PICKAXE);
+            containers.add(ModItems.PINK_GEMSTONE_SHOVEL);
+            containers.add(ModItems.PINK_GEMSTONE_AXE);
+            containers.add(ModItems.PINK_GEMSTONE_HOE);
+            containers.add(ModItems.PINK_GEMSTONE_HAMMER);
             // Blocks
             containers.add(ModBlocks.PINK_GEMSTONE_BLOCK);
             containers.add(ModBlocks.PINK_GEMSTONE_ORE);

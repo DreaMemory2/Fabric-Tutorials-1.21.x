@@ -7,6 +7,12 @@
   "item.bluecore.bluey_theme_disc": "Music Disc",
   "item.bluecore.cauliflower": "Cauliflower",
   "item.bluecore.starlight_ashes": "Starlight Ashes",
+  "item.bluecore.pink_gemstone_sword": "Pink Gemstone Sword",
+  "item.bluecore.pink_gemstone_pickaxe": "Pink Gemstone Pickaxe",
+  "item.bluecore.pink_gemstone_shovel": "Pink Gemstone Shovel",
+  "item.bluecore.pink_gemstone_axe": "Pink Gemstone Axe",
+  "item.bluecore.pink_gemstone_hoe": "Pink Gemstone Hoe",
+  "item.bluecore.pink_gemstone_hammer": "Pink Gemstone Hammer",
 
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
@@ -31,6 +37,7 @@
   "itemgroup.bluecore.blue_core_groups": "Blue Core",
 
   "tag.item.bluecore.gemstone_item": "Gemstone Item",
+  "tag.item.bluecore.hammer": "Hammer",
   "container.bluecore.oak_chest_inventory": "Oak Chest",
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
   "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",

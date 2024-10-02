@@ -1,6 +1,7 @@
 package com.crystal.bluecore.datagen;
 
 import com.crystal.bluecore.registry.ModBlocks;
+import com.crystal.bluecore.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.BlockTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -10,8 +11,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagProvider {
 
-    public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+    public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryFuture) {
+        super(output, registryFuture);
     }
 
     @Override
@@ -29,6 +30,9 @@ public class ModBlockTagProvider extends BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.FENCES).add(ModBlocks.PINK_GEMSTONE_FENCE);
         getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.PINK_GEMSTONE_FENCE_GATE);
         getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.PINK_GEMSTONE_WALL);
+        // 添加粉红色宝石武器和工具
+        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.MAGIC_BLOCK);
+        getOrCreateTagBuilder(ModTags.Blocks.NEEDS_PINK_GEMSTONE).addTag(BlockTags.NEEDS_DIAMOND_TOOL);
 
     }
 }

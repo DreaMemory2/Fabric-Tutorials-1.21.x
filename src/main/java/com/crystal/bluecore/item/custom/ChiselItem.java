@@ -1,6 +1,7 @@
 package com.crystal.bluecore.item.custom;
 
 import com.crystal.bluecore.registry.ModBlocks;
+import com.crystal.bluecore.registry.component.ModDataComponentTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
@@ -56,6 +57,8 @@ public class ChiselItem extends Item {
                         item -> Objects.requireNonNull(context.getPlayer()).sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
                 // 使用成功的音效（使用砂轮），播放类型为方块
                 world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS);
+                // 添加组件：根据组件来获取方块位置信息
+                context.getStack().set(ModDataComponentTypes.COORDINATES, context.getBlockPos());
             }
 
         }
@@ -79,6 +82,11 @@ public class ChiselItem extends Item {
             tooltip.add(Text.translatable("tooltip.bluecore.chisel.shift_down"));
         } else {
             tooltip.add(Text.translatable("tooltip.bluecore.chisel.text"));
+        }
+
+        if (stack.get(ModDataComponentTypes.COORDINATES) != null) {
+            // 添加组件文本信息（最后一个方块更改位置）
+            tooltip.add(Text.literal("Last Block Changed at " + stack.get(ModDataComponentTypes.COORDINATES)));
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

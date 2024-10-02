@@ -9,6 +9,7 @@ import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
@@ -42,5 +43,30 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.RAW_PINK_GEMSTONE, 32).input(ModBlocks.MAGIC_BLOCK)
                 .criterion(hasItem(ModBlocks.MAGIC_BLOCK), conditionsFromItem(ModBlocks.MAGIC_BLOCK))
                 .offerTo(exporter, Identifier.of(BlueCore.MOD_ID, "pink_gemstone_from_magic_block"));
+        // 武器与工具配方
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PINK_GEMSTONE_SWORD)
+                .pattern(" P ").pattern(" P ").pattern(" S ")
+                .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PINK_GEMSTONE_PICKAXE)
+                .pattern("PPP").pattern(" S ").pattern(" S ")
+                .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PINK_GEMSTONE_SHOVEL)
+                .pattern(" P ").pattern(" S ").pattern(" S ")
+                .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PINK_GEMSTONE_AXE)
+                .pattern("PP ").pattern("PS ").pattern(" S ")
+                .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PINK_GEMSTONE_HOE)
+                .pattern("PP ").pattern(" S ").pattern(" S ")
+                .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PINK_GEMSTONE_HAMMER)
+                .pattern("PPP").pattern("PSP").pattern(" S ")
+                .input('P', ModItems.PINK_GEMSTONE).input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE)).offerTo(exporter);
     }
 }

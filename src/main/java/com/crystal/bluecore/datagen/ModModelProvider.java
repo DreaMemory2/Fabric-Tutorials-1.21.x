@@ -54,5 +54,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.OCTOPUS_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.ONESIES_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
+        // 武器与工具模型
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_HAMMER, Models.HANDHELD);
     }
 }

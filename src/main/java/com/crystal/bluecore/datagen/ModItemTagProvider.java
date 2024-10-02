@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.ItemTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -23,5 +24,12 @@ public class ModItemTagProvider extends ItemTagProvider {
                 .add(Items.COAL)
                 .add(Items.STICK)
                 .add(Items.APPLE);
+        // 武器和工具标签
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.PINK_GEMSTONE_SWORD);
+        getOrCreateTagBuilder(ItemTags.PICKAXES).add(ModItems.PINK_GEMSTONE_PICKAXE).addTag(ModTags.Items.HAMMER);
+        getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.PINK_GEMSTONE_SHOVEL);
+        getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.PINK_GEMSTONE_AXE);
+        getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.PINK_GEMSTONE_HOE);
+        getOrCreateTagBuilder(ModTags.Items.HAMMER).add(ModItems.PINK_GEMSTONE_HAMMER);
     }
 }
