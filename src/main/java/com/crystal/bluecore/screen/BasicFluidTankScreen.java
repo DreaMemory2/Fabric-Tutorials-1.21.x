@@ -11,10 +11,8 @@ import net.minecraft.util.Identifier;
 public class BasicFluidTankScreen extends HandledScreen<BasicFluidTankScreenHandler> {
     // 获取GUI纹理
     private static final Identifier TEXTURE = Identifier.of(BlueCore.MOD_ID, "textures/gui/container/basic_fluid_tank.png");
-
     public BasicFluidTankScreen(BasicFluidTankScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-        // GUI图像大小
         this.backgroundWidth = 176;
         this.backgroundHeight = 166;
     }

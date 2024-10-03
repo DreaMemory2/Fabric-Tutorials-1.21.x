@@ -50,7 +50,7 @@ public class ModBlocks {
     // 橡木箱子（Size: 14 * 14 * 14）
     public static final Block OAK_CHEST = registerModBlocks("oak_chest", new OakChest(Settings.copy(Blocks.CHEST)));
     // 基础液体储罐（Size: 12 * 12 * 16）
-    public static final Block BASIC_FLUID_TANK = registerModBlocks("basic_fluid_tank", new BasicFluidTank(Settings.copy(Blocks.PISTON)));
+    public static final Block BASIC_FLUID_TANK = registerModBlocks("basic_fluid_tank", new BasicFluidTank(Settings.copy(Blocks.IRON_BLOCK)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {

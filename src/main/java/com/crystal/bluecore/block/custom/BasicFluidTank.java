@@ -32,19 +32,17 @@ public class BasicFluidTank extends Block implements BlockEntityProvider {
             VoxelShapes.cuboid(0.125, 0.0625, 0.1875, 0.1875, 0.9375, 0.8125),
             VoxelShapes.cuboid(0.8125, 0.0625, 0.1875, 0.875, 0.9375, 0.8125),
             VoxelShapes.cuboid(0.1875, 0.0625, 0.8125, 0.8125, 0.9375, 0.875),
-            VoxelShapes.cuboid(0.1875, 0.0625, 0.125, 0.8125, 0.9375, 0.1875)
-    );
+            VoxelShapes.cuboid(0.1875, 0.0625, 0.125, 0.8125, 0.9375, 0.1875));
 
     public BasicFluidTank(Settings settings) {
         super(settings);
     }
 
-
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        // 判断方块状态，且更新方块状态，通过方块实体来更新方块状态
-        if (state.getBlock() != newState.getBlock()) {
-            if (world.getBlockEntity(pos) instanceof BasicFluidTankBlockEntity blockEntity) {
+        // 判断方块状态，且更新方块状态，通过方块实体来更新方块状态'
+        if(state.getBlock() != newState.getBlock()) {
+            if(world.getBlockEntity(pos) instanceof BasicFluidTankBlockEntity blockEntity) {
                 ItemScatterer.spawn(world, pos, blockEntity.getInventory());
                 // 发送红色信号（表示方块状态已更新）
                 world.updateComparators(pos, this);
@@ -56,13 +54,12 @@ public class BasicFluidTank extends Block implements BlockEntityProvider {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if(!world.isClient) {
+        if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if(blockEntity instanceof BasicFluidTankBlockEntity fluidTank) {
+            if (blockEntity instanceof BasicFluidTankBlockEntity fluidTank) {
                 player.openHandledScreen(fluidTank);
             }
         }
-
         return ActionResult.success(world.isClient);
     }
 
@@ -78,7 +75,6 @@ public class BasicFluidTank extends Block implements BlockEntityProvider {
         return TickableBlockEntity.getTicker(world);
     }
 
-    /*  添加碰撞体积，否则报出CrashException: Ticking entity的异常（没有碰撞体积） */
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;

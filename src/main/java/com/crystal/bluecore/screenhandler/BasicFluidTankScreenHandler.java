@@ -28,7 +28,7 @@ public class BasicFluidTankScreenHandler extends ScreenHandler {
         this.context = ScreenHandlerContext.create(blockEntity.getWorld(), blockEntity.getPos());
 
         SimpleInventory inventory = blockEntity.getInventory();
-        checkSize(inventory, 1);
+        checkSize(inventory, 2);
         inventory.onOpen(playerInventory.player);
 
         // 添加物品栏和快捷栏
@@ -37,7 +37,7 @@ public class BasicFluidTankScreenHandler extends ScreenHandler {
         // 添加输入口
         addInputSlot(inventory);
         // 添加输出口
-        // addOutputSlot(inventory);
+        addOutputSlot(inventory);
     }
 
     @Override
@@ -48,13 +48,18 @@ public class BasicFluidTankScreenHandler extends ScreenHandler {
             ItemStack inSlot = slot.getStack();
             newStack = inSlot.copy();
 
-            if (slotIndex == 0) {
-                if (!insertItem(inSlot, 0, this.slots.size(), false)) return ItemStack.EMPTY;
-            } else if (!insertItem(inSlot, 0, 0, true)) return ItemStack.EMPTY;
+            if (slotIndex == 0 || slotIndex == 1) {
+                if (!insertItem(inSlot, 0, this.slots.size(), false))
+                    return ItemStack.EMPTY;
+            } else if (!insertItem(inSlot, 0, 1, true))
+                return ItemStack.EMPTY;
 
-            if (inSlot.isEmpty()) slot.setStack(ItemStack.EMPTY);
-            else slot.markDirty();
+            if (inSlot.isEmpty())
+                slot.setStack(ItemStack.EMPTY);
+            else
+                slot.markDirty();
         }
+
         return newStack;
     }
 
@@ -64,41 +69,33 @@ public class BasicFluidTankScreenHandler extends ScreenHandler {
         return canUse(this.context, player, ModBlocks.BASIC_FLUID_TANK);
     }
 
-    @Override
-    public void onClosed(PlayerEntity player) {
-        super.onClosed(player);
-        this.blockEntity.getInventory().onClose(player);
+    private void addPlayerInventory(PlayerInventory playerInv) {
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 9; column++) {
+                addSlot(new Slot(playerInv, 9 + (column + (row * 9)), 8 + (column * 18), 84 + (row * 18)));
+            }
+        }
+    }
+
+    private void addPlayerHotbar(PlayerInventory playerInv) {
+        for (int column = 0; column < 9; column++) {
+            addSlot(new Slot(playerInv, column, 8 + (column * 18), 142));
+        }
     }
 
     private void addInputSlot(SimpleInventory inventory) {
         // TODO: Predicate to test if item is a bucket
-        Slot input = new Slot(inventory, 0, 143, 18)/*{
+        addSlot(new Slot(inventory, 0, 143, 18) {
             @Override
             public boolean canInsert(ItemStack stack) {
                 return inventory.isValid(0, stack);
             }
-        }*/;
-        addSlot(input);
+        });
     }
 
-    /*private void addOutputSlot(SimpleInventory inventory) {
-        Slot output = new Slot(inventory, 1, 143, 49);
-        addSlot(output);
-    }*/
-
-    private void addPlayerInventory(PlayerInventory playerInventory) {
-        for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 9; column++) {
-                addSlot(new Slot(playerInventory, 9 + (column + (row * 9)), 8 + (column * 18), 84 + (row * 18)));
-            }
-        }
-    }
-
-    private void addPlayerHotbar(PlayerInventory playerInventory) {
-        for (int column = 0; column < 9; column++) {
-            addSlot(new Slot(playerInventory, column, 8 + (column * 18), 142));
-        }
-    }
+    private void addOutputSlot(SimpleInventory inventory) {
+        addSlot(new Slot(inventory, 1, 143, 49));
+    };
 
     public BasicFluidTankBlockEntity getBlockEntity() {
         return this.blockEntity;

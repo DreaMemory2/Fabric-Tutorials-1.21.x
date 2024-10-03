@@ -31,7 +31,8 @@ public class ModScreenHandlerTypes {
     }    public static final ScreenHandlerType<OakChestInventoryScreenHandler> OAK_CHEST_INVENTORY_SCREEN_HANDLER =
             register("oak_chest_inventory", OakChestInventoryScreenHandler::new, BlockPosPayload.PACKET_CODEC);
     public static final ScreenHandlerType<BasicFluidTankScreenHandler> BASIC_FLUID_TANK_SCREEN_HANDLER =
-            register("basic_fluid_screen_handler", BasicFluidTankScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+            register("basic_fluid_tank", BasicFluidTankScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+
 
 
     public static void registerModScreenHandlerTypesInfo() {

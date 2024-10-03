@@ -72,6 +72,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.BASIC_FLUID_TANK)
                 .pattern("SIS").pattern("I I").pattern("SIS")
                 .input('S', Items.REDSTONE).input('I', Items.IRON_INGOT)
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.REDSTONE)).offerTo(exporter);
+                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE)).offerTo(exporter);
     }
 }
