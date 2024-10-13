@@ -31,5 +31,11 @@ public class ModItemTagProvider extends ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.PINK_GEMSTONE_AXE);
         getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.PINK_GEMSTONE_HOE);
         getOrCreateTagBuilder(ModTags.Items.HAMMER).add(ModItems.PINK_GEMSTONE_HAMMER);
+        // 装备标签
+        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.PINK_GEMSTONE_HELMET)
+                .add(ModItems.PINK_GEMSTONE_CHESTPLATE)
+                .add(ModItems.PINK_GEMSTONE_LEGGING)
+                .add(ModItems.PINK_GEMSTONE_BOOST);
     }
 }

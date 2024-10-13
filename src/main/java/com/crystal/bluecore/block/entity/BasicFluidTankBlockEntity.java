@@ -193,4 +193,8 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
     public SimpleInventory getInventory() {
         return this.inventory;
     }
+
+    public SingleFluidStorage getFluidTank() {
+        return this.fluidStorage;
+    }
 }

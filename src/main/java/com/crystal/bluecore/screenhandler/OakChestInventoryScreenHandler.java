@@ -51,12 +51,13 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
      */
     @Override
     public ItemStack quickMove(PlayerEntity player, int slotIndex) {
-        // 清空箱子内的物品
+        // 初始化一个没有物品的空物品栏
         ItemStack newStack = ItemStack.EMPTY;
+        // 获取箱子物品格
         Slot slot = getSlot(slotIndex);
         if (slot != null && slot.hasStack()) {
             ItemStack inSlot = slot.getStack();
-            // 箱子内的物品
+            // 箱子内的物品复制到空物品栏（空箱子）里
             newStack = inSlot.copy();
             // 判断箱子是否填满（物品槽，或者是物品格）
             if (slotIndex < 36) {

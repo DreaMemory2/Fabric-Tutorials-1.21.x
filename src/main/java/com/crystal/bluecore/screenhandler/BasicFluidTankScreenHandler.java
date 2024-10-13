@@ -84,7 +84,7 @@ public class BasicFluidTankScreenHandler extends ScreenHandler {
     }
 
     private void addInputSlot(SimpleInventory inventory) {
-        // TODO: Predicate to test if item is a bucket
+        // Predicate to test if item is a bucket
         addSlot(new Slot(inventory, 0, 143, 18) {
             @Override
             public boolean canInsert(ItemStack stack) {

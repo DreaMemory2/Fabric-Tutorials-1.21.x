@@ -7,6 +7,7 @@
   "item.bluecore.bluey_theme_disc": "音乐唱片",
   "item.bluecore.cauliflower": "西兰花",
   "item.bluecore.starlight_ashes": "星光灰烬",
+
   "item.bluecore.pink_gemstone_sword": "粉红色宝石剑",
   "item.bluecore.pink_gemstone_pickaxe": "粉红色宝石镐",
   "item.bluecore.pink_gemstone_shovel": "粉红色宝石铲",
@@ -14,11 +15,17 @@
   "item.bluecore.pink_gemstone_hoe": "粉红色宝石锄",
   "item.bluecore.pink_gemstone_hammer": "粉红色宝石锤",
 
+  "item.bluecore.pink_gemstone_helmet": "粉红色宝石头盔",
+  "item.bluecore.pink_gemstone_chestplate": "粉红色宝石胸甲",
+  "item.bluecore.pink_gemstone_leggings": "粉红色宝石护腿",
+  "item.bluecore.pink_gemstone_boots": "粉红色宝石靴子",
+
   "block.bluecore.pink_gemstone_block": "粉红色宝石块",
   "block.bluecore.pink_gemstone_ore": "粉红色宝石矿石",
   "block.bluecore.deepslate_pink_gemstone_ore": "深层粉红色宝石矿石",
   "block.bluecore.raw_pink_gemstone_block": "粗粉红色宝石块",
   "block.bluecore.magic_block": "魔法石块",
+
   "block.bluecore.pink_gemstone_stair": "粉红色宝石楼梯",
   "block.bluecore.pink_gemstone_slab": "粉红色宝石台阶",
   "block.bluecore.pink_gemstone_button": "粉红色宝石按钮",

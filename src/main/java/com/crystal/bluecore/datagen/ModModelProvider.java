@@ -7,6 +7,7 @@ import com.crystal.bluecore.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -45,6 +46,7 @@ public class ModModelProvider extends FabricModelProvider {
         // 创建不规整方块
         // 基础液体储罐
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASIC_FLUID_TANK, Identifier.of(BlueCore.MOD_ID, "block/custom/basic_fluid_tank"));
+        blockStateModelGenerator.registerParentedItemModel(ModBlocks.OAK_CHEST, Identifier.of(BlueCore.MOD_ID, "block/custom/oak_chest"));
     }
 
     @Override
@@ -65,5 +67,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HAMMER, Models.HANDHELD);
+        // 装备模型
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_LEGGING));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_BOOST));
     }
 }
