@@ -67,10 +67,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HAMMER, Models.HANDHELD);
-        // 装备模型
+        // 装备和马铠模型
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_LEGGING));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_BOOST));
+        itemModelGenerator.register(ModItems.PINK_GEMSTONE_HORSE_ARMOR, Models.GENERATED);
     }
 }

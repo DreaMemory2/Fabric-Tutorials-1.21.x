@@ -58,6 +58,7 @@ public class ModItemGroups {
             containers.add(ModItems.PINK_GEMSTONE_CHESTPLATE);
             containers.add(ModItems.PINK_GEMSTONE_LEGGING);
             containers.add(ModItems.PINK_GEMSTONE_BOOST);
+            containers.add(ModItems.PINK_GEMSTONE_HORSE_ARMOR);
             // Blocks
             containers.add(ModBlocks.PINK_GEMSTONE_BLOCK);
             containers.add(ModBlocks.PINK_GEMSTONE_ORE);
