@@ -38,7 +38,6 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
             super.markDirty();
             update();
         }
-
         /**
          * 当橡木箱子打开时
          * @param player 玩家
@@ -66,14 +65,6 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
 
     public OakChestInventoryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, pos, state);
-    }
-
-    /**
-     * GUI界面的标题
-     */
-    @Override
-    public Text getDisplayName() {
-        return TITLE;
     }
 
     @Nullable
@@ -116,6 +107,12 @@ public class OakChestInventoryBlockEntity extends BlockEntity implements Extende
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         Inventories.writeNbt(nbt, this.inventory.getHeldStacks(), registryLookup);
         super.writeNbt(nbt, registryLookup);
+    }
+
+    /* GUI界面的标题 */
+    @Override
+    public Text getDisplayName() {
+        return TITLE;
     }
 
     /* 获取库存提供者（获取库存共享状态） */

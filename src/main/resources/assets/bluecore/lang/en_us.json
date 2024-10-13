@@ -7,6 +7,7 @@
   "item.bluecore.bluey_theme_disc": "Music Disc",
   "item.bluecore.cauliflower": "Cauliflower",
   "item.bluecore.starlight_ashes": "Starlight Ashes",
+
   "item.bluecore.pink_gemstone_sword": "Pink Gemstone Sword",
   "item.bluecore.pink_gemstone_pickaxe": "Pink Gemstone Pickaxe",
   "item.bluecore.pink_gemstone_shovel": "Pink Gemstone Shovel",
@@ -14,11 +15,18 @@
   "item.bluecore.pink_gemstone_hoe": "Pink Gemstone Hoe",
   "item.bluecore.pink_gemstone_hammer": "Pink Gemstone Hammer",
 
+  "item.bluecore.pink_gemstone_helmet": "Pink Gemstone Helmet",
+  "item.bluecore.pink_gemstone_chestplate": "Pink Gemstone Chestplate",
+  "item.bluecore.pink_gemstone_leggings": "Pink Gemstone Legging",
+  "item.bluecore.pink_gemstone_boots": "Pink Gemstone Boost",
+  "item.bluecore.pink_gemstone_horse_armor": "Pink Gemstone Horse Armor",
+
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
   "block.bluecore.deepslate_pink_gemstone_ore": "Deepslate Pink Gemstone Ore",
   "block.bluecore.raw_pink_gemstone_block": "Raw Pink Gemstone Block",
   "block.bluecore.magic_block": "Magic Block",
+
   "block.bluecore.pink_gemstone_stair": "Pink Gemstone Stair",
   "block.bluecore.pink_gemstone_slab": "Pink Gemstone Slab",
   "block.bluecore.pink_gemstone_button": "Pink Gemstone Button",
@@ -39,6 +47,7 @@
   "tag.item.bluecore.gemstone_item": "Gemstone Item",
   "tag.item.bluecore.hammer": "Hammer",
   "container.bluecore.oak_chest_inventory": "Oak Chest",
+  "container.bluecore.basic_fluid_tank": "Basic Fluid Tank",
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
   "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
@@ -46,5 +55,6 @@
 
   "block.bluecore.pig_generator": "Pig Generator",
   "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor",
-  "block.bluecore.oak_chest": "Oak Chest"
+  "block.bluecore.oak_chest": "Oak Chest",
+  "block.bluecore.basic_fluid_tank": "Basic Fluid Tank"
 }

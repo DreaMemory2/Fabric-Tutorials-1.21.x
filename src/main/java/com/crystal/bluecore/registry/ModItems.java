@@ -1,6 +1,8 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.item.ModArmorItem;
+import com.crystal.bluecore.item.ModArmorMaterials;
 import com.crystal.bluecore.item.ModToolMaterials;
 import com.crystal.bluecore.item.custom.ChiselItem;
 import com.crystal.bluecore.item.custom.HammerItem;
@@ -48,6 +50,18 @@ public class ModItems {
             new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.PINK_GEMSTONE, 0, -3f))));
     public static final Item PINK_GEMSTONE_HAMMER = registerModItems("pink_gemstone_hammer", new HammerItem(ModToolMaterials.PINK_GEMSTONE,
             new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PINK_GEMSTONE, 7, -3.4f))));
+    // 添加装备：头盔、胸甲、护腿、靴子
+    public static final Item PINK_GEMSTONE_HELMET = registerModItems("pink_gemstone_helmet", new ModArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
+            ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+    public static final Item PINK_GEMSTONE_CHESTPLATE = registerModItems("pink_gemstone_chestplate", new ArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
+            ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))));
+    public static final Item PINK_GEMSTONE_LEGGING = registerModItems("pink_gemstone_leggings", new ArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
+            ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))));
+    public static final Item PINK_GEMSTONE_BOOST = registerModItems("pink_gemstone_boots", new ArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
+            ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15))));
+    // 马铠(最大堆叠为1)
+    public static final Item PINK_GEMSTONE_HORSE_ARMOR = registerModItems("pink_gemstone_horse_armor", new AnimalArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
+            AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {

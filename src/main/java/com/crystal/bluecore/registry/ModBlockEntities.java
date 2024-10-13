@@ -1,6 +1,7 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
 import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
 import com.crystal.bluecore.block.entity.PigGeneratorBlockEntity;
 import com.crystal.bluecore.block.entity.VerticalExcavationProcessorBlockEntity;
@@ -17,6 +18,8 @@ public class ModBlockEntities {
             BlockEntityType.Builder.create(PigGeneratorBlockEntity::new, ModBlocks.PIG_GENERATOR).build());
     public static final BlockEntityType<OakChestInventoryBlockEntity> OAK_CHEST_BLOCK_ENTITY = registerBlockEntity("oak_chest_block_entity",
             BlockEntityType.Builder.create(OakChestInventoryBlockEntity::new, ModBlocks.OAK_CHEST).build());
+    public static final BlockEntityType<BasicFluidTankBlockEntity> BASIC_FLUID_TANK_BLOCK_ENTITY = registerBlockEntity("basic_fluid_tank_entity",
+            BlockEntityType.Builder.create(BasicFluidTankBlockEntity::new, ModBlocks.BASIC_FLUID_TANK).build());
 
     // 注册方块实体
     private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntity(String name, BlockEntityType<T> type) {

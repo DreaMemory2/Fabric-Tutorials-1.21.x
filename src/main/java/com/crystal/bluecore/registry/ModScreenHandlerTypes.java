@@ -1,6 +1,7 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.screenhandler.BasicFluidTankScreenHandler;
 import com.crystal.bluecore.screenhandler.OakChestInventoryScreenHandler;
 import com.crystal.bluecore.util.BlockPosPayload;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
@@ -29,6 +30,10 @@ public class ModScreenHandlerTypes {
         return Registry.register(Registries.SCREEN_HANDLER, Identifier.of(BlueCore.MOD_ID, id), new ExtendedScreenHandlerType<>(factory, codec));
     }    public static final ScreenHandlerType<OakChestInventoryScreenHandler> OAK_CHEST_INVENTORY_SCREEN_HANDLER =
             register("oak_chest_inventory", OakChestInventoryScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+    public static final ScreenHandlerType<BasicFluidTankScreenHandler> BASIC_FLUID_TANK_SCREEN_HANDLER =
+            register("basic_fluid_tank", BasicFluidTankScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+
+
 
     public static void registerModScreenHandlerTypesInfo() {
         BlueCore.LOGGER.info(BlueCore.MOD_ID + ": Registered Mod Screen Handler Type Success");

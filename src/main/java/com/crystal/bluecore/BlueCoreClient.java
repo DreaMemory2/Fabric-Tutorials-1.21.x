@@ -5,7 +5,9 @@ import com.crystal.bluecore.registry.ModBlockEntities;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModScreenHandlerTypes;
 import com.crystal.bluecore.registry.ModSounds;
+import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
 import com.crystal.bluecore.renderer.OakChestInventoryRender;
+import com.crystal.bluecore.screen.BasicFluidTankScreen;
 import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -31,11 +33,14 @@ public class BlueCoreClient implements ClientModInitializer {
 
         // Bind Screens to Handlers 屏幕和处理器绑定
         HandledScreens.register(ModScreenHandlerTypes.OAK_CHEST_INVENTORY_SCREEN_HANDLER, OakChestInventoryBlockScreen::new);
+        HandledScreens.register(ModScreenHandlerTypes.BASIC_FLUID_TANK_SCREEN_HANDLER, BasicFluidTankScreen::new);
 
         // Block Entity Render 方块实体渲染
         BlockEntityRendererFactories.register(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, OakChestInventoryRender::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY, BasicFluidTankRenderer::new);
         // 渲染粉红色宝石门和活把门的空白纹理
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_TRAPDOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BASIC_FLUID_TANK, RenderLayer.getCutout());
     }
 }

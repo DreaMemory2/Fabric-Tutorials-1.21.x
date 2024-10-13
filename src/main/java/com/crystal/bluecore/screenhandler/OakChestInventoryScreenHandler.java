@@ -45,18 +45,19 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     /**
      * <p>当箱子被玩家破环，移动时，掉落箱子内的物品</p>
      *
-     * @param player    玩家
+     * @param player 玩家
      * @param slotIndex the index of the slot to quick-move from
      * @return 箱子内的物品
      */
     @Override
     public ItemStack quickMove(PlayerEntity player, int slotIndex) {
-        // 清空箱子内的物品
+        // 初始化一个没有物品的空物品栏
         ItemStack newStack = ItemStack.EMPTY;
+        // 获取箱子物品格
         Slot slot = getSlot(slotIndex);
         if (slot != null && slot.hasStack()) {
             ItemStack inSlot = slot.getStack();
-            // 箱子内的物品
+            // 箱子内的物品复制到空物品栏（空箱子）里
             newStack = inSlot.copy();
             // 判断箱子是否填满（物品槽，或者是物品格）
             if (slotIndex < 36) {
@@ -88,12 +89,12 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     /**
      * <p>快捷栏（Hotbar）是游戏中界面最下方的一条物品栏，玩家可以使用数字键1-9或鼠标滚轮来切换快捷栏中选定的槽位</p>
      *
-     * @param PlayerInventory 玩家物品栏
+     * @param playerInventory 玩家物品栏
      * @see <a href="https://www.mcmod.cn/item/282495.html">快捷栏 (Hotbar)</a>
      */
-    private void addPlayerHotbar(PlayerInventory PlayerInventory) {
+    private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int column = 0; column < 9; column++) {
-            addSlot(new Slot(PlayerInventory, column, 8 + (column * 18), 160));
+            addSlot(new Slot(playerInventory, column, 8 + (column * 18), 160));
         }
     }
 

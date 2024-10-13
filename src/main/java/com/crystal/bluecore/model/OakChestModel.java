@@ -12,7 +12,7 @@ public class OakChestModel extends Model {
 	// 实体图层
 	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(Identifier.of(BlueCore.MOD_ID, "oak_chest"), "main");
 	// 材质纹理
-	public static final Identifier TEXTURE = Identifier.of(BlueCore.MOD_ID, "textures/entity/oak_chest.png");
+	public static final Identifier TEXTURE = Identifier.of(BlueCore.MOD_ID, "textures/block/custom/oak_chest.png");
 
 	private final ModelPart main;
 	private final ModelPart lid;
