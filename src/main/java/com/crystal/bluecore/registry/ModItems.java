@@ -1,6 +1,7 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.item.ModArmorItem;
 import com.crystal.bluecore.item.ModArmorMaterials;
 import com.crystal.bluecore.item.ModToolMaterials;
 import com.crystal.bluecore.item.custom.ChiselItem;
@@ -50,7 +51,7 @@ public class ModItems {
     public static final Item PINK_GEMSTONE_HAMMER = registerModItems("pink_gemstone_hammer", new HammerItem(ModToolMaterials.PINK_GEMSTONE,
             new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PINK_GEMSTONE, 7, -3.4f))));
     // 添加装备：头盔、胸甲、护腿、靴子
-    public static final Item PINK_GEMSTONE_HELMET = registerModItems("pink_gemstone_helmet", new ArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
+    public static final Item PINK_GEMSTONE_HELMET = registerModItems("pink_gemstone_helmet", new ModArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item PINK_GEMSTONE_CHESTPLATE = registerModItems("pink_gemstone_chestplate", new ArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
             ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))));
