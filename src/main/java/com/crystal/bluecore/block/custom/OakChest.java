@@ -29,9 +29,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     /* 设置碰撞箱和轮廓 */
     private static final VoxelShape DEFAULT_SHAPE = VoxelShapes.union(
-            VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.625, 0.9375),
-            VoxelShapes.cuboid(0.0625, 0.5625, 0.0625, 0.9375, 0.875, 0.9375),
-            VoxelShapes.cuboid(0.4375, 0.4375, 0, 0.5625, 0.6875, 0.0625).simplify());
+            VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375));
     private static final Map<Direction, VoxelShape> SHAPES = new HashMap<>();
 
     public OakChest(Settings settings) {
@@ -65,6 +63,7 @@ public class OakChest extends Block implements BlockEntityProvider {
         if (!world.isClient) {
             if (world.getBlockEntity(pos) instanceof OakChestInventoryBlockEntity inventoryBlockEntity) {
                 player.openHandledScreen(inventoryBlockEntity);
+
             }
         }
         return ActionResult.success(world.isClient);

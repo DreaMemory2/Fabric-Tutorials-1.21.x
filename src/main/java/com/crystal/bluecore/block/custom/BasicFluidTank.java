@@ -23,16 +23,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class BasicFluidTank extends Block implements BlockEntityProvider {
     private static final VoxelShape SHAPE = VoxelShapes.union(
-            VoxelShapes.cuboid(0.125, 0, 0.125, 0.875, 0.0625, 0.875),
-            VoxelShapes.cuboid(0.125, 0.9375, 0.125, 0.875, 1, 0.875),
-            VoxelShapes.cuboid(0.125, 0.0625, 0.125, 0.1875, 0.9375, 0.1875),
-            VoxelShapes.cuboid(0.125, 0.0625, 0.8125, 0.1875, 0.9375, 0.875),
-            VoxelShapes.cuboid(0.8125, 0.0625, 0.125, 0.875, 0.9375, 0.1875),
-            VoxelShapes.cuboid(0.8125, 0.0625, 0.8125, 0.875, 0.9375, 0.875),
-            VoxelShapes.cuboid(0.125, 0.0625, 0.1875, 0.1875, 0.9375, 0.8125),
-            VoxelShapes.cuboid(0.8125, 0.0625, 0.1875, 0.875, 0.9375, 0.8125),
-            VoxelShapes.cuboid(0.1875, 0.0625, 0.8125, 0.8125, 0.9375, 0.875),
-            VoxelShapes.cuboid(0.1875, 0.0625, 0.125, 0.8125, 0.9375, 0.1875));
+            VoxelShapes.cuboid(0.125, 0, 0.125, 0.875, 1, 0.875)
+    );
 
     public BasicFluidTank(Settings settings) {
         super(settings);

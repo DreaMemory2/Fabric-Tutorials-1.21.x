@@ -73,5 +73,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("SIS").pattern("I I").pattern("SIS")
                 .input('S', Items.REDSTONE).input('I', Items.IRON_INGOT)
                 .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE)).offerTo(exporter);
+        // 合成粉红色火把配方
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_TORCH, 4)
+                .input(ModItems.PINK_GEMSTONE).input(Items.STICK)
+                .criterion(hasItem(ModBlocks.PINK_TORCH), conditionsFromItem(ModBlocks.PINK_TORCH))
+                .offerTo(exporter, Identifier.of(BlueCore.MOD_ID, "pink_torch"));
     }
 }

@@ -44,6 +44,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         // 粉红色宝石门：占据两格高的位置，挖掘上部分或下部分，都可以掉落粉红色宝石门（物品）
         addDrop(ModBlocks.PINK_GEMSTONE_DOOR, doorDrops(ModBlocks.PINK_GEMSTONE_DOOR));
         addDrop(ModBlocks.PINK_GEMSTONE_TRAPDOOR);
+
+        addDrop(ModBlocks.PINK_TORCH);
     }
 
     // 深板岩矿石配方

@@ -54,8 +54,10 @@
   "tooltip.bluecore.chisel.text": "按下§eShift§r了解更多信息",
   "tooltip.bluecore.cauliflower.tooltip": "非常美味可口！",
 
+  "block.bluecore.pink_torch": "粉红色火把",
   "block.bluecore.pig_generator": "小猪生成器",
   "block.bluecore.vertical_excavation_processor": "垂直挖掘处理器",
   "block.bluecore.oak_chest": "橡木箱子",
-  "block.bluecore.basic_fluid_tank": "基础液体储罐"
+  "block.bluecore.basic_fluid_tank": "基础液体储罐",
+  "block.bluecore.ebony_crafting_table": "乌木工作台"
 }

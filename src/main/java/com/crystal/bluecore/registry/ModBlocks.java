@@ -5,11 +5,13 @@ import com.crystal.bluecore.block.custom.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -51,7 +53,12 @@ public class ModBlocks {
     public static final Block OAK_CHEST = registerModBlocks("oak_chest", new OakChest(Settings.copy(Blocks.CHEST)));
     // 基础液体储罐（Size: 12 * 12 * 16）
     public static final Block BASIC_FLUID_TANK = registerModBlocks("basic_fluid_tank", new BasicFluidTank(Settings.copy(Blocks.IRON_BLOCK)));
-
+    public static final Block EBONY_CRAFTING_TABLE = registerModBlocks("ebony_crafting_table", new Block(Settings.copy(Blocks.CRAFTING_TABLE)));
+    // 火把模型
+    public static final Block PINK_TORCH = registerModBlocks("pink_torch", new TorchBlock(ModParticleTypes.PINK_FLAME,
+            Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WALL_PINK_TORCH = registerModBlocks("wall_pink_torch", new WallTorchBlock(ModParticleTypes.PINK_FLAME,
+            Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PINK_TORCH).pistonBehavior(PistonBehavior.DESTROY)));
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
         registerModBlockItems(id, block);

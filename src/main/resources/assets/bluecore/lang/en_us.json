@@ -53,8 +53,10 @@
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
   "tooltip.bluecore.cauliflower.tooltip": "This is delicious!",
 
+  "block.bluecore.pink_torch": "Pink Torch",
   "block.bluecore.pig_generator": "Pig Generator",
   "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor",
   "block.bluecore.oak_chest": "Oak Chest",
-  "block.bluecore.basic_fluid_tank": "Basic Fluid Tank"
+  "block.bluecore.basic_fluid_tank": "Basic Fluid Tank",
+  "block.bluecore.ebony_crafting_table": "Ebony Crafting Table"
 }

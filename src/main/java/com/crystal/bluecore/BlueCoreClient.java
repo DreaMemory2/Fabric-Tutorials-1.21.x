@@ -1,16 +1,15 @@
 package com.crystal.bluecore;
 
 import com.crystal.bluecore.model.OakChestModel;
-import com.crystal.bluecore.registry.ModBlockEntities;
-import com.crystal.bluecore.registry.ModBlocks;
-import com.crystal.bluecore.registry.ModScreenHandlerTypes;
-import com.crystal.bluecore.registry.ModSounds;
+import com.crystal.bluecore.particle.PinkFlameParticle;
+import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
 import com.crystal.bluecore.renderer.OakChestInventoryRender;
 import com.crystal.bluecore.screen.BasicFluidTankScreen;
 import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
@@ -42,5 +41,9 @@ public class BlueCoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BASIC_FLUID_TANK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALL_PINK_TORCH, RenderLayer.getCutout());
+        // 渲染粉红色火焰粒子
+        ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
     }
 }

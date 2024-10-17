@@ -14,6 +14,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.math.Direction;
 
 import java.util.List;
 
@@ -62,7 +63,8 @@ public class ModItems {
     // 马铠(最大堆叠为1)
     public static final Item PINK_GEMSTONE_HORSE_ARMOR = registerModItems("pink_gemstone_horse_armor", new AnimalArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
             AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-
+    public static final Item PINK_TORCH = registerModItems("pink_torch",
+            new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {
         // 注册物品的ID和模组命名空间“Bluecore”

@@ -33,6 +33,8 @@ public class BlueCore implements ModInitializer {
 		ModScreenHandlerTypes.registerModScreenHandlerTypesInfo();
 		// 数据组件初始化
 		ModDataComponentTypes.registerDataComponentTypesInfo();
+		// 粒子初始化
+		ModParticleTypes.registerParticleInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
