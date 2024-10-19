@@ -39,7 +39,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // 将粗粉红色块分解为9个粗粉红色宝石配方
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.RAW_PINK_GEMSTONE, 9).input(ModBlocks.RAW_PINK_GEMSTONE_BLOCK)
                 .criterion(hasItem(ModBlocks.RAW_PINK_GEMSTONE_BLOCK), conditionsFromItem(ModBlocks.RAW_PINK_GEMSTONE_BLOCK)).offerTo(exporter);
-        // 将粉红色宝石分解为32个粗粉红色宝石配方
+        // 将魔法石头分解为32个粗粉红色宝石配方
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.RAW_PINK_GEMSTONE, 32).input(ModBlocks.MAGIC_BLOCK)
                 .criterion(hasItem(ModBlocks.MAGIC_BLOCK), conditionsFromItem(ModBlocks.MAGIC_BLOCK))
                 .offerTo(exporter, Identifier.of(BlueCore.MOD_ID, "pink_gemstone_from_magic_block"));
@@ -76,7 +76,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // 合成粉红色火把配方
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_TORCH, 4)
                 .input(ModItems.PINK_GEMSTONE).input(Items.STICK)
-                .criterion(hasItem(ModBlocks.PINK_TORCH), conditionsFromItem(ModBlocks.PINK_TORCH))
+                .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE))
                 .offerTo(exporter, Identifier.of(BlueCore.MOD_ID, "pink_torch"));
     }
 }

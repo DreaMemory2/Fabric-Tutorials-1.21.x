@@ -25,24 +25,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OakChest extends Block implements BlockEntityProvider {
-    // 方向属性：facing
+    // 方向属性：facing，箱子正面始终朝向玩家方向
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    /* 设置碰撞箱和轮廓 */
-    private static final VoxelShape DEFAULT_SHAPE = VoxelShapes.union(
+    /* 设置判定箱 */
+    private static final VoxelShape SHAPE = VoxelShapes.union(
             VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375));
-    private static final Map<Direction, VoxelShape> SHAPES = new HashMap<>();
+    private static final Map<Direction, VoxelShape> SHAPE_MAP = new HashMap<>();
 
     public OakChest(Settings settings) {
         super(settings);
-        // 默认状态下，箱子面朝向背面
+        // 默认状态下，箱子朝向北面
         setDefaultState(getDefaultState().with(FACING, Direction.NORTH));
-        // 方块旋转时，形状和状态也会发生改变
+        // 当方块朝向方向改变时，判定箱也会发生改变
         for (Direction direction : Direction.values()) {
-            SHAPES.put(direction, calculateShapes(direction, DEFAULT_SHAPE));
+            // 方向 + 判定箱
+            SHAPE_MAP.put(direction, calculateShapes(direction, SHAPE));
         }
     }
 
-    /* 计算形状 */
+    /**
+     * @param direction 方向
+     * @param shape 判定箱
+     * @return 像素形状
+     */
     private static VoxelShape calculateShapes(Direction direction, VoxelShape shape) {
         final VoxelShape[] buffer = {shape, VoxelShapes.empty()};
 
@@ -58,12 +63,13 @@ public class OakChest extends Block implements BlockEntityProvider {
         return buffer[0];
     }
 
+    // 右键点击打开箱子界面
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
             if (world.getBlockEntity(pos) instanceof OakChestInventoryBlockEntity inventoryBlockEntity) {
+                // 打开页面
                 player.openHandledScreen(inventoryBlockEntity);
-
             }
         }
         return ActionResult.success(world.isClient);
@@ -76,7 +82,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     }
 
     /**
-     * <p>方块的旋转方向</p>
+     * <p>实现方块旋转操作</p>
      */
     @Override
     protected BlockState rotate(BlockState state, BlockRotation rotation) {
@@ -84,7 +90,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     }
 
     /**
-     * <p>方块的镜像方向</p>
+     * <p>方块的对称方向</p>
      */
     @Override
     protected BlockState mirror(BlockState state, BlockMirror mirror) {
@@ -92,11 +98,12 @@ public class OakChest extends Block implements BlockEntityProvider {
     }
 
     /**
-     * <p>添加方向属性</p>
+     * <p>添加方块属性</p>
      */
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
+        // 朝向属性
         builder.add(FACING);
     }
 
@@ -112,7 +119,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         // 解决渲染模型为黑色问题
-        return SHAPES.get(state.get(FACING));
+        return SHAPE_MAP.get(state.get(FACING));
     }
 
     @Nullable

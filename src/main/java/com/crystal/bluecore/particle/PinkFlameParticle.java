@@ -7,6 +7,10 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.util.math.MathHelper;
 
+/**
+ * 粉红色火焰粒子
+ * @see net.minecraft.client.particle.FlameParticle FlameParticle;
+ */
 @Environment(EnvType.CLIENT)
 public class PinkFlameParticle extends AbstractSlowingParticle {
     PinkFlameParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
