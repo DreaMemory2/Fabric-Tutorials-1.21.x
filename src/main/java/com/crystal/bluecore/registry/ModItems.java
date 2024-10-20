@@ -11,6 +11,7 @@ import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -63,6 +64,9 @@ public class ModItems {
     // 马铠(最大堆叠为1)
     public static final Item PINK_GEMSTONE_HORSE_ARMOR = registerModItems("pink_gemstone_horse_armor", new AnimalArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
             AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    // 盔甲纹饰锻造模板
+    public static final Item PINK_SMITHING_TEMPLATE = registerModItems("pink_armor_trim_smithing_template",
+            SmithingTemplateItem.of(Identifier.of(BlueCore.MOD_ID, "pink"), FeatureFlags.VANILLA));
 
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));

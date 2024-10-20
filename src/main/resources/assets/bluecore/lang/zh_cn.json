@@ -7,6 +7,7 @@
   "item.bluecore.bluey_theme_disc": "音乐唱片",
   "item.bluecore.cauliflower": "西兰花",
   "item.bluecore.starlight_ashes": "星光灰烬",
+  "item.bluecore.pink_armor_trim_smithing_template": "锻造模板",
 
   "item.bluecore.pink_gemstone_sword": "粉红色宝石剑",
   "item.bluecore.pink_gemstone_pickaxe": "粉红色宝石镐",
@@ -59,5 +60,8 @@
   "block.bluecore.vertical_excavation_processor": "垂直挖掘处理器",
   "block.bluecore.oak_chest": "橡木箱子",
   "block.bluecore.basic_fluid_tank": "基础液体储罐",
-  "block.bluecore.ebony_crafting_table": "乌木工作台"
+  "block.bluecore.ebony_crafting_table": "乌木工作台",
+
+  "trim_material.bluecore.pink_gemstone": "粉红色宝石质",
+  "trim_pattern.bluecore.pink": "粉红色盔甲纹饰"
 }

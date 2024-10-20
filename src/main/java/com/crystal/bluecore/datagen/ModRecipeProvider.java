@@ -78,5 +78,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.PINK_GEMSTONE).input(Items.STICK)
                 .criterion(hasItem(ModItems.PINK_GEMSTONE), conditionsFromItem(ModItems.PINK_GEMSTONE))
                 .offerTo(exporter, Identifier.of(BlueCore.MOD_ID, "pink_torch"));
+        // 复制粉红锻造模板数量
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PINK_SMITHING_TEMPLATE, 2)
+                .pattern("DPD").pattern("DBD").pattern("DDD")
+                .input('D', Items.DIAMOND).input('P', ModItems.PINK_SMITHING_TEMPLATE).input('B', ModBlocks.PINK_GEMSTONE_BLOCK)
+                .criterion(hasItem(ModItems.PINK_SMITHING_TEMPLATE), conditionsFromItem(ModItems.PINK_SMITHING_TEMPLATE)).offerTo(exporter);
+        // 粉红色套装附上纹饰的锻造配方
+        offerSmithingTrimRecipe(exporter, ModItems.PINK_SMITHING_TEMPLATE, Identifier.of(BlueCore.MOD_ID, "pink"));
     }
 }

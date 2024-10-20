@@ -7,6 +7,7 @@
   "item.bluecore.bluey_theme_disc": "Music Disc",
   "item.bluecore.cauliflower": "Cauliflower",
   "item.bluecore.starlight_ashes": "Starlight Ashes",
+  "item.bluecore.pink_armor_trim_smithing_template": "Smithing Template",
 
   "item.bluecore.pink_gemstone_sword": "Pink Gemstone Sword",
   "item.bluecore.pink_gemstone_pickaxe": "Pink Gemstone Pickaxe",
@@ -58,5 +59,8 @@
   "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor",
   "block.bluecore.oak_chest": "Oak Chest",
   "block.bluecore.basic_fluid_tank": "Basic Fluid Tank",
-  "block.bluecore.ebony_crafting_table": "Ebony Crafting Table"
+  "block.bluecore.ebony_crafting_table": "Ebony Crafting Table",
+
+  "trim_material.bluecore.pink_gemstone": "Pink Gemstone Material",
+  "trim_pattern.bluecore.pink": "Pink Armor Pattern"
 }

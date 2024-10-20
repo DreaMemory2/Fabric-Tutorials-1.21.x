@@ -2,7 +2,6 @@ package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroup.EntryCollector;
 import net.minecraft.item.ItemStack;
@@ -25,7 +24,7 @@ public class ModItemGroups {
                     .entries(groups()).build());
     public static final ItemGroup BLUE_TUTORIAL_GROUPS = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(BlueCore.MOD_ID, "blue_tutorial_groups"), FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(Blocks.COMMAND_BLOCK.asItem()))
+                    .icon(() -> new ItemStack(ModBlocks.BASIC_FLUID_TANK.asItem()))
                     .displayName(Text.translatable("itemgroup.blue_tutorial_groups"))
                     .entries(tutorial()).build());
 
@@ -46,6 +45,7 @@ public class ModItemGroups {
             containers.add(ModItems.BLUEY_THEME_DISC);
             containers.add(ModItems.CAULIFLOWER);
             containers.add(ModItems.STARLIGHT_ASHES);
+            containers.add(ModItems.PINK_SMITHING_TEMPLATE);
 
             containers.add(ModItems.PINK_GEMSTONE_SWORD);
             containers.add(ModItems.PINK_GEMSTONE_PICKAXE);
