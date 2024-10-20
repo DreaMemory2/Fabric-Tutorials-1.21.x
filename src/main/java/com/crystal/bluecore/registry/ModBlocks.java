@@ -59,6 +59,8 @@ public class ModBlocks {
             Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WALL_PINK_TORCH = registerModBlocks("wall_pink_torch", new WallTorchBlock(ModParticleTypes.PINK_FLAME,
             Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PINK_TORCH).pistonBehavior(PistonBehavior.DESTROY)));
+    // 练习onSteppedOn()方法
+    public static final Block CONVERSION_TABLE = registerModBlocks("conversion_table", new ConversionTableBlock(Settings.copy(Blocks.IRON_BLOCK)));
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
         registerModBlockItems(id, block);

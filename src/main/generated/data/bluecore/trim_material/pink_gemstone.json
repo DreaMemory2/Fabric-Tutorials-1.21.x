@@ -1,7 +1,7 @@
 {
   "asset_name": "pink_gemstone",
   "description": {
-    "color": "#B03FE0",
+    "color": "#FF51F4",
     "translate": "trim_material.bluecore.pink_gemstone"
   },
   "ingredient": "bluecore:pink_gemstone",

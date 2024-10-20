@@ -46,7 +46,9 @@ public class ModModelProvider extends FabricModelProvider {
         // 创建不规整方块
         // 基础液体储罐
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASIC_FLUID_TANK, Identifier.of(BlueCore.MOD_ID, "block/custom/basic_fluid_tank"));
+        // 橡木箱子
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.OAK_CHEST, Identifier.of(BlueCore.MOD_ID, "block/custom/oak_chest"));
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONVERSION_TABLE);
     }
 
     @Override
