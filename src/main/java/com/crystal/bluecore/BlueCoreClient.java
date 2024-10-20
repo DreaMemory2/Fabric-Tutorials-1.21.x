@@ -7,6 +7,7 @@ import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
 import com.crystal.bluecore.renderer.OakChestInventoryRender;
 import com.crystal.bluecore.screen.BasicFluidTankScreen;
 import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
+import com.crystal.bluecore.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -45,5 +46,7 @@ public class BlueCoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALL_PINK_TORCH, RenderLayer.getCutout());
         // 渲染粉红色火焰粒子
         ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
+        // 初始化模型预测器
+        ModModelPredicates.registerModelPredicates();
     }
 }

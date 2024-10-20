@@ -55,7 +55,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_PINK_GEMSTONE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.CAULIFLOWER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
+        // itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED); 使用Json文件实现动态模型
         itemModelGenerator.register(ModItems.STARLIGHT_ASHES, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.OCTOPUS_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
