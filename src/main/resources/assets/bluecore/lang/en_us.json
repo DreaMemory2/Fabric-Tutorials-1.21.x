@@ -62,6 +62,8 @@
   "block.bluecore.ebony_crafting_table": "Ebony Crafting Table",
   "block.bluecore.conversion_table": "Conversion Table",
 
+  "item.bluecore.diamond_spear": "Diamond Spear",
+
   "trim_material.bluecore.pink_gemstone": "Pink Gemstone Material",
   "trim_pattern.bluecore.pink": "Pink Armor Pattern"
 }

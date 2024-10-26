@@ -19,7 +19,6 @@ public class ConversionTableBlock extends Block {
         super(settings);
     }
 
-    // TODO ConversionTableBlock的材质未拥有
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         // Instance Creeper strike lighting to make Charged Creeper

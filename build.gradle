@@ -57,7 +57,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
+		rename { "BlueCore-1.21.1-1.0.0"}
 	}
 }
 

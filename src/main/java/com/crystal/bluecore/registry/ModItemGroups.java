@@ -88,6 +88,8 @@ public class ModItemGroups {
             containers.add(ModBlocks.BASIC_FLUID_TANK);
             containers.add(ModBlocks.EBONY_CRAFTING_TABLE);
             containers.add(ModBlocks.CONVERSION_TABLE);
+
+            containers.add(ModItems.DIAMOND_SPEAR);
         });
     }
 

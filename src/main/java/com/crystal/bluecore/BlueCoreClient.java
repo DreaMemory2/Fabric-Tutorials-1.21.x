@@ -5,6 +5,7 @@ import com.crystal.bluecore.particle.PinkFlameParticle;
 import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
 import com.crystal.bluecore.renderer.OakChestInventoryRender;
+import com.crystal.bluecore.renderer.SpearProjectileEntityRenderer;
 import com.crystal.bluecore.screen.BasicFluidTankScreen;
 import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
 import com.crystal.bluecore.util.ModModelPredicates;
@@ -12,6 +13,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -48,5 +51,7 @@ public class BlueCoreClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
         // 初始化模型预测器
         ModModelPredicates.registerModelPredicates();
+
+        EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
     }
 }

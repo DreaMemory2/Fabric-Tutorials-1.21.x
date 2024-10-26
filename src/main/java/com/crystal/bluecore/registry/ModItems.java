@@ -6,6 +6,7 @@ import com.crystal.bluecore.item.ModArmorMaterials;
 import com.crystal.bluecore.item.ModToolMaterials;
 import com.crystal.bluecore.item.custom.ChiselItem;
 import com.crystal.bluecore.item.custom.HammerItem;
+import com.crystal.bluecore.item.custom.SpearItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
@@ -70,6 +71,7 @@ public class ModItems {
 
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
+    public static final Item DIAMOND_SPEAR = registerModItems("diamond_spear", new SpearItem(ToolMaterials.DIAMOND, 7.0f, 1.1f, new Item.Settings().maxCount(1)));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {
