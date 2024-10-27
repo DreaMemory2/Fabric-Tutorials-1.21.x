@@ -1,10 +1,11 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.block.ModSaplingGenerator;
 import com.crystal.bluecore.block.custom.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -44,6 +45,23 @@ public class ModBlocks {
             new DoorBlock(BlockSetType.IRON, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS).nonOpaque()));
     public static final Block PINK_GEMSTONE_TRAPDOOR = registerModBlocks("pink_gemstone_trapdoor",
             new TrapdoorBlock(BlockSetType.IRON, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS).nonOpaque()));
+    // 自定义树需要方块：原木，树叶和树苗
+    public static final Block MAPLE_LOG = registerModBlocks("maple_log", new PillarBlock(Settings.copy(Blocks.OAK_LOG)));
+    public static final Block MAPLE_LEAVES = registerModBlocks("maple_leaves", new LeavesBlock(
+            AbstractBlock.Settings.create()
+				.mapColor(MapColor.DARK_GREEN)
+				.strength(0.2F)
+				.ticksRandomly()
+				.sounds(BlockSoundGroup.GRASS)
+				.nonOpaque()
+				.allowsSpawning(Blocks::canSpawnOnLeaves)
+				.suffocates(Blocks::never)
+				.blockVision(Blocks::never)
+				.burnable()
+				.pistonBehavior(PistonBehavior.DESTROY)
+				.solidBlock(Blocks::never)
+    ));
+    public static final Block MAPLE_SAPLING = registerModBlocks("maple_sapling", new SaplingBlock(ModSaplingGenerator.MAPLE, Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block PINK_GEMSTONE_LAMP = registerModBlocks("pink_gemstone_lamp",
             new PinkGemStoneLamp(Settings.copy(Blocks.REDSTONE_LAMP)
                     // 设置粉色宝石灯的亮度（当粉色宝石灯被点击时），最大为15，最小为0
@@ -57,13 +75,18 @@ public class ModBlocks {
     // 火把模型
     public static final Block PINK_TORCH = registerModBlocks("pink_torch", new TorchBlock(ModParticleTypes.PINK_FLAME,
             Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WALL_PINK_TORCH = registerModBlocks("wall_pink_torch", new WallTorchBlock(ModParticleTypes.PINK_FLAME,
+    public static final Block WALL_PINK_TORCH = registerWithoutBlockItem("wall_pink_torch", new WallTorchBlock(ModParticleTypes.PINK_FLAME,
             Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PINK_TORCH).pistonBehavior(PistonBehavior.DESTROY)));
     // 练习onSteppedOn()方法
     public static final Block CONVERSION_TABLE = registerModBlocks("conversion_table", new ConversionTableBlock(Settings.copy(Blocks.IRON_BLOCK)));
+
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
         registerModBlockItems(id, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(BlueCore.MOD_ID, id), block);
+    }
+    // 注册没有物品形式方块
+    private static Block registerWithoutBlockItem(String id, Block block) {
         return Registry.register(Registries.BLOCK, Identifier.of(BlueCore.MOD_ID, id), block);
     }
 

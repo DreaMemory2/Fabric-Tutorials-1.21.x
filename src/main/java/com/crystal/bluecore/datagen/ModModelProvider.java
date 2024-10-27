@@ -49,6 +49,10 @@ public class ModModelProvider extends FabricModelProvider {
         // 橡木箱子
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.OAK_CHEST, Identifier.of(BlueCore.MOD_ID, "block/custom/oak_chest"));
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONVERSION_TABLE);
+        // 原木、树叶和树苗的模型
+        blockStateModelGenerator.registerLog(ModBlocks.MAPLE_LOG).log(ModBlocks.MAPLE_LOG);
+        blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.MAPLE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

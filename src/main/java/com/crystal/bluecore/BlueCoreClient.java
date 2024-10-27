@@ -2,7 +2,10 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.model.OakChestModel;
 import com.crystal.bluecore.particle.PinkFlameParticle;
-import com.crystal.bluecore.registry.*;
+import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlocks;
+import com.crystal.bluecore.registry.ModParticleTypes;
+import com.crystal.bluecore.registry.ModScreenHandlerTypes;
 import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
 import com.crystal.bluecore.renderer.OakChestInventoryRender;
 import com.crystal.bluecore.renderer.SpearProjectileEntityRenderer;
@@ -18,8 +21,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
 
 public class BlueCoreClient implements ClientModInitializer {
     /**
@@ -27,10 +28,6 @@ public class BlueCoreClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-        RegistryBuilder builder = new RegistryBuilder();
-
-        builder.addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
-
         // Moder Layers 模型图层
         EntityModelLayerRegistry.registerModelLayer(OakChestModel.LAYER_LOCATION, OakChestModel::getTexturedModelData);
 
@@ -49,6 +46,7 @@ public class BlueCoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BASIC_FLUID_TANK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_TORCH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALL_PINK_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MAPLE_SAPLING, RenderLayer.getCutout());
         // 渲染粉红色火焰粒子
         ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
         // 初始化模型预测器

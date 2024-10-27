@@ -39,7 +39,7 @@ public class ModItemGroups {
             // Items
             containers.add(ModItems.RAW_PINK_GEMSTONE);
             containers.add(ModItems.PINK_GEMSTONE);
-            containers.add(ModBlocks.PINK_TORCH);
+            containers.add(ModItems.PINK_TORCH);
             containers.add(ModItems.CHISEL);
             containers.add(ModItems.ONESIES_DISC);
             containers.add(ModItems.OCTOPUS_DISC);
@@ -89,8 +89,11 @@ public class ModItemGroups {
             containers.add(ModBlocks.BASIC_FLUID_TANK);
             containers.add(ModBlocks.EBONY_CRAFTING_TABLE);
             containers.add(ModBlocks.CONVERSION_TABLE);
+            containers.add(ModBlocks.MAPLE_LOG);
+            containers.add(ModBlocks.MAPLE_LEAVES);
 
             containers.add(ModItems.DIAMOND_SPEAR);
+            containers.add(ModBlocks.MAPLE_SAPLING);
         });
     }
 

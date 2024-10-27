@@ -1,5 +1,6 @@
 package com.crystal.bluecore.datagen;
 
+import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
 import com.crystal.bluecore.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -40,5 +41,8 @@ public class ModItemTagProvider extends ItemTagProvider {
         // 添加盔甲纹饰模板
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(ModItems.PINK_GEMSTONE);
         getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES).add(ModItems.PINK_SMITHING_TEMPLATE);
+        // 原木和树叶标签，防止树叶腐烂作用
+        getOrCreateTagBuilder(ItemTags.COMPLETES_FIND_TREE_TUTORIAL).add(ModBlocks.MAPLE_LEAVES.asItem());
+        getOrCreateTagBuilder(ItemTags.LOGS).add(ModBlocks.MAPLE_LOG.asItem());
     }
 }

@@ -2,6 +2,9 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.datagen.*;
 import com.crystal.bluecore.datagen.generator.ModRegistryDataGenerator;
+import com.crystal.bluecore.registry.ModSounds;
+import com.crystal.bluecore.registry.worldgen.ModConfigureFeatures;
+import com.crystal.bluecore.registry.worldgen.ModPlacedFeature;
 import com.crystal.bluecore.trim.ModTrimMaterials;
 import com.crystal.bluecore.trim.ModTrimPatterns;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -26,7 +29,11 @@ public class BlueCoreDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		// 构建注册
+		registryBuilder.addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap);
+		// 配置地物和放置地物构建注册
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfigureFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeature::bootstrap);
 	}
 }
