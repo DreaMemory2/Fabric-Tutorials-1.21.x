@@ -2,10 +2,12 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
 import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
+import com.crystal.bluecore.event.AttackEntityEvent;
+import com.crystal.bluecore.event.HammerUsageEvent;
 import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.registry.component.ModDataComponentTypes;
-import com.crystal.bluecore.util.HammerUsageEvent;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
@@ -43,7 +45,12 @@ public class BlueCore implements ModInitializer {
 		ItemStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getInventoryProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
 		// 注册方块实体的流体系统
 		FluidStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getFluidTankProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
+		eventInitialize();
+	}
+
+	public void eventInitialize() {
 		// 注册事件
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
+		AttackEntityCallback.EVENT.register(new AttackEntityEvent());
 	}
 }

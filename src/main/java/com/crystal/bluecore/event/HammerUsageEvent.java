@@ -1,4 +1,4 @@
-package com.crystal.bluecore.util;
+package com.crystal.bluecore.event;
 
 import com.crystal.bluecore.item.custom.HammerItem;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;

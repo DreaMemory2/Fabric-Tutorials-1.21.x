@@ -41,6 +41,8 @@ public class BlueCoreClient implements ClientModInitializer {
         // Block Entity Render 方块实体渲染
         BlockEntityRendererFactories.register(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, OakChestInventoryRender::new);
         BlockEntityRendererFactories.register(ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY, BasicFluidTankRenderer::new);
+        // Entity Renders 钻石矛实体渲染
+        EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
         // 渲染粉红色宝石门和活把门的空白纹理
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_TRAPDOOR, RenderLayer.getCutout());
@@ -51,7 +53,5 @@ public class BlueCoreClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
         // 初始化模型预测器
         ModModelPredicates.registerModelPredicates();
-
-        EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
     }
 }

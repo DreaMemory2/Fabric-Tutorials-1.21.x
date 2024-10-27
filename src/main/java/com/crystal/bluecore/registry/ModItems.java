@@ -68,11 +68,12 @@ public class ModItems {
     // 盔甲纹饰锻造模板
     public static final Item PINK_SMITHING_TEMPLATE = registerModItems("pink_armor_trim_smithing_template",
             SmithingTemplateItem.of(Identifier.of(BlueCore.MOD_ID, "pink"), FeatureFlags.VANILLA));
+    // 粉红色宝石弓
+    public static final Item PINK_GEMSTONE_BOW = registerModItems("pink_gemstone_bow", new BowItem(new Item.Settings().maxDamage(10)));
 
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
     public static final Item DIAMOND_SPEAR = registerModItems("diamond_spear", new SpearItem(ToolMaterials.DIAMOND, 7.0f, 1.1f, new Item.Settings().maxCount(1)));
-
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {
         // 注册物品的ID和模组命名空间“Bluecore”
