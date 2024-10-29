@@ -6,6 +6,7 @@ import com.crystal.bluecore.event.AttackEntityEvent;
 import com.crystal.bluecore.event.HammerUsageEvent;
 import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.registry.component.ModDataComponentTypes;
+import com.crystal.bluecore.world.biome.ModBiomeModifications;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
@@ -37,6 +38,8 @@ public class BlueCore implements ModInitializer {
 		ModDataComponentTypes.registerDataComponentTypesInfo();
 		// 粒子初始化
 		ModParticleTypes.registerParticleInfo();
+		// 生态群系初始化
+		ModBiomeModifications.registerBiomeInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);

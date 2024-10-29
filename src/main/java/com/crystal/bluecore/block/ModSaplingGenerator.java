@@ -1,7 +1,7 @@
 package com.crystal.bluecore.block;
 
 import com.crystal.bluecore.BlueCore;
-import com.crystal.bluecore.registry.worldgen.ModConfigureFeatures;
+import com.crystal.bluecore.registry.worldgen.ModConfiguredFeatures;
 import net.minecraft.block.SaplingGenerator;
 import net.minecraft.util.Identifier;
 
@@ -16,7 +16,7 @@ public class ModSaplingGenerator {
             0.1F, /* 罕见机会概率 */
             Optional.empty(), /* 巨型变体 */
             Optional.empty(), /* 罕见巨型变体 */
-            Optional.of(ModConfigureFeatures.MAPLE_TREE), /* 常规变体 */
+            Optional.of(ModConfiguredFeatures.MAPLE_TREE), /* 常规变体 */
             Optional.empty(), /* 罕见常规变体 */
             Optional.empty(), /* 带有蜂巢变体 */
             Optional.empty() /* 罕见带有蜂巢变体 */
