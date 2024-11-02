@@ -7,5 +7,25 @@
   },
   "music_bluey_theme": {
     "sounds": ["bluecore:bluey_theme"]
+  },
+  "magic_block_break": {
+    "subtitle": "sounds.bluecore.magic_block_break",
+    "sounds": ["bluecore:magic_block_break"]
+  },
+  "magic_block_step": {
+    "subtitle": "sounds.bluecore.magic_block_step",
+    "sounds": ["bluecore:magic_block_step"]
+  },
+  "magic_block_place": {
+    "subtitle": "sounds.bluecore.magic_block_place",
+    "sounds": ["bluecore:magic_block_place"]
+  },
+  "magic_block_hit": {
+    "subtitle": "sounds.bluecore.magic_block_hit",
+    "sounds": ["bluecore:magic_block_hit"]
+  },
+  "magic_block_fall": {
+    "subtitle": "sounds.bluecore.magic_block_fall",
+    "sounds": ["bluecore:magic_block_fall"]
   }
 }

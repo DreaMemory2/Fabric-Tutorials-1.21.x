@@ -4,8 +4,8 @@ import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.block.ModSaplingGenerator;
 import com.crystal.bluecore.block.custom.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock.Settings;
+import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -21,7 +21,7 @@ public class ModBlocks {
     public static final Block PINK_GEMSTONE_ORE = registerModBlocks("pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
     public static final Block DEEPSLATE_PINK_GEMSTONE_ORE = registerModBlocks("deepslate_pink_gemstone_ore", new Block(Settings.copy(Blocks.DIAMOND_ORE)));
     public static final Block RAW_PINK_GEMSTONE_BLOCK = registerModBlocks("raw_pink_gemstone_block", new Block(Settings.copy(Blocks.RAW_IRON_BLOCK)));
-    public static final Block MAGIC_BLOCK = registerModBlocks("magic_block", new MagicBlock(Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block MAGIC_BLOCK = registerModBlocks("magic_block", new MagicBlock(Settings.copy(Blocks.IRON_BLOCK).sounds(ModSounds.MAGIC_BLOCK_SOUNDS)));
     public static final Block PIG_GENERATOR = registerModBlocks("pig_generator", new PigGenerator(
             Settings.create().strength(1.5F, 6.0F).requiresTool()));
     public static final Block VERTICAL_EXCAVATION_PROCESSOR = registerModBlocks("vertical_excavation_processor",
@@ -47,20 +47,7 @@ public class ModBlocks {
             new TrapdoorBlock(BlockSetType.IRON, Settings.copy(ModBlocks.PINK_GEMSTONE_STAIRS).nonOpaque()));
     // 自定义树需要方块：原木，树叶和树苗
     public static final Block MAPLE_LOG = registerModBlocks("maple_log", new PillarBlock(Settings.copy(Blocks.OAK_LOG)));
-    public static final Block MAPLE_LEAVES = registerModBlocks("maple_leaves", new LeavesBlock(
-            AbstractBlock.Settings.create()
-				.mapColor(MapColor.DARK_GREEN)
-				.strength(0.2F)
-				.ticksRandomly()
-				.sounds(BlockSoundGroup.GRASS)
-				.nonOpaque()
-				.allowsSpawning(Blocks::canSpawnOnLeaves)
-				.suffocates(Blocks::never)
-				.blockVision(Blocks::never)
-				.burnable()
-				.pistonBehavior(PistonBehavior.DESTROY)
-				.solidBlock(Blocks::never)
-    ));
+    public static final Block MAPLE_LEAVES = registerModBlocks("maple_leaves", new LeavesBlock(Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block MAPLE_SAPLING = registerModBlocks("maple_sapling", new SaplingBlock(ModSaplingGenerator.MAPLE, Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block PINK_GEMSTONE_LAMP = registerModBlocks("pink_gemstone_lamp",
             new PinkGemStoneLamp(Settings.copy(Blocks.REDSTONE_LAMP)

@@ -46,6 +46,11 @@
   "jukebox_song.bluecore.onesies": "Bluey - Onesies",
   "jukebox_song.bluecore.octopus": "Bluey - Octopus",
   "jukebox_song.bluecore.bluey_theme": "Bluey - Theme Sing",
+  "sounds.bluecore.magic_block_break": "魔法方块：被破坏",
+  "sounds.bluecore.magic_block_step": "在魔法方块上的脚步声",
+  "sounds.bluecore.magic_block_place": "魔法方块：被放置",
+  "sounds.bluecore.magic_block_hit": "魔法方块：损坏中",
+  "sounds.bluecore.magic_block_fall": "Something falls on a block",
 
   "itemgroup.blue_tutorial_groups": "蓝色教程",
   "itemgroup.bluecore.blue_core_groups": "蓝色核心",
