@@ -64,6 +64,9 @@
   "tooltip.bluecore.chisel.text": "按下§eShift§r了解更多信息",
   "tooltip.bluecore.cauliflower.tooltip": "非常美味可口！",
 
+  "biome.bluecore.coldest_forest": "极寒森林",
+  "dimension.bluecore.snowflake_crystal": "雪花晶界",
+
   "block.bluecore.pink_torch": "粉红色火把",
   "block.bluecore.pig_generator": "小猪生成器",
   "block.bluecore.vertical_excavation_processor": "垂直挖掘处理器",

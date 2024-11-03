@@ -1,7 +1,6 @@
 package com.crystal.bluecore.block.entity;
 
 import com.crystal.bluecore.registry.ModBlockEntities;
-import com.crystal.bluecore.registry.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
@@ -28,7 +27,13 @@ public class PigGeneratorBlockEntity extends BlockEntity {
         // 保存更新到世界
         this.markDirty();
 
-        if(this.counter % 10 == 0 && this.world instanceof ServerWorld serverWorld) {
+        if (!(this.world instanceof ServerWorld serverWorld)) return;
+
+        if(this.counter % 10 == 0) {
+            EntityType.PIG.spawn(serverWorld, this.pos.up(), SpawnReason.TRIGGERED);
+        }
+
+        if(this.counter % 100 == 0) {
             EntityType.PIG.spawn(serverWorld, this.pos.up(), SpawnReason.TRIGGERED);
         }
     }

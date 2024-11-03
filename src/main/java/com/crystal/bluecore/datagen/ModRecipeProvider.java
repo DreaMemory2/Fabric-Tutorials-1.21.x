@@ -5,6 +5,7 @@ import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -85,5 +86,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PINK_SMITHING_TEMPLATE), conditionsFromItem(ModItems.PINK_SMITHING_TEMPLATE)).offerTo(exporter);
         // 粉红色套装附上纹饰的锻造配方
         offerSmithingTrimRecipe(exporter, ModItems.PINK_SMITHING_TEMPLATE, Identifier.of(BlueCore.MOD_ID, "pink"));
+        // 白色砖块配方
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_STONE_BRICK, 8)
+                .pattern("BBB").pattern("BWB").pattern("BBB")
+                .input('B', Blocks.STONE_BRICKS).input('W', Items.WHITE_DYE)
+                .criterion(hasItem(Blocks.STONE_BRICKS), conditionsFromItem(Blocks.STONE_BRICKS)).offerTo(exporter);
     }
 }

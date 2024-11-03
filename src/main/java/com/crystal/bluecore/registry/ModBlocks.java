@@ -26,6 +26,7 @@ public class ModBlocks {
             Settings.create().strength(1.5F, 6.0F).requiresTool()));
     public static final Block VERTICAL_EXCAVATION_PROCESSOR = registerModBlocks("vertical_excavation_processor",
             new VerticalExcavationProcessor(Settings.create().strength(1.5F, 6.0F).requiresTool()));
+    public static final Block WHITE_STONE_BRICK = registerModBlocks("white_stone_bricks", new Block(Settings.copy(Blocks.STONE_BRICKS)));
     // 一些装饰方块，例如：楼梯，半砖，按钮，压力板，栅栏，栅栏门，石墙，铁门，活把门
     public static final Block PINK_GEMSTONE_STAIRS = registerModBlocks("pink_gemstone_stair",
             new StairsBlock(ModBlocks.PINK_GEMSTONE_BLOCK.getDefaultState(), Settings.create().strength(2f).requiresTool()));

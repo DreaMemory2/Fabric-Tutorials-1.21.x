@@ -7,16 +7,23 @@ import com.crystal.bluecore.event.HammerUsageEvent;
 import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.registry.component.ModDataComponentTypes;
 import com.crystal.bluecore.world.biome.ModBiomeModifications;
+import com.crystal.bluecore.world.biome.surface.ModMaterialRules;
+import com.crystal.bluecore.world.region.ColdestForestRegion;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import terrablender.api.RegionType;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
+import terrablender.api.TerraBlenderApi;
 
-public class BlueCore implements ModInitializer {
+public class BlueCore implements ModInitializer, TerraBlenderApi {
 	public static final String MOD_ID = "bluecore";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -39,7 +46,10 @@ public class BlueCore implements ModInitializer {
 		// 粒子初始化
 		ModParticleTypes.registerParticleInfo();
 		// 生态群系初始化
+		ModBiomes.registerBiomeInfo();
 		ModBiomeModifications.registerBiomeInfo();
+		// 传送门登记处
+		ModCustomPortal.registerPortal();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
@@ -49,6 +59,14 @@ public class BlueCore implements ModInitializer {
 		// 注册方块实体的流体系统
 		FluidStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getFluidTankProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
 		eventInitialize();
+	}
+
+	@Override
+	public void onTerraBlenderInitialized() {
+		// 注册区域（生态群系）
+		Regions.register(new ColdestForestRegion(Identifier.of(MOD_ID, "coldest_forest"), RegionType.OVERWORLD, 4));
+		// 注册生成规则
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.coldestForestSurface());
 	}
 
 	public void eventInitialize() {

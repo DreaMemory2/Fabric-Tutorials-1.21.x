@@ -18,6 +18,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        // 基本
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WHITE_STONE_BRICK);
         // 设置所有装饰物基本纹理（材质）类型
         BlockStateModelGenerator.BlockTexturePool pinkGemstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINK_GEMSTONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);

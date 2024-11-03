@@ -91,6 +91,7 @@ public class ModItemGroups {
             containers.add(ModBlocks.CONVERSION_TABLE);
             containers.add(ModBlocks.MAPLE_LOG);
             containers.add(ModBlocks.MAPLE_LEAVES);
+            containers.add(ModBlocks.WHITE_STONE_BRICK);
 
             containers.add(ModItems.DIAMOND_SPEAR);
             containers.add(ModBlocks.MAPLE_SAPLING);
