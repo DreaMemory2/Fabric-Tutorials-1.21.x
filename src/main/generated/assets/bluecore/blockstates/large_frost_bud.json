@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "bluecore:block/large_frost_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "bluecore:block/large_frost_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bluecore:block/large_frost_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "bluecore:block/large_frost_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "bluecore:block/large_frost_bud"
+    },
+    "facing=west": {
+      "model": "bluecore:block/large_frost_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

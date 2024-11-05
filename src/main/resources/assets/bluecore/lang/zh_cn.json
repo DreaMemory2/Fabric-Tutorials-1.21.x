@@ -74,6 +74,14 @@
   "block.bluecore.basic_fluid_tank": "基础液体储罐",
   "block.bluecore.ebony_crafting_table": "乌木工作台",
   "block.bluecore.conversion_table": "转换平台",
+  "block.bluecore.white_stone_bricks": "白色石砖",
+  "block.bluecore.frost_ice": "寒霜冰块",
+  "block.bluecore.dense_snow": "致密雪块",
+  "block.bluecore.budding_frost": "寒霜晶体母岩",
+  "block.bluecore.small_frost_bud": "小型寒霜晶芽",
+  "block.bluecore.medium_frost_bud": "中型寒霜晶芽",
+  "block.bluecore.large_frost_bud": "大型寒霜晶芽",
+  "block.bluecore.frost_cluster": "寒霜晶簇",
 
   "item.bluecore.diamond_spear": "钻石矛",
 

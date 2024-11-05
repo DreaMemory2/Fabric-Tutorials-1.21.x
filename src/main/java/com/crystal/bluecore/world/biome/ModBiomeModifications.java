@@ -14,6 +14,12 @@ public class ModBiomeModifications {
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 ModPlacedFeatures.ORE_PINK_GEMSTONE
         );
+        // 将晶洞生成在主世界生态群系地下中去
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES,
+                ModPlacedFeatures.FOREST_GEODE
+        );
     }
 
 

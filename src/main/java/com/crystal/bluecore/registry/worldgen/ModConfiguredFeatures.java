@@ -2,6 +2,7 @@ package com.crystal.bluecore.registry.worldgen;
 
 import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.registry.ModBlocks;
+import com.crystal.bluecore.world.biome.feature.FrostGeodeFeatureConfig;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -23,6 +24,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> MAPLE_TREE = registryKey("maple_tree");
     // 自定义矿石生成
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_PINK_GEMSTONE = registryKey("ore_pink_gemstone");
+    // 自定义晶洞
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FOREST_GEODE = registryKey("forest_geode");
 
     /**
      * 构建树木模型
@@ -68,5 +71,7 @@ public class ModConfiguredFeatures {
         // 矿石生成注册
         // 中团簇大小为1-8
         register(context, ORE_PINK_GEMSTONE, Feature.ORE, new OreFeatureConfig(pinkOresTargets, 8));
+        // 晶洞组装注册
+        register(context, FOREST_GEODE, Feature.GEODE, new FrostGeodeFeatureConfig());
     }
 }

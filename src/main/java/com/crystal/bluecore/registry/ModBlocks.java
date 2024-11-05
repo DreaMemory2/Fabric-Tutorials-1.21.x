@@ -27,6 +27,9 @@ public class ModBlocks {
     public static final Block VERTICAL_EXCAVATION_PROCESSOR = registerModBlocks("vertical_excavation_processor",
             new VerticalExcavationProcessor(Settings.create().strength(1.5F, 6.0F).requiresTool()));
     public static final Block WHITE_STONE_BRICK = registerModBlocks("white_stone_bricks", new Block(Settings.copy(Blocks.STONE_BRICKS)));
+    public static final Block FROST_ICE = registerModBlocks("frost_ice", new Block(Settings.copy(Blocks.SMOOTH_BASALT)));
+    public static final Block DENSE_SNOW = registerModBlocks("dense_snow", new Block(Settings.copy(Blocks.CALCITE)));
+    public static final Block BUDDING_FROST = registerModBlocks("budding_frost", new BuddingFrostBlock(Settings.copy(Blocks.BUDDING_AMETHYST)));
     // 一些装饰方块，例如：楼梯，半砖，按钮，压力板，栅栏，栅栏门，石墙，铁门，活把门
     public static final Block PINK_GEMSTONE_STAIRS = registerModBlocks("pink_gemstone_stair",
             new StairsBlock(ModBlocks.PINK_GEMSTONE_BLOCK.getDefaultState(), Settings.create().strength(2f).requiresTool()));
@@ -67,6 +70,11 @@ public class ModBlocks {
             Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PINK_TORCH).pistonBehavior(PistonBehavior.DESTROY)));
     // 练习onSteppedOn()方法
     public static final Block CONVERSION_TABLE = registerModBlocks("conversion_table", new ConversionTableBlock(Settings.copy(Blocks.IRON_BLOCK)));
+    // 晶洞中的晶体芽
+    public static final Block SMALL_FROST_BUD = registerModBlocks("small_frost_bud", new FrostClusterBlock(3.0F, 4.0F, Settings.copy(Blocks.SMALL_AMETHYST_BUD)));
+    public static final Block MEDIUM_FROST_BUD = registerModBlocks("medium_frost_bud", new FrostClusterBlock(4.0F, 3.0F, Settings.copy(Blocks.MEDIUM_AMETHYST_BUD)));
+    public static final Block LARGE_FROST_BUD = registerModBlocks("large_frost_bud", new FrostClusterBlock(5.0F, 3.0F, Settings.copy(Blocks.LARGE_AMETHYST_BUD)));
+    public static final Block FROST_CLUSTER = registerModBlocks("frost_cluster", new FrostClusterBlock(7.0F, 3.0F, Settings.copy(Blocks.AMETHYST_CLUSTER)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {

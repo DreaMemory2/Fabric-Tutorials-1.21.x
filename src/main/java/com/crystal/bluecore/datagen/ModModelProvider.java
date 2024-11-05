@@ -20,6 +20,9 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         // 基本
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WHITE_STONE_BRICK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROST_ICE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DENSE_SNOW);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BUDDING_FROST);
         // 设置所有装饰物基本纹理（材质）类型
         BlockStateModelGenerator.BlockTexturePool pinkGemstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINK_GEMSTONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
@@ -55,6 +58,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(ModBlocks.MAPLE_LOG).log(ModBlocks.MAPLE_LOG);
         blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_LEAVES, TexturedModel.LEAVES);
         blockStateModelGenerator.registerTintableCross(ModBlocks.MAPLE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        // 构造晶体模型
+        registerCrystal(blockStateModelGenerator);
     }
 
     @Override
@@ -82,5 +87,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_LEGGING));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_BOOST));
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HORSE_ARMOR, Models.GENERATED);
+    }
+
+    /**
+     * <p>用于生成晶体模型</p>
+     * @param blockStateModelGenerator 方块模型构造器
+     */
+    private void registerCrystal(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerAmethyst(ModBlocks.SMALL_FROST_BUD);
+        blockStateModelGenerator.registerAmethyst(ModBlocks.MEDIUM_FROST_BUD);
+        blockStateModelGenerator.registerAmethyst(ModBlocks.LARGE_FROST_BUD);
+        blockStateModelGenerator.registerAmethyst(ModBlocks.FROST_CLUSTER);
     }
 }

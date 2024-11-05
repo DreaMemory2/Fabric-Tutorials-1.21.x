@@ -74,6 +74,15 @@
   "block.bluecore.maple_log": "Maple Log",
   "block.bluecore.maple_leaves": "Maple Leaves",
   "block.bluecore.maple_sapling": "Maple Sapling",
+  "block.bluecore.white_stone_bricks": "White Stone Brick",
+  "block.bluecore.frost_ice": "Frost Ice",
+  "block.bluecore.dense_snow": "Dense Snow",
+  "block.bluecore.budding_frost": "Budding Frost",
+  "block.bluecore.small_frost_bud": "Small Frost Bud",
+  "block.bluecore.medium_frost_bud": "Medium Frost Bud",
+  "block.bluecore.large_frost_bud": "Large Frost Bud",
+  "block.bluecore.frost_cluster": "Frost Cluster",
+
 
   "item.bluecore.diamond_spear": "Diamond Spear",
 
