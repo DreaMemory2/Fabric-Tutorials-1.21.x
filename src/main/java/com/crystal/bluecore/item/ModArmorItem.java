@@ -16,9 +16,11 @@ import java.util.Map;
 
 /**
  * <p>提供全套的套装效果</p>
+ * @see <a href="https://youtu.be/EYwyKCfl2ag?si=t_kCRXGh5qK2Bchm" >Full Armor Effect</a>
+ * @author Modding By Kaupenjoe
  */
 public class ModArmorItem extends ArmorItem {
-    // 效果Map集合
+    // 药水效果的Map集合
     private static final Map<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
@@ -34,7 +36,9 @@ public class ModArmorItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(!world.isClient()) {
             if(entity instanceof PlayerEntity player) {
+                // 是否穿戴完整
                 if(hasFullSuitOfArmorOn(player)) {
+                    // 添加套装效果
                     evaluateArmorEffects(player);
                 }
             }
@@ -43,13 +47,17 @@ public class ModArmorItem extends ArmorItem {
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
+    /**
+     * 药水效果与玩家、套装进行结合
+     * @param player 玩家
+     */
     private void evaluateArmorEffects(PlayerEntity player) {
         for (Map.Entry<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             RegistryEntry<ArmorMaterial> mapArmorMaterial = entry.getKey();
             List<StatusEffectInstance> mapStatusEffects = entry.getValue();
 
             if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffects);
+                addStatusEffectForMaterial(player, mapStatusEffects);
             }
         }
     }
@@ -57,10 +65,9 @@ public class ModArmorItem extends ArmorItem {
     /**
      * 给套装添加效果
      * @param player 玩家
-     * @param mapArmorMaterial 盔甲套装，Map集合
-     * @param mapStatusEffect 穿戴效果，List集合
+     * @param mapStatusEffect 状态效果，List集合
      */
-    private void addStatusEffectForMaterial(PlayerEntity player, RegistryEntry<ArmorMaterial> mapArmorMaterial, List<StatusEffectInstance> mapStatusEffect) {
+    private void addStatusEffectForMaterial(PlayerEntity player, List<StatusEffectInstance> mapStatusEffect) {
         boolean hasPlayerEffect = mapStatusEffect.stream().allMatch(statusEffectInstance -> player.hasStatusEffect(statusEffectInstance.getEffectType()));
 
         if(!hasPlayerEffect) {
@@ -77,6 +84,7 @@ public class ModArmorItem extends ArmorItem {
      * @return 返回True表示穿戴完整
      */
     private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
+        // 获取装备栏上的套装
         ItemStack boots = player.getInventory().getArmorStack(0);
         ItemStack leggings = player.getInventory().getArmorStack(1);
         ItemStack breastplate = player.getInventory().getArmorStack(2);
@@ -98,7 +106,7 @@ public class ModArmorItem extends ArmorItem {
                 return false;
             }
         }
-
+        // 靴子、护腿、胸甲、头盔
         ArmorItem boots = ((ArmorItem)player.getInventory().getArmorStack(0).getItem());
         ArmorItem leggings = ((ArmorItem)player.getInventory().getArmorStack(1).getItem());
         ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmorStack(2).getItem());

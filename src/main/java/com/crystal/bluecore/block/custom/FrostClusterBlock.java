@@ -15,6 +15,7 @@ import net.minecraft.world.BlockView;
 
 /**
  * @see net.minecraft.block.AmethystClusterBlock 紫水晶簇
+ * @author Crystal
  */
 public class FrostClusterBlock extends AmethystBlock {
     // 设置是否可以没入水中

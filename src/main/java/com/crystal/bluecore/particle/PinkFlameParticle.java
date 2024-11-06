@@ -9,10 +9,13 @@ import net.minecraft.util.math.MathHelper;
 
 /**
  * 粉红色火焰粒子
- * @see net.minecraft.client.particle.FlameParticle FlameParticle;
+ * @see net.minecraft.client.particle.FlameParticle FlameParticle 和
+ * <a href="https://youtu.be/OT-z_eG16q4?si=TiF-FJYVJEO0BbM8">Custom Torches & Custom Particles</a>
+ * @author <a href="https://www.youtube.com/@RomeoSnowblitz">RomeoSnowblitz</a>
  */
 @Environment(EnvType.CLIENT)
 public class PinkFlameParticle extends AbstractSlowingParticle {
+
     PinkFlameParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
         super(clientWorld, d, e, f, g, h, i);
     }

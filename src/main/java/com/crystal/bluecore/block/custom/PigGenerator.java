@@ -14,6 +14,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * @see <a href="https://youtu.be/1SHiPygYPD0?si=CMliXYG3UqYjCTrx">Custom Block Entities</a>
+ * @author TurtyWurty
+ */
 public class PigGenerator extends Block implements BlockEntityProvider {
 
     public PigGenerator(Settings settings) {
@@ -51,6 +55,7 @@ public class PigGenerator extends Block implements BlockEntityProvider {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        // 绑定实体
         return ModBlockEntities.PIG_GENERATOR_BLOCK_ENTITY.instantiate(pos, state);
     }
 }

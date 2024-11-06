@@ -28,6 +28,10 @@ public class BlueCoreClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
+        // 渲染图层
+        renderLayers();
+        // 初始化模型预测器
+        ModModelPredicates.registerModelPredicates();
         // Moder Layers 模型图层
         EntityModelLayerRegistry.registerModelLayer(OakChestModel.LAYER_LOCATION, OakChestModel::getTexturedModelData);
 
@@ -40,6 +44,11 @@ public class BlueCoreClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY, BasicFluidTankRenderer::new);
         // Entity Renders 钻石矛实体渲染
         EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
+        // 渲染粉红色火焰粒子
+        ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
+    }
+
+    public void renderLayers() {
         // 渲染粉红色宝石门和活把门的空白纹理
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINK_GEMSTONE_TRAPDOOR, RenderLayer.getCutout());
@@ -52,9 +61,5 @@ public class BlueCoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MEDIUM_FROST_BUD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_FROST_BUD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FROST_CLUSTER, RenderLayer.getCutout());
-        // 渲染粉红色火焰粒子
-        ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
-        // 初始化模型预测器
-        ModModelPredicates.registerModelPredicates();
     }
 }

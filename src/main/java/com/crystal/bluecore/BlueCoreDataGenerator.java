@@ -18,7 +18,7 @@ public class BlueCoreDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-
+		// Provider
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
@@ -28,13 +28,18 @@ public class BlueCoreDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRegistryDataGenerator::new);
 	}
 
+	/**
+	 * 构建注册
+	 * @param registryBuilder a {@link RegistryBuilder} instance
+	 */
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
-		// 构建注册
+		// 自定义唱片
 		registryBuilder.addRegistry(RegistryKeys.JUKEBOX_SONG, ModSounds::bootstrap);
+		// 自定义纹饰材料和纹饰样式
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap);
-		// 配置地物和放置地物构建注册
+		// 自定义配置地物和放置地物
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 		// 自定义群系

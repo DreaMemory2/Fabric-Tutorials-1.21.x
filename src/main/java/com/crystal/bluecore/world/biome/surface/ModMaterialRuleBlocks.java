@@ -4,6 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 
+/**
+ * <p>地表方块</p>
+ * @author Crystal
+ */
 public class ModMaterialRuleBlocks {
     /* 基本地表 */
     public static final MaterialRules.MaterialRule GRASS = makeRule(Blocks.GRASS_BLOCK);

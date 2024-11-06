@@ -23,7 +23,7 @@ public class ModTrimMaterials {
 
     /**
      *
-     * @param registerable {@link Registerable}
+     * @param registerable 注册接口
      * @param armorTrimKey 盔甲纹饰材料
      * @param item 模板材质
      * @param style 样式

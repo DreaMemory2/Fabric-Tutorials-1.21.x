@@ -11,6 +11,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 
+/**
+ * @see net.minecraft.block.BuddingAmethystBlock 紫水晶母岩
+ * @author Crystal
+ */
 public class BuddingFrostBlock extends AmethystBlock {
     public BuddingFrostBlock(Settings settings) {
         super(settings);

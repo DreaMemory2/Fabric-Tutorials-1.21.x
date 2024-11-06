@@ -24,11 +24,36 @@ import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
 public class BlueCore implements ModInitializer, TerraBlenderApi {
+	// 模组ID
 	public static final String MOD_ID = "bluecore";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	/**
+	 * @param id 命名空间
+	 * @return 模组物品方块的ID
+	 */
+	public static Identifier of(String id) {
+		return Identifier.of(MOD_ID, id);
+	}
+
+	@Override
+	public void onTerraBlenderInitialized() {
+		// 注册区域（生态群系）
+		Regions.register(new ColdestForestRegion(Identifier.of(MOD_ID, "coldest_forest"), RegionType.OVERWORLD, 4));
+		// 注册生成规则
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.coldestForestSurface());
+	}
+
+	public void eventInitialize() {
+		// 注册事件
+		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
+		AttackEntityCallback.EVENT.register(new AttackEntityEvent());
+	}
+
 	@Override
 	public void onInitialize() {
+		// 事件的初始化
+		eventInitialize();
 		// 物品与方块的初始化
 		ModItems.registerModItemsInfo();
 		ModBlocks.registerModBlocksInfo();
@@ -58,20 +83,5 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ItemStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getInventoryProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
 		// 注册方块实体的流体系统
 		FluidStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getFluidTankProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
-		eventInitialize();
-	}
-
-	@Override
-	public void onTerraBlenderInitialized() {
-		// 注册区域（生态群系）
-		Regions.register(new ColdestForestRegion(Identifier.of(MOD_ID, "coldest_forest"), RegionType.OVERWORLD, 4));
-		// 注册生成规则
-		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.coldestForestSurface());
-	}
-
-	public void eventInitialize() {
-		// 注册事件
-		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
-		AttackEntityCallback.EVENT.register(new AttackEntityEvent());
 	}
 }

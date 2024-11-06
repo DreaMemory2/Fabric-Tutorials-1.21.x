@@ -1,6 +1,5 @@
 package com.crystal.bluecore.block.custom;
 
-import com.crystal.bluecore.registry.ModItems;
 import com.crystal.bluecore.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -35,7 +34,8 @@ public class MagicBlock extends Block {
     }
 
     /**
-     * 向该方块扔进物品时，发生转变的方法
+     * 向该方块扔进物品时，发生转变
+     * <p>例如：将属于粉红色宝石标签的物品转换为钻石({@link net.minecraft.block.Blocks Diamond})</p>
      */
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
