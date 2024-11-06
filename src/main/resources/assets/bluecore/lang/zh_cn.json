@@ -52,6 +52,8 @@
   "sounds.bluecore.magic_block_hit": "魔法方块：损坏中",
   "sounds.bluecore.magic_block_fall": "Something falls on a block",
 
+  "effect.bluecore.slime": "粘稠",
+
   "itemgroup.blue_tutorial_groups": "蓝色教程",
   "itemgroup.bluecore.blue_core_groups": "蓝色核心",
 

@@ -75,6 +75,8 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ModBiomeModifications.registerBiomeInfo();
 		// 传送门登记处
 		ModCustomPortal.registerPortal();
+		// 效果初始化
+		ModEffects.registerEffectsInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);

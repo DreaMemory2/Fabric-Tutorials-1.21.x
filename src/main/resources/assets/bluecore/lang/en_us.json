@@ -49,6 +49,8 @@
   "sounds.bluecore.magic_block_hit": "Magic Block breaking",
   "sounds.bluecore.magic_block_fall": "Something falls on a block",
 
+  "effect.bluecore.slime": "Slime",
+
   "itemgroup.blue_tutorial_groups": "Blue Tutorials",
   "itemgroup.bluecore.blue_core_groups": "Blue Core",
 
