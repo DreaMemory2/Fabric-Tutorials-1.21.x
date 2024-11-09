@@ -23,6 +23,11 @@
   "item.bluecore.pink_gemstone_boots": "粉红色宝石靴子",
   "item.bluecore.pink_gemstone_horse_armor": "粉红色宝石马铠",
 
+  "item.minecraft.potion.effect.slime_potion": "粘稠药水",
+  "item.minecraft.splash_potion.effect.slime_potion": "喷溅型粘稠药水",
+  "item.minecraft.lingering_potion.effect.slime_potion": "滞留型粘稠药水",
+  "item.minecraft.tipped_arrow.effect.slime_potion": "粘稠之箭",
+
   "block.bluecore.pink_gemstone_block": "粉红色宝石块",
   "block.bluecore.pink_gemstone_ore": "粉红色宝石矿石",
   "block.bluecore.deepslate_pink_gemstone_ore": "深层粉红色宝石矿石",

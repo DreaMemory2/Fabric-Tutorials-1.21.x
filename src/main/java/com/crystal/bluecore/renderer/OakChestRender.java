@@ -79,10 +79,10 @@ public class OakChestRender implements BlockEntityRenderer<OakChestBlockEntity> 
         // 箱子的盖子的旋转速度（角速度）
         if (numPlayersOpen > 0 && lidAngle < maxAngle) {
             // 打开盖子，其中tickDelta / 4，为了减慢开盖子的速度
-            lid.pitch = MathHelper.lerp(tickDelta / 32, lidAngle, (float) maxAngle);
+            lid.pitch = MathHelper.lerp(tickDelta / 4, lidAngle, (float) maxAngle);
         } else if (numPlayersOpen == 0 && lidAngle > defaultLidAngle) {
             // 合上盖子，如果玩家为0（表示没有玩家正在使用箱子）
-            lid.pitch = MathHelper.lerp(tickDelta / 32, lidAngle, defaultLidAngle);
+            lid.pitch = MathHelper.lerp(tickDelta / 4, lidAngle, defaultLidAngle);
         }
         entity.lidAngle = lid.pitch;
 

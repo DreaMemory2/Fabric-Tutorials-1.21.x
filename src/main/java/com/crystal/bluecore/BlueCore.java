@@ -12,9 +12,12 @@ import com.crystal.bluecore.world.region.ColdestForestRegion;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
+import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,16 +47,12 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.coldestForestSurface());
 	}
 
-	public void eventInitialize() {
-		// 注册事件
-		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
-		AttackEntityCallback.EVENT.register(new AttackEntityEvent());
-	}
-
 	@Override
 	public void onInitialize() {
 		// 事件的初始化
 		eventInitialize();
+		// 注册自定义酿造台配方
+		brewingRecipes();
 		// 物品与方块的初始化
 		ModItems.registerModItemsInfo();
 		ModBlocks.registerModBlocksInfo();
@@ -77,6 +76,8 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ModCustomPortal.registerPortal();
 		// 效果初始化
 		ModEffects.registerEffectsInfo();
+		// 药水初始化
+		ModPotions.registerPotionInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
@@ -85,5 +86,18 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ItemStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getInventoryProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
 		// 注册方块实体的流体系统
 		FluidStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getFluidTankProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
+	}
+
+	private void eventInitialize() {
+		// 注册事件
+		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
+		AttackEntityCallback.EVENT.register(new AttackEntityEvent());
+	}
+
+	private void brewingRecipes() {
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			// 输入物品：粗制的药水和黏液球，输出物品：粘稠药水
+			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIME_POTION);
+		});
 	}
 }

@@ -23,6 +23,11 @@
   "item.bluecore.pink_gemstone_boots": "Pink Gemstone Boost",
   "item.bluecore.pink_gemstone_horse_armor": "Pink Gemstone Horse Armor",
 
+  "item.minecraft.potion.effect.slime_potion": "Slime Potion",
+  "item.minecraft.splash_potion.effect.slime_potion": "Slime Splash Potion",
+  "item.minecraft.lingering_potion.effect.slime_potion": "Slime Lingering Potion",
+  "item.minecraft.tipped_arrow.effect.slime_potion": "Arrow of Slime Potion",
+
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
   "block.bluecore.deepslate_pink_gemstone_ore": "Deepslate Pink Gemstone Ore",
