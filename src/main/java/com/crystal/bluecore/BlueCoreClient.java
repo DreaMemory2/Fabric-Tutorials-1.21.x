@@ -7,7 +7,7 @@ import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModParticleTypes;
 import com.crystal.bluecore.registry.ModScreenHandlerTypes;
 import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
-import com.crystal.bluecore.renderer.OakChestInventoryRender;
+import com.crystal.bluecore.renderer.OakChestRender;
 import com.crystal.bluecore.renderer.SpearProjectileEntityRenderer;
 import com.crystal.bluecore.screen.BasicFluidTankScreen;
 import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
@@ -40,7 +40,7 @@ public class BlueCoreClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlerTypes.BASIC_FLUID_TANK_SCREEN_HANDLER, BasicFluidTankScreen::new);
 
         // Block Entity Render 方块实体渲染
-        BlockEntityRendererFactories.register(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, OakChestInventoryRender::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, OakChestRender::new);
         BlockEntityRendererFactories.register(ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY, BasicFluidTankRenderer::new);
         // Entity Renders 钻石矛实体渲染
         EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));

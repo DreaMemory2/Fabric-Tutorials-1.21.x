@@ -1,8 +1,8 @@
 package com.crystal.bluecore.block.custom;
 
+import com.crystal.bluecore.api.TickableBlockEntity;
 import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
 import com.crystal.bluecore.registry.ModBlockEntities;
-import com.crystal.bluecore.util.TickableBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;

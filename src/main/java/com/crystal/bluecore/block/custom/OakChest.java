@@ -1,6 +1,6 @@
 package com.crystal.bluecore.block.custom;
 
-import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
+import com.crystal.bluecore.block.entity.OakChestBlockEntity;
 import com.crystal.bluecore.registry.ModBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -27,9 +27,9 @@ import java.util.Map;
 public class OakChest extends Block implements BlockEntityProvider {
     // 方向属性：facing，箱子正面始终朝向玩家方向
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    /* 设置判定箱 */
-    private static final VoxelShape SHAPE = VoxelShapes.union(
-            VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375));
+    /* 设置判定箱 ，添加实际形状，解决方块实心问题（黑色方块） */
+    private static final VoxelShape SHAPE = VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375).simplify();
+    // 设置真实正确方向的形状
     private static final Map<Direction, VoxelShape> SHAPE_MAP = new HashMap<>();
 
     public OakChest(Settings settings) {
@@ -45,7 +45,7 @@ public class OakChest extends Block implements BlockEntityProvider {
 
     /**
      * @param direction 方向
-     * @param shape 判定箱
+     * @param shape 形状
      * @return 像素形状
      */
     private static VoxelShape calculateShapes(Direction direction, VoxelShape shape) {
@@ -67,7 +67,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
-            if (world.getBlockEntity(pos) instanceof OakChestInventoryBlockEntity inventoryBlockEntity) {
+            if (world.getBlockEntity(pos) instanceof OakChestBlockEntity inventoryBlockEntity) {
                 // 打开页面
                 player.openHandledScreen(inventoryBlockEntity);
             }
@@ -102,13 +102,13 @@ public class OakChest extends Block implements BlockEntityProvider {
      */
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
         // 朝向属性
         builder.add(FACING);
+        super.appendProperties(builder);
     }
 
     /**
-     * 将渲染材质（纹理）绑定到方块上（解决方块材质丢失或者为黑紫色方块）
+     * 将渲染材质（纹理）绑定到方块上（解决方块材质丢失，为紫红色方块）
      * @param state 方块状态
      */
     @Override
@@ -118,10 +118,15 @@ public class OakChest extends Block implements BlockEntityProvider {
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        // 解决渲染模型为黑色问题
+        // 添加方块可旋转功能
         return SHAPE_MAP.get(state.get(FACING));
     }
 
+    /**
+     * 根据玩家面向方向，进行方块旋转
+     * @param ctx 物品放置上下文
+     * @return 方块状态
+     */
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

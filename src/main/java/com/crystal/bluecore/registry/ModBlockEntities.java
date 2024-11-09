@@ -2,7 +2,7 @@ package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
-import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
+import com.crystal.bluecore.block.entity.OakChestBlockEntity;
 import com.crystal.bluecore.block.entity.PigGeneratorBlockEntity;
 import com.crystal.bluecore.block.entity.VerticalExcavationProcessorBlockEntity;
 import com.crystal.bluecore.entity.SpearProjectileEntity;
@@ -20,8 +20,8 @@ public class ModBlockEntities {
             BlockEntityType.Builder.create(VerticalExcavationProcessorBlockEntity::new, ModBlocks.VERTICAL_EXCAVATION_PROCESSOR).build());
     public static final BlockEntityType<PigGeneratorBlockEntity> PIG_GENERATOR_BLOCK_ENTITY = registerBlockEntity("pig_entity",
             BlockEntityType.Builder.create(PigGeneratorBlockEntity::new, ModBlocks.PIG_GENERATOR).build());
-    public static final BlockEntityType<OakChestInventoryBlockEntity> OAK_CHEST_BLOCK_ENTITY = registerBlockEntity("oak_chest_block_entity",
-            BlockEntityType.Builder.create(OakChestInventoryBlockEntity::new, ModBlocks.OAK_CHEST).build());
+    public static final BlockEntityType<OakChestBlockEntity> OAK_CHEST_BLOCK_ENTITY = registerBlockEntity("oak_chest_block_entity",
+            BlockEntityType.Builder.create(OakChestBlockEntity::new, ModBlocks.OAK_CHEST).build());
     public static final BlockEntityType<BasicFluidTankBlockEntity> BASIC_FLUID_TANK_BLOCK_ENTITY = registerBlockEntity("basic_fluid_tank_entity",
             BlockEntityType.Builder.create(BasicFluidTankBlockEntity::new, ModBlocks.BASIC_FLUID_TANK).build());
     // 注册矛实体

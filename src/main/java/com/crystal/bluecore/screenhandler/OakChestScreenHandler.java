@@ -1,6 +1,6 @@
 package com.crystal.bluecore.screenhandler;
 
-import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
+import com.crystal.bluecore.block.entity.OakChestBlockEntity;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModScreenHandlerTypes;
 import com.crystal.bluecore.util.BlockPosPayload;
@@ -12,17 +12,21 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
 
-public class OakChestInventoryScreenHandler extends ScreenHandler {
-    private final OakChestInventoryBlockEntity blockEntity;
+/**
+ * <p>原名为：OakChestInventoryScreenHandler</p>
+ * @author TurtyWurty
+ */
+public class OakChestScreenHandler extends ScreenHandler {
+    private final OakChestBlockEntity blockEntity;
     private final ScreenHandlerContext context;
 
     // Client Constructor
-    public OakChestInventoryScreenHandler(int syncId, PlayerInventory playerInventory, BlockPosPayload payload) {
-        this(syncId, playerInventory, (OakChestInventoryBlockEntity) playerInventory.player.getWorld().getBlockEntity(payload.pos()));
+    public OakChestScreenHandler(int syncId, PlayerInventory playerInventory, BlockPosPayload payload) {
+        this(syncId, playerInventory, (OakChestBlockEntity) playerInventory.player.getWorld().getBlockEntity(payload.pos()));
     }
 
     // Main Constructor - (Directly called from server)
-    public OakChestInventoryScreenHandler(int syncId, PlayerInventory playerInventory, OakChestInventoryBlockEntity blockEntity) {
+    public OakChestScreenHandler(int syncId, PlayerInventory playerInventory, OakChestBlockEntity blockEntity) {
         super(ModScreenHandlerTypes.OAK_CHEST_INVENTORY_SCREEN_HANDLER, syncId);
 
         // 屏幕处理器的实体
@@ -31,7 +35,9 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
         this.context = ScreenHandlerContext.create(this.blockEntity.getWorld(), this.blockEntity.getPos());
 
         SimpleInventory inventory = this.blockEntity.getInventory();
+        // 36 being replaced by the number of slots in your block entity's inventory
         checkSize(inventory, 36);
+        // 当玩家打开箱子时
         inventory.onOpen(playerInventory.player);
 
         // 添加玩家物品栏
@@ -43,15 +49,14 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     }
 
     /**
-     * <p>当箱子被玩家破环，移动时，掉落箱子内的物品</p>
-     *
+     * <p>快速将物品填充到箱子中去</p>
      * @param player 玩家
      * @param slotIndex the index of the slot to quick-move from
      * @return 箱子内的物品
      */
     @Override
     public ItemStack quickMove(PlayerEntity player, int slotIndex) {
-        // 初始化一个没有物品的空物品栏
+        // 初始化一个没有物品的空物品槽
         ItemStack newStack = ItemStack.EMPTY;
         // 获取箱子物品格
         Slot slot = getSlot(slotIndex);
@@ -61,14 +66,16 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
             newStack = inSlot.copy();
             // 判断箱子是否填满（物品槽，或者是物品格）
             if (slotIndex < 36) {
+                // 如果没有填满，则继续添加物品
+                // 如果已经填满，则紧张添加物品
                 if (!insertItem(inSlot, 36, this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 } else if (!insertItem(inSlot, 0, 36, false)) {
                     return ItemStack.EMPTY;
                 }
             }
-            if (inSlot.isEmpty())
-                slot.setStack(ItemStack.EMPTY);
+            // 如果箱子为空，则设置物品槽为空
+            if (inSlot.isEmpty()) slot.setStack(ItemStack.EMPTY);
             else slot.markDirty();
         }
         return newStack;
@@ -80,7 +87,7 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     public void addBlockInventory(SimpleInventory inventory) {
         for (int row = 0; row < 4; row++) {
             for (int column = 0; column < 9; column++) {
-                // 创建物品框（大小）
+                // 创建实际库存槽36格 x和y表示获取第一格存储槽的位置(23, 33)
                 addSlot(new Slot(inventory, column + (row * 9), 8 + (column * 18), 18 + (row * 18)));
             }
         }
@@ -122,8 +129,8 @@ public class OakChestInventoryScreenHandler extends ScreenHandler {
     }
 
     /**
-     * 关闭GUI屏幕（GUI物品栏）
-     *
+     * <p>关闭GUI屏幕（GUI物品栏），关闭玩家库存</p>
+     * <p>关闭箱子</p>
      * @param player 玩家
      */
     @Override

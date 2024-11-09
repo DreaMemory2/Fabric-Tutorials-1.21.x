@@ -38,24 +38,31 @@ public class PigGenerator extends Block implements BlockEntityProvider {
      */
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        // 使用服务端，而不是客户端，其中服务端可以使用相同数据信息
         if (!world.isClient) {
+            // 通过世界来获取方块实体（在任何位置单击这个方块，都可以成为该方块的方块实体）
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof PigGeneratorBlockEntity exampleBlockEntity && player != null) {
+            // 但是这个方块的实体，不确定是否为PigGenerator方块的实体，需要进行判断这个方块实体，但是还要保证玩家存在
+            if (blockEntity instanceof PigGeneratorBlockEntity pigGenerator && player != null) {
+                // 判断玩家是否潜行
                 if(!player.isSneaking()) {
-                    exampleBlockEntity.incrementCounter();
+                    // 如果玩家不潜行，则增加记数
+                    pigGenerator.incrementCounter();
                 }
-
-                player.sendMessage(Text.of(exampleBlockEntity.getCounter() + ""), true);
+                // 如果玩家潜行，则发送记数信息。overlay：如果为false，则向聊天栏发送信息；如果为ture，则位于方块的上方
+                player.sendMessage(Text.of(Integer.toString(pigGenerator.getCounter())), true);
             }
         }
-
+        // 只要服务器获取记数，则客户端才能完成挥手动作
         return ActionResult.success(world.isClient);
     }
 
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        // 绑定实体
+        // 创建一个方块实体
+        // 或者也可以new PigGeneratorBlockEntity(pos, state);
+        // 这种方法考虑模组兼容性
         return ModBlockEntities.PIG_GENERATOR_BLOCK_ENTITY.instantiate(pos, state);
     }
 }

@@ -1,8 +1,8 @@
 package com.crystal.bluecore.block.custom;
 
+import com.crystal.bluecore.api.TickableBlockEntity;
 import com.crystal.bluecore.block.entity.VerticalExcavationProcessorBlockEntity;
 import com.crystal.bluecore.registry.ModBlockEntities;
-import com.crystal.bluecore.util.TickableBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -36,6 +36,7 @@ public class VerticalExcavationProcessor extends Block implements BlockEntityPro
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
             if (world.getBlockEntity(pos) instanceof VerticalExcavationProcessorBlockEntity blockEntity)
+                // 发送一个消息说明正在向下挖掘方块
                 player.sendMessage(Text.of("Mining at: " + blockEntity.getMiningPos().toString()));
         }
         return ActionResult.success(world.isClient);
