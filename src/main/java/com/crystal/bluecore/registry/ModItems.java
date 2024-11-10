@@ -5,6 +5,7 @@ import com.crystal.bluecore.item.ModArmorItem;
 import com.crystal.bluecore.item.ModArmorMaterials;
 import com.crystal.bluecore.item.ModToolMaterials;
 import com.crystal.bluecore.item.custom.ChiselItem;
+import com.crystal.bluecore.item.custom.EntropyManipulatorItem;
 import com.crystal.bluecore.item.custom.HammerItem;
 import com.crystal.bluecore.item.custom.SpearItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -70,6 +71,8 @@ public class ModItems {
             SmithingTemplateItem.of(Identifier.of(BlueCore.MOD_ID, "pink"), FeatureFlags.VANILLA));
     // 粉红色宝石弓
     public static final Item PINK_GEMSTONE_BOW = registerModItems("pink_gemstone_bow", new BowItem(new Item.Settings().maxDamage(10)));
+    // 熵变机械臂
+    public static final Item ENTROPY_MANIPULATOR = registerModItems("entropy_manipulator", new EntropyManipulatorItem(new Item.Settings()));
 
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));

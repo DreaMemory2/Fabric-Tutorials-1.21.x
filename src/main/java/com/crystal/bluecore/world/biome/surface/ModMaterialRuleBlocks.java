@@ -1,5 +1,6 @@
 package com.crystal.bluecore.world.biome.surface;
 
+import com.crystal.bluecore.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
@@ -17,6 +18,12 @@ public class ModMaterialRuleBlocks {
     public static final MaterialRules.MaterialRule SAND = makeRule(Blocks.SAND);
     public static final MaterialRules.MaterialRule GRAVEL = makeRule(Blocks.GRAVEL);
     public static final MaterialRules.MaterialRule CLAY = makeRule(Blocks.CLAY);
+    /* 基岩层 */
+    public static final MaterialRules.MaterialRule BEDROCK = makeRule(Blocks.BEDROCK);
+    /* 雪花晶界维度中极寒森林的地表特征 */
+    public static final MaterialRules.MaterialRule FROZEN_DIRT = makeRule(ModBlocks.FROZEN_DIRT);
+    public static final MaterialRules.MaterialRule FROST_GRASS_BLOCK = makeRule(ModBlocks.FROST_GRASS_BLOCK);
+    public static final MaterialRules.MaterialRule FROZEN_STONE = makeRule(ModBlocks.FROZEN_STONE);
 
     /**
      * 用于生成群系地表覆盖物（方块），例如：草方块、泥土，石头等

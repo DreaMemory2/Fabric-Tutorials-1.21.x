@@ -24,7 +24,8 @@ public class ModBlockTagProvider extends BlockTagProvider {
                 .add(ModBlocks.RAW_PINK_GEMSTONE_BLOCK)
                 .add(ModBlocks.DEEPSLATE_PINK_GEMSTONE_ORE)
                 .add(ModBlocks.MAGIC_BLOCK)
-                .add(ModBlocks.OAK_CHEST);
+                .add(ModBlocks.OAK_CHEST)
+                .add(ModBlocks.FROZEN_STONE);
         // 添加一些需要钻石稿来挖掘的方块标签
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
         // 添加一些装饰物标签，例如：栅栏、栅栏门和石墙标签
@@ -40,5 +41,7 @@ public class ModBlockTagProvider extends BlockTagProvider {
         // 原木和树叶标签，防止树叶腐烂作用
         getOrCreateTagBuilder(BlockTags.LEAVES).add(ModBlocks.MAPLE_LEAVES);
         getOrCreateTagBuilder(BlockTags.LOGS).add(ModBlocks.MAPLE_LOG);
+        // 添加泥土标签
+        getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.FROST_GRASS_BLOCK).add(ModBlocks.FROZEN_DIRT);
     }
 }

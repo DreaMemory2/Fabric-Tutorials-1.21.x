@@ -1,13 +1,13 @@
 package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.world.dimension.SnowflakeCrystalDimension;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
@@ -18,15 +18,16 @@ public class ModDimensions {
     // 雪花晶体维度
     public static final RegistryKey<DimensionOptions> SNOWFLAKE_CRYSTAL = RegistryKey.of(RegistryKeys.DIMENSION,
             Identifier.of(BlueCore.MOD_ID, "snowflake_crystal"));
-    // 雪花晶体世界
-    public static final RegistryKey<World> SNOWFLAKE_CRYSTAL_WORLD = RegistryKey.of(RegistryKeys.WORLD,
-            Identifier.of(BlueCore.MOD_ID, "snowflake_crystal"));
     // 雪花晶体维度类型
     public static final RegistryKey<DimensionType> SNOWFLAKE_CRYSTAL_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
             Identifier.of(BlueCore.MOD_ID, "snowflake_crystal_type"));
 
     public static void bootstrap(Registerable<DimensionType> context) {
         context.register(SNOWFLAKE_CRYSTAL_TYPE, snowflakeCrystal());
+    }
+
+    public static void bootstrapDimension(Registerable<DimensionOptions> context) {
+        context.register(SNOWFLAKE_CRYSTAL, SnowflakeCrystalDimension.snowflakeCrystalDimension(context));
     }
 
     /**
@@ -59,7 +60,7 @@ public class ModDimensions {
      * <p>详细参考：请参见document/biome/自定义维度.md</p>
      * @return 自定义维度类型
      * @since 1.0
-     * @author <a href="https://space.bilibili.com/489671468">北山_Besson</a>
+     * @author Crystal
      * @see <a href="https://zh.minecraft.wiki/w/维度类型">维度类型</a><br>
      */
     private static DimensionType snowflakeCrystal() {

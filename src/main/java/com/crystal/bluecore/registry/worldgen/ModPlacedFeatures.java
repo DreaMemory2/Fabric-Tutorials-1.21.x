@@ -24,7 +24,7 @@ public class ModPlacedFeatures {
     // 矿石
     public static final RegistryKey<PlacedFeature> ORE_PINK_GEMSTONE = registerKey("ore_pink_gemstone");
     // 晶洞
-    public static final RegistryKey<PlacedFeature> FOREST_GEODE = registerKey("forest_geode");
+    public static final RegistryKey<PlacedFeature> FROST_GEODE = registerKey("frost_geode");
 
     /**
      * <p>提供可以复制放置修饰器</p>
@@ -70,7 +70,7 @@ public class ModPlacedFeatures {
                 // 中团簇大小为1-8，每个区块尝试生成2次，均匀生成在Y=-64到-4之间
                 Modifiers.modifiersCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(-4))));
         /* 晶洞 */
-        register(context, FOREST_GEODE, registryLookup.getOrThrow(ModConfiguredFeatures.FOREST_GEODE),
+        register(context, FROST_GEODE, registryLookup.getOrThrow(ModConfiguredFeatures.FROST_GEODE),
                 RarityFilterPlacementModifier.of(42), // 稀有度
                 SquarePlacementModifier.of(),
                 HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(50)), // 生成范围（60 ~ 50）

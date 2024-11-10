@@ -25,7 +25,7 @@ public class ModConfiguredFeatures {
     // 自定义矿石生成
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_PINK_GEMSTONE = registryKey("ore_pink_gemstone");
     // 自定义晶洞
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FOREST_GEODE = registryKey("forest_geode");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FROST_GEODE = registryKey("frost_geode");
 
     /**
      * 构建树木模型
@@ -72,6 +72,6 @@ public class ModConfiguredFeatures {
         // 中团簇大小为1-8
         register(context, ORE_PINK_GEMSTONE, Feature.ORE, new OreFeatureConfig(pinkOresTargets, 8));
         // 晶洞组装注册
-        register(context, FOREST_GEODE, Feature.GEODE, new FrostGeodeFeatureConfig());
+        register(context, FROST_GEODE, Feature.GEODE, new FrostGeodeFeatureConfig());
     }
 }

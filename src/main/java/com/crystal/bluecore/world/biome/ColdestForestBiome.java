@@ -1,16 +1,13 @@
 package com.crystal.bluecore.world.biome;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
+import com.crystal.bluecore.world.biome.feature.ModBiomeFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class ColdestForestBiome {
     /**
@@ -19,12 +16,12 @@ public class ColdestForestBiome {
     public static void biomeFeatures(GenerationSettings.LookupBackedBuilder builder) {
         // 添加洞穴湖雕刻器
         DefaultBiomeFeatures.addLandCarvers(builder);
-        // 添加紫水晶洞穴
-        DefaultBiomeFeatures.addAmethystGeodes(builder);
+        // 添加寒霜晶洞
+        ModBiomeFeatures.addFrostGeodes(builder);
         // 添加地牢
         DefaultBiomeFeatures.addDungeons(builder);
         // 添加矿石
-        DefaultBiomeFeatures.addMineables(builder);
+        /* DefaultBiomeFeatures.addMineables(builder); */
         // 添加温泉（隔水层）
         DefaultBiomeFeatures.addSprings(builder);
         // 添加冰面
@@ -39,9 +36,9 @@ public class ColdestForestBiome {
         /* 生成生物 */
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
         // 生成生物实体Entity，权重为2，数量：最小群体3，最大群体为5
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PIG, 2, 3, 5));
+        /* spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PIG, 2, 3, 5)); */
         // 生成可驯养的动物
-        DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
+        /* DefaultBiomeFeatures.addFarmAnimals(spawnSettings); */
         // 生成蝙蝠和敌对生物（例如：僵尸和小白）
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
         /* 生成地物和雕刻器 */
@@ -52,25 +49,25 @@ public class ColdestForestBiome {
         // 雕刻器
         biomeFeatures(generationSettings);
         // 生成苔石地物
-        DefaultBiomeFeatures.addMossyRocks(generationSettings);
+        /* DefaultBiomeFeatures.addMossyRocks(generationSettings); */
         // 生成矿石
-        DefaultBiomeFeatures.addDefaultOres(generationSettings);
+        /* DefaultBiomeFeatures.addDefaultOres(generationSettings);*/
         // 生成格外的金矿石，例如恶地
-        DefaultBiomeFeatures.addExtraGoldOre(generationSettings);
+        /* DefaultBiomeFeatures.addExtraGoldOre(generationSettings);*/
         /* 生成植被 */
         // 生成树木（平原类型）
-        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        /* generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);*/
         // 生成花朵（森林类型）
-        DefaultBiomeFeatures.addForestFlowers(generationSettings);
+        /* DefaultBiomeFeatures.addForestFlowers(generationSettings);*/
         // 生成大型蕨类
-        DefaultBiomeFeatures.addLargeFerns(generationSettings);
+        /* DefaultBiomeFeatures.addLargeFerns(generationSettings);*/
         // 生成蘑菇
-        DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
-        // 生成植被（草地）
-        DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
+        /* DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);*/
+        // 生成植被（比如甘泽和南瓜）
+        /* DefaultBiomeFeatures.addDefaultVegetation(generationSettings);*/
         BiomeEffects.Builder builder = new BiomeEffects.Builder();
         // 天空颜色、雾气颜色、水体颜色、水雾颜色
-        builder.skyColor(0x79A6FF)
+        builder.skyColor(0xA1B4E8)
                 .fogColor(0xC0D8FF)
                 .waterColor(0x3F76E4)
                 .waterFogColor(0x050533);
@@ -80,7 +77,7 @@ public class ColdestForestBiome {
                 // 湿度
                 .downfall(0.5f)
                 // 温度
-                .temperature(0.7f)
+                .temperature(-0.5f)
                 // 构造生成地物
                 .generationSettings(generationSettings.build())
                 // 生成生物实体Entity

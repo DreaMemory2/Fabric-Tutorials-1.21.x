@@ -92,6 +92,9 @@ public class ModItemGroups {
             containers.add(ModBlocks.MAPLE_LOG);
             containers.add(ModBlocks.MAPLE_LEAVES);
             containers.add(ModBlocks.WHITE_STONE_BRICK);
+            containers.add(ModBlocks.FROZEN_DIRT);
+            containers.add(ModBlocks.FROST_GRASS_BLOCK);
+            containers.add(ModBlocks.FROZEN_STONE);
             // 晶洞系列
             containers.add(ModBlocks.FROST_ICE);
             containers.add(ModBlocks.DENSE_SNOW);
@@ -103,6 +106,7 @@ public class ModItemGroups {
 
             containers.add(ModItems.DIAMOND_SPEAR);
             containers.add(ModBlocks.MAPLE_SAPLING);
+            containers.add(ModItems.ENTROPY_MANIPULATOR);
         });
     }
 

@@ -23,6 +23,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROST_ICE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DENSE_SNOW);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BUDDING_FROST);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROZEN_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROZEN_STONE);
         // 设置所有装饰物基本纹理（材质）类型
         BlockStateModelGenerator.BlockTexturePool pinkGemstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINK_GEMSTONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
@@ -74,6 +76,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.OCTOPUS_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.ONESIES_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.PINK_SMITHING_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENTROPY_MANIPULATOR, Models.GENERATED);
         // 武器与工具模型
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_PICKAXE, Models.HANDHELD);

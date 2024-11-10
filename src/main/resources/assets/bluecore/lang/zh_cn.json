@@ -89,8 +89,12 @@
   "block.bluecore.medium_frost_bud": "中型寒霜晶芽",
   "block.bluecore.large_frost_bud": "大型寒霜晶芽",
   "block.bluecore.frost_cluster": "寒霜晶簇",
+  "block.bluecore.frost_grass_block": "寒霜草方块",
+  "block.bluecore.frozen_dirt": "寒霜冻土",
+  "block.bluecore.frozen_stone": "寒霜冻石",
 
   "item.bluecore.diamond_spear": "钻石矛",
+  "item.bluecore.entropy_manipulator": "熵变机械臂",
 
   "trim_material.bluecore.pink_gemstone": "粉红色宝石质",
   "trim_pattern.bluecore.pink": "粉红色盔甲纹饰"

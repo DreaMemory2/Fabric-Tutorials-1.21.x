@@ -89,9 +89,13 @@
   "block.bluecore.medium_frost_bud": "Medium Frost Bud",
   "block.bluecore.large_frost_bud": "Large Frost Bud",
   "block.bluecore.frost_cluster": "Frost Cluster",
+  "block.bluecore.frost_grass_block": "Frost Grass Block",
+  "block.bluecore.frozen_dirt": "Frozen Dirt",
+  "block.bluecore.frozen_stone": "Frozen Stone",
 
 
   "item.bluecore.diamond_spear": "Diamond Spear",
+  "item.bluecore.entropy_manipulator": "Entropy Manipulator",
 
   "trim_material.bluecore.pink_gemstone": "Pink Gemstone Material",
   "trim_pattern.bluecore.pink": "Pink Armor Pattern"

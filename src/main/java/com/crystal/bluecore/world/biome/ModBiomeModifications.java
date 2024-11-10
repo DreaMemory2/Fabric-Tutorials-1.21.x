@@ -18,7 +18,7 @@ public class ModBiomeModifications {
         BiomeModifications.addFeature(
                 BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES,
-                ModPlacedFeatures.FOREST_GEODE
+                ModPlacedFeatures.FROST_GEODE
         );
     }
 

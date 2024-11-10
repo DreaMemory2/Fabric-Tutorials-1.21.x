@@ -42,7 +42,7 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 	@Override
 	public void onTerraBlenderInitialized() {
 		// 注册区域（生态群系）
-		Regions.register(new ColdestForestRegion(Identifier.of(MOD_ID, "coldest_forest"), RegionType.OVERWORLD, 4));
+		Regions.register(new ColdestForestRegion(Identifier.of(MOD_ID, "coldest_forest"), RegionType.OVERWORLD, 0));
 		// 注册生成规则
 		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.coldestForestSurface());
 	}

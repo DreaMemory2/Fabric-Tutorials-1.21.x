@@ -30,6 +30,9 @@ public class ModBlocks {
     public static final Block FROST_ICE = registerModBlocks("frost_ice", new Block(Settings.copy(Blocks.SMOOTH_BASALT)));
     public static final Block DENSE_SNOW = registerModBlocks("dense_snow", new Block(Settings.copy(Blocks.CALCITE)));
     public static final Block BUDDING_FROST = registerModBlocks("budding_frost", new BuddingFrostBlock(Settings.copy(Blocks.BUDDING_AMETHYST)));
+    public static final Block FROST_GRASS_BLOCK = registerModBlocks("frost_grass_block", new FrostGrassBlock(Settings.copy(Blocks.GRASS_BLOCK)));
+    public static final Block FROZEN_DIRT = registerModBlocks("frozen_dirt", new Block(Settings.copy(Blocks.DIRT)));
+    public static final Block FROZEN_STONE = registerModBlocks("frozen_stone", new Block(Settings.copy(Blocks.STONE)));
     // 一些装饰方块，例如：楼梯，半砖，按钮，压力板，栅栏，栅栏门，石墙，铁门，活把门
     public static final Block PINK_GEMSTONE_STAIRS = registerModBlocks("pink_gemstone_stair",
             new StairsBlock(ModBlocks.PINK_GEMSTONE_BLOCK.getDefaultState(), Settings.create().strength(2f).requiresTool()));

@@ -1,6 +1,8 @@
 package com.crystal.bluecore.world.biome.surface;
 
 import com.crystal.bluecore.registry.ModBiomes;
+import net.minecraft.util.math.VerticalSurfaceType;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 
 import static com.crystal.bluecore.world.biome.surface.ModMaterialRuleBlocks.*;
@@ -11,12 +13,18 @@ import static com.crystal.bluecore.world.biome.surface.ModMaterialRuleBlocks.*;
 public class ModMaterialRules {
 
     public static MaterialRules.MaterialRule coldestForestSurface() {
-        MaterialRules.MaterialCondition isAtOrAboveWaterLevel = MaterialRules.water(-1, 0);
-        MaterialRules.MaterialRule grassSurface = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, GRASS), DIRT);
+        MaterialRules.MaterialCondition water = MaterialRules.water(-1, 0);
+        MaterialRules.MaterialRule grassSurface = MaterialRules.condition(MaterialRules.stoneDepth(0, false, 0, VerticalSurfaceType.FLOOR), FROST_GRASS_BLOCK);
+        MaterialRules.MaterialRule dirtSurface = MaterialRules.condition(MaterialRules.stoneDepth(3, false, 0, VerticalSurfaceType.FLOOR), FROZEN_DIRT);
+        MaterialRules.MaterialRule bedrockSurface = MaterialRules.condition(MaterialRules.verticalGradient("minecraft:bedrock_floor", YOffset.aboveBottom(0), YOffset.aboveBottom(5)), BEDROCK);
+        MaterialRules.MaterialCondition coldestForest = MaterialRules.biome(ModBiomes.COLDEST_FOREST);
 
         return MaterialRules.sequence(
-                MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(ModBiomes.COLDEST_FOREST),
-                        MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, STONE)),
-                        MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassSurface)));
+                bedrockSurface,
+                MaterialRules.condition(MaterialRules.surface(),
+                        MaterialRules.condition(coldestForest,
+                                MaterialRules.sequence(
+                                        MaterialRules.condition(water, MaterialRules.sequence(grassSurface, dirtSurface)),
+                                        FROZEN_STONE))));
     }
 }

@@ -44,5 +44,7 @@ public class ModItemTagProvider extends ItemTagProvider {
         // 原木和树叶标签，防止树叶腐烂作用
         getOrCreateTagBuilder(ItemTags.COMPLETES_FIND_TREE_TUTORIAL).add(ModBlocks.MAPLE_LEAVES.asItem());
         getOrCreateTagBuilder(ItemTags.LOGS).add(ModBlocks.MAPLE_LOG.asItem());
+        // 泥土标签，提供扩散效果
+        getOrCreateTagBuilder(ItemTags.DIRT).add(ModBlocks.FROZEN_DIRT.asItem()).add(ModBlocks.FROST_GRASS_BLOCK.asItem());
     }
 }
