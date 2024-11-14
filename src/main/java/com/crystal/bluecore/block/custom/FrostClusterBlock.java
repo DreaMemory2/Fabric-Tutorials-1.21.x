@@ -1,9 +1,7 @@
 package com.crystal.bluecore.block.custom;
 
-import net.minecraft.block.AmethystBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -12,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldAccess;
 
 /**
  * @see net.minecraft.block.AmethystClusterBlock 紫水晶簇
@@ -54,6 +53,24 @@ public class FrostClusterBlock extends AmethystBlock {
             case DOWN -> this.downShape;
             default -> this.upShape;
         };
+    }
+
+    /**
+     * @param state the state of this block
+     * @param direction the direction from this block to the neighbor
+     * @param neighborState the state of the updated neighbor block
+     * @param world the world
+     * @param pos the position of this block
+     * @param neighborPos the position of the neighbor block
+     * @return 获取附近方块更新状态
+     */
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED)) world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+
+        return direction == state.get(FACING).getOpposite() && !state.canPlaceAt(world, pos)
+                ? Blocks.AIR.getDefaultState()
+                : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override
