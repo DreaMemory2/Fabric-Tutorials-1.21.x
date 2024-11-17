@@ -1,10 +1,10 @@
 package com.crystal.bluecore.block.entity;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.api.TickableBlockEntity;
 import com.crystal.bluecore.registry.ModBlockEntities;
 import com.crystal.bluecore.screenhandler.BasicFluidTankScreenHandler;
 import com.crystal.bluecore.util.BlockPosPayload;
-import com.crystal.bluecore.util.TickableBlockEntity;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;

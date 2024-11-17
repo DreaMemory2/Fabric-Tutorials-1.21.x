@@ -18,6 +18,13 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        // 基本
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WHITE_STONE_BRICK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROST_ICE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DENSE_SNOW);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BUDDING_FROST);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROZEN_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FROZEN_STONE);
         // 设置所有装饰物基本纹理（材质）类型
         BlockStateModelGenerator.BlockTexturePool pinkGemstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINK_GEMSTONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
@@ -46,7 +53,26 @@ public class ModModelProvider extends FabricModelProvider {
         // 创建不规整方块
         // 基础液体储罐
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASIC_FLUID_TANK, Identifier.of(BlueCore.MOD_ID, "block/custom/basic_fluid_tank"));
+        // 橡木箱子
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.OAK_CHEST, Identifier.of(BlueCore.MOD_ID, "block/custom/oak_chest"));
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONVERSION_TABLE);
+        // 原木、树叶和树苗的模型
+        blockStateModelGenerator.registerLog(ModBlocks.MAPLE_LOG).log(ModBlocks.MAPLE_LOG);
+        blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.MAPLE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.FIR_LOG).log(ModBlocks.FIR_LOG);
+        blockStateModelGenerator.registerSingleton(ModBlocks.FIR_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(ModBlocks.FROZEN_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FIR_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        // 植物
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FANBRUSH, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        // 构造晶体模型
+        registerCrystal(blockStateModelGenerator);
     }
 
     @Override
@@ -55,11 +81,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_PINK_GEMSTONE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.CAULIFLOWER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
+        // itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED); 使用Json文件实现动态模型
         itemModelGenerator.register(ModItems.STARLIGHT_ASHES, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.OCTOPUS_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
         itemModelGenerator.register(ModItems.ONESIES_DISC, ModItems.BLUEY_THEME_DISC, Models.TEMPLATE_MUSIC_DISC);
+        itemModelGenerator.register(ModItems.PINK_SMITHING_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENTROPY_MANIPULATOR, Models.GENERATED);
         // 武器与工具模型
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_PICKAXE, Models.HANDHELD);
@@ -73,5 +101,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_LEGGING));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_BOOST));
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HORSE_ARMOR, Models.GENERATED);
+    }
+
+    /**
+     * <p>用于生成晶体模型</p>
+     * @param blockStateModelGenerator 方块模型构造器
+     */
+    private void registerCrystal(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerAmethyst(ModBlocks.SMALL_FROST_BUD);
+        blockStateModelGenerator.registerAmethyst(ModBlocks.MEDIUM_FROST_BUD);
+        blockStateModelGenerator.registerAmethyst(ModBlocks.LARGE_FROST_BUD);
+        blockStateModelGenerator.registerAmethyst(ModBlocks.FROST_CLUSTER);
     }
 }

@@ -5,15 +5,19 @@ import com.crystal.bluecore.item.ModArmorItem;
 import com.crystal.bluecore.item.ModArmorMaterials;
 import com.crystal.bluecore.item.ModToolMaterials;
 import com.crystal.bluecore.item.custom.ChiselItem;
+import com.crystal.bluecore.item.custom.EntropyManipulatorItem;
 import com.crystal.bluecore.item.custom.HammerItem;
+import com.crystal.bluecore.item.custom.SpearItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.math.Direction;
 
 import java.util.List;
 
@@ -62,7 +66,17 @@ public class ModItems {
     // 马铠(最大堆叠为1)
     public static final Item PINK_GEMSTONE_HORSE_ARMOR = registerModItems("pink_gemstone_horse_armor", new AnimalArmorItem(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
             AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    // 盔甲纹饰锻造模板
+    public static final Item PINK_SMITHING_TEMPLATE = registerModItems("pink_armor_trim_smithing_template",
+            SmithingTemplateItem.of(Identifier.of(BlueCore.MOD_ID, "pink"), FeatureFlags.VANILLA));
+    // 粉红色宝石弓
+    public static final Item PINK_GEMSTONE_BOW = registerModItems("pink_gemstone_bow", new BowItem(new Item.Settings().maxDamage(10)));
+    // 熵变机械臂
+    public static final Item ENTROPY_MANIPULATOR = registerModItems("entropy_manipulator", new EntropyManipulatorItem(new Item.Settings()));
 
+    public static final Item PINK_TORCH = registerModItems("pink_torch",
+            new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
+    public static final Item DIAMOND_SPEAR = registerModItems("diamond_spear", new SpearItem(ToolMaterials.DIAMOND, 7.0f, 1.1f, new Item.Settings().maxCount(1)));
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {
         // 注册物品的ID和模组命名空间“Bluecore”

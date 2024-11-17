@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "bluecore:fir_tree",
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": "bluecore:fir_tree"
+      },
+      {
+        "chance": 0.1,
+        "feature": "bluecore:frozen_tree"
+      }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 package com.crystal.bluecore.datagen;
 
+import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
 import com.crystal.bluecore.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -37,5 +38,18 @@ public class ModItemTagProvider extends ItemTagProvider {
                 .add(ModItems.PINK_GEMSTONE_CHESTPLATE)
                 .add(ModItems.PINK_GEMSTONE_LEGGING)
                 .add(ModItems.PINK_GEMSTONE_BOOST);
+        // 添加盔甲纹饰模板
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(ModItems.PINK_GEMSTONE);
+        getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES).add(ModItems.PINK_SMITHING_TEMPLATE);
+        // 原木和树叶标签，防止树叶腐烂作用
+        getOrCreateTagBuilder(ItemTags.COMPLETES_FIND_TREE_TUTORIAL)
+                .add(ModBlocks.MAPLE_LEAVES.asItem())
+                .add(ModBlocks.FROZEN_LEAVES.asItem())
+                .add(ModBlocks.FIR_LEAVES.asItem());
+        getOrCreateTagBuilder(ItemTags.LOGS)
+                .add(ModBlocks.MAPLE_LOG.asItem())
+                .add(ModBlocks.FIR_LOG.asItem());
+        // 泥土标签，提供扩散效果
+        getOrCreateTagBuilder(ItemTags.DIRT).add(ModBlocks.FROZEN_DIRT.asItem()).add(ModBlocks.FROST_GRASS_BLOCK.asItem());
     }
 }

@@ -1,6 +1,6 @@
 package com.crystal.bluecore.block.custom;
 
-import com.crystal.bluecore.block.entity.OakChestInventoryBlockEntity;
+import com.crystal.bluecore.block.entity.OakChestBlockEntity;
 import com.crystal.bluecore.registry.ModBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -25,26 +25,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OakChest extends Block implements BlockEntityProvider {
-    // 方向属性：facing
+    // 方向属性：facing，箱子正面始终朝向玩家方向
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    /* 设置碰撞箱和轮廓 */
-    private static final VoxelShape DEFAULT_SHAPE = VoxelShapes.union(
-            VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.625, 0.9375),
-            VoxelShapes.cuboid(0.0625, 0.5625, 0.0625, 0.9375, 0.875, 0.9375),
-            VoxelShapes.cuboid(0.4375, 0.4375, 0, 0.5625, 0.6875, 0.0625).simplify());
-    private static final Map<Direction, VoxelShape> SHAPES = new HashMap<>();
+    /* 设置判定箱 ，添加实际形状，解决方块实心问题（黑色方块） */
+    private static final VoxelShape SHAPE = VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375).simplify();
+    // 设置真实正确方向的形状
+    private static final Map<Direction, VoxelShape> SHAPE_MAP = new HashMap<>();
 
     public OakChest(Settings settings) {
         super(settings);
-        // 默认状态下，箱子面朝向背面
+        // 默认状态下，箱子朝向北面
         setDefaultState(getDefaultState().with(FACING, Direction.NORTH));
-        // 方块旋转时，形状和状态也会发生改变
+        // 当方块朝向方向改变时，判定箱也会发生改变
         for (Direction direction : Direction.values()) {
-            SHAPES.put(direction, calculateShapes(direction, DEFAULT_SHAPE));
+            // 方向 + 判定箱
+            SHAPE_MAP.put(direction, calculateShapes(direction, SHAPE));
         }
     }
 
-    /* 计算形状 */
+    /**
+     * @param direction 方向
+     * @param shape 形状
+     * @return 像素形状
+     */
     private static VoxelShape calculateShapes(Direction direction, VoxelShape shape) {
         final VoxelShape[] buffer = {shape, VoxelShapes.empty()};
 
@@ -60,10 +63,12 @@ public class OakChest extends Block implements BlockEntityProvider {
         return buffer[0];
     }
 
+    // 右键点击打开箱子界面
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
-            if (world.getBlockEntity(pos) instanceof OakChestInventoryBlockEntity inventoryBlockEntity) {
+            if (world.getBlockEntity(pos) instanceof OakChestBlockEntity inventoryBlockEntity) {
+                // 打开页面
                 player.openHandledScreen(inventoryBlockEntity);
             }
         }
@@ -77,7 +82,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     }
 
     /**
-     * <p>方块的旋转方向</p>
+     * <p>实现方块旋转操作</p>
      */
     @Override
     protected BlockState rotate(BlockState state, BlockRotation rotation) {
@@ -85,7 +90,7 @@ public class OakChest extends Block implements BlockEntityProvider {
     }
 
     /**
-     * <p>方块的镜像方向</p>
+     * <p>方块的对称方向</p>
      */
     @Override
     protected BlockState mirror(BlockState state, BlockMirror mirror) {
@@ -93,16 +98,17 @@ public class OakChest extends Block implements BlockEntityProvider {
     }
 
     /**
-     * <p>添加方向属性</p>
+     * <p>添加方块属性</p>
      */
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
+        // 朝向属性
         builder.add(FACING);
+        super.appendProperties(builder);
     }
 
     /**
-     * 将渲染材质（纹理）绑定到方块上（解决方块材质丢失或者为黑紫色方块）
+     * 将渲染材质（纹理）绑定到方块上（解决方块材质丢失，为紫红色方块）
      * @param state 方块状态
      */
     @Override
@@ -112,10 +118,15 @@ public class OakChest extends Block implements BlockEntityProvider {
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        // 解决渲染模型为黑色问题
-        return SHAPES.get(state.get(FACING));
+        // 添加方块可旋转功能
+        return SHAPE_MAP.get(state.get(FACING));
     }
 
+    /**
+     * 根据玩家面向方向，进行方块旋转
+     * @param ctx 物品放置上下文
+     * @return 方块状态
+     */
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

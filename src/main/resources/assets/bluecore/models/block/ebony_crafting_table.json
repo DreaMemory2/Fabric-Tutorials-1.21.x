@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "bluecore:block/ebony_planks",
+    "up": "bluecore:block/ebony_crafting_table_top",
+    "east": "bluecore:block/ebony_crafting_table_side",
+    "north": "bluecore:block/ebony_crafting_table_side",
+    "particle": "bluecore:block/ebony_crafting_table_side",
+    "south": "bluecore:block/ebony_crafting_table_side",
+    "west": "bluecore:block/ebony_crafting_table_side"
+  }
+}

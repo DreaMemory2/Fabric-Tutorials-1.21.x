@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bluecore:block/wall_pink_torch"
+    },
+    "facing=north": {
+      "model": "bluecore:block/wall_pink_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "bluecore:block/wall_pink_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "bluecore:block/wall_pink_torch",
+      "y": 180
+    }
+  }
+}

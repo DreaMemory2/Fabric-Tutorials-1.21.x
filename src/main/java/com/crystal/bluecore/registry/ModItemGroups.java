@@ -2,7 +2,6 @@ package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroup.EntryCollector;
 import net.minecraft.item.ItemStack;
@@ -25,7 +24,7 @@ public class ModItemGroups {
                     .entries(groups()).build());
     public static final ItemGroup BLUE_TUTORIAL_GROUPS = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(BlueCore.MOD_ID, "blue_tutorial_groups"), FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(Blocks.COMMAND_BLOCK.asItem()))
+                    .icon(() -> new ItemStack(ModBlocks.BASIC_FLUID_TANK.asItem()))
                     .displayName(Text.translatable("itemgroup.blue_tutorial_groups"))
                     .entries(tutorial()).build());
 
@@ -40,12 +39,14 @@ public class ModItemGroups {
             // Items
             containers.add(ModItems.RAW_PINK_GEMSTONE);
             containers.add(ModItems.PINK_GEMSTONE);
+            containers.add(ModItems.PINK_TORCH);
             containers.add(ModItems.CHISEL);
             containers.add(ModItems.ONESIES_DISC);
             containers.add(ModItems.OCTOPUS_DISC);
             containers.add(ModItems.BLUEY_THEME_DISC);
             containers.add(ModItems.CAULIFLOWER);
             containers.add(ModItems.STARLIGHT_ASHES);
+            containers.add(ModItems.PINK_SMITHING_TEMPLATE);
 
             containers.add(ModItems.PINK_GEMSTONE_SWORD);
             containers.add(ModItems.PINK_GEMSTONE_PICKAXE);
@@ -53,6 +54,7 @@ public class ModItemGroups {
             containers.add(ModItems.PINK_GEMSTONE_AXE);
             containers.add(ModItems.PINK_GEMSTONE_HOE);
             containers.add(ModItems.PINK_GEMSTONE_HAMMER);
+            containers.add(ModItems.PINK_GEMSTONE_BOW);
 
             containers.add(ModItems.PINK_GEMSTONE_HELMET);
             containers.add(ModItems.PINK_GEMSTONE_CHESTPLATE);
@@ -85,6 +87,38 @@ public class ModItemGroups {
             containers.add(ModBlocks.VERTICAL_EXCAVATION_PROCESSOR);
             containers.add(ModBlocks.OAK_CHEST);
             containers.add(ModBlocks.BASIC_FLUID_TANK);
+            containers.add(ModBlocks.EBONY_CRAFTING_TABLE);
+            containers.add(ModBlocks.CONVERSION_TABLE);
+            // 树木系列
+            containers.add(ModBlocks.MAPLE_LOG);
+            containers.add(ModBlocks.MAPLE_LEAVES);
+            containers.add(ModBlocks.FROZEN_LEAVES);
+            containers.add(ModBlocks.FIR_LOG);
+            containers.add(ModBlocks.FIR_LEAVES);
+            containers.add(ModBlocks.FROZEN_SAPLING);
+            containers.add(ModBlocks.FIR_SAPLING);
+            // 白色系列
+            containers.add(ModBlocks.WHITE_STONE_BRICK);
+            containers.add(ModBlocks.FROZEN_DIRT);
+            containers.add(ModBlocks.FROST_GRASS_BLOCK);
+            containers.add(ModBlocks.FROZEN_STONE);
+            // 晶洞系列
+            containers.add(ModBlocks.FROST_ICE);
+            containers.add(ModBlocks.DENSE_SNOW);
+            containers.add(ModBlocks.BUDDING_FROST);
+            containers.add(ModBlocks.SMALL_FROST_BUD);
+            containers.add(ModBlocks.MEDIUM_FROST_BUD);
+            containers.add(ModBlocks.LARGE_FROST_BUD);
+            containers.add(ModBlocks.FROST_CLUSTER);
+
+            containers.add(ModItems.DIAMOND_SPEAR);
+            containers.add(ModBlocks.MAPLE_SAPLING);
+            containers.add(ModItems.ENTROPY_MANIPULATOR);
+            // 植物
+            containers.add(ModBlocks.FROZEN_ROSE);
+            containers.add(ModBlocks.FROZEN_DANDELION);
+            containers.add(ModBlocks.FROZEN_GRASS);
+            containers.add(ModBlocks.FANBRUSH);
         });
     }
 

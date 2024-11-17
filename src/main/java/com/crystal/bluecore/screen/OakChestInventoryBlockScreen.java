@@ -1,18 +1,18 @@
 package com.crystal.bluecore.screen;
 
 import com.crystal.bluecore.BlueCore;
-import com.crystal.bluecore.screenhandler.OakChestInventoryScreenHandler;
+import com.crystal.bluecore.screenhandler.OakChestScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class OakChestInventoryBlockScreen extends HandledScreen<OakChestInventoryScreenHandler> {
+public class OakChestInventoryBlockScreen extends HandledScreen<OakChestScreenHandler> {
     // 获取GUI纹理
     private static final Identifier TEXTURE = Identifier.of(BlueCore.MOD_ID, "textures/gui/container/oak_chest_inventory_block.png");
 
-    public OakChestInventoryBlockScreen(OakChestInventoryScreenHandler handler, PlayerInventory inventory, Text title) {
+    public OakChestInventoryBlockScreen(OakChestScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.backgroundWidth = 176;
         this.backgroundHeight = 184;

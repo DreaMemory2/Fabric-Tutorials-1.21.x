@@ -7,6 +7,7 @@
   "item.bluecore.bluey_theme_disc": "Music Disc",
   "item.bluecore.cauliflower": "Cauliflower",
   "item.bluecore.starlight_ashes": "Starlight Ashes",
+  "item.bluecore.pink_armor_trim_smithing_template": "Smithing Template",
 
   "item.bluecore.pink_gemstone_sword": "Pink Gemstone Sword",
   "item.bluecore.pink_gemstone_pickaxe": "Pink Gemstone Pickaxe",
@@ -14,12 +15,18 @@
   "item.bluecore.pink_gemstone_axe": "Pink Gemstone Axe",
   "item.bluecore.pink_gemstone_hoe": "Pink Gemstone Hoe",
   "item.bluecore.pink_gemstone_hammer": "Pink Gemstone Hammer",
+  "item.bluecore.pink_gemstone_bow": "Pink Gemstone Bow",
 
   "item.bluecore.pink_gemstone_helmet": "Pink Gemstone Helmet",
   "item.bluecore.pink_gemstone_chestplate": "Pink Gemstone Chestplate",
   "item.bluecore.pink_gemstone_leggings": "Pink Gemstone Legging",
   "item.bluecore.pink_gemstone_boots": "Pink Gemstone Boost",
   "item.bluecore.pink_gemstone_horse_armor": "Pink Gemstone Horse Armor",
+
+  "item.minecraft.potion.effect.slime_potion": "Slime Potion",
+  "item.minecraft.splash_potion.effect.slime_potion": "Slime Splash Potion",
+  "item.minecraft.lingering_potion.effect.slime_potion": "Slime Lingering Potion",
+  "item.minecraft.tipped_arrow.effect.slime_potion": "Arrow of Slime Potion",
 
   "block.bluecore.pink_gemstone_block": "Pink Gemstone Block",
   "block.bluecore.pink_gemstone_ore": "Pink Gemstone Ore",
@@ -41,6 +48,17 @@
   "jukebox_song.bluecore.onesies": "Bluey - Onesies",
   "jukebox_song.bluecore.octopus": "Bluey - Octopus",
   "jukebox_song.bluecore.bluey_theme": "Bluey - Theme Sing",
+  "sounds.bluecore.magic_block_break": "Magic Block broken",
+  "sounds.bluecore.magic_block_step": "Magic Block Footsteps",
+  "sounds.bluecore.magic_block_place": "Magic Block placed",
+  "sounds.bluecore.magic_block_hit": "Magic Block breaking",
+  "sounds.bluecore.magic_block_fall": "Something falls on a block",
+
+  "effect.bluecore.slime": "Slime",
+
+  "painting.bluecore.bluey_bingo.title": "Bluey And Bingo",
+  "painting.bluecore.bluey_bingo.author": "R/Bluey",
+
   "itemgroup.blue_tutorial_groups": "Blue Tutorials",
   "itemgroup.bluecore.blue_core_groups": "Blue Core",
 
@@ -53,8 +71,44 @@
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
   "tooltip.bluecore.cauliflower.tooltip": "This is delicious!",
 
+  "biome.bluecore.coldest_forest": "Coldest Forest",
+  "dimension.bluecore.snowflake_crystal": "Snowflake Crystal",
+
+  "block.bluecore.pink_torch": "Pink Torch",
   "block.bluecore.pig_generator": "Pig Generator",
   "block.bluecore.vertical_excavation_processor": "Vertical Excavation Processor",
   "block.bluecore.oak_chest": "Oak Chest",
-  "block.bluecore.basic_fluid_tank": "Basic Fluid Tank"
+  "block.bluecore.basic_fluid_tank": "Basic Fluid Tank",
+  "block.bluecore.ebony_crafting_table": "Ebony Crafting Table",
+  "block.bluecore.conversion_table": "Conversion Table",
+  "block.bluecore.maple_log": "Maple Log",
+  "block.bluecore.maple_leaves": "Maple Leaves",
+  "block.bluecore.maple_sapling": "Maple Sapling",
+  "block.bluecore.white_stone_bricks": "White Stone Brick",
+  "block.bluecore.frost_ice": "Frost Ice",
+  "block.bluecore.dense_snow": "Dense Snow",
+  "block.bluecore.budding_frost": "Budding Frost",
+  "block.bluecore.small_frost_bud": "Small Frost Bud",
+  "block.bluecore.medium_frost_bud": "Medium Frost Bud",
+  "block.bluecore.large_frost_bud": "Large Frost Bud",
+  "block.bluecore.frost_cluster": "Frost Cluster",
+  "block.bluecore.frost_grass_block": "Frost Grass Block",
+  "block.bluecore.frozen_dirt": "Frozen Dirt",
+  "block.bluecore.frozen_stone": "Frozen Stone",
+  "block.bluecore.frozen_sapling": "Frozen Sapling",
+  "block.bluecore.frozen_leaves": "Frozen Leaves",
+  "block.bluecore.fir_leaves": "Fir Leaves",
+  "block.bluecore.fir_log": "Fir Log",
+  "block.bluecore.fir_sapling": "Fir Sapling",
+  "block.bluecore.frozen_grass": "Frozen Grass",
+  "block.bluecore.frozen_rose": "Frozen Rose",
+  "block.bluecore.frozen_dandelion": "Frozen Dandelion",
+  "block.bluecore.fanbrush": "FanBrush",
+
+
+  "item.bluecore.diamond_spear": "Diamond Spear",
+  "item.bluecore.entropy_manipulator": "Entropy Manipulator",
+
+  "trim_material.bluecore.pink_gemstone": "Pink Gemstone Material",
+  "trim_pattern.bluecore.pink": "Pink Armor Pattern"
 }

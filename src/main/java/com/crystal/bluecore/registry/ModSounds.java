@@ -2,24 +2,32 @@ package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
 import net.minecraft.block.jukebox.JukeboxSong;
-import net.minecraft.block.jukebox.JukeboxSongs;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 
 public class ModSounds {
 
     public static final SoundEvent MUSIC_ONESIES = registerSounds("music_onesies");
     public static final SoundEvent MUSIC_OCTOPUS = registerSounds("music_octopus");
     public static final SoundEvent MUSIC_BLUEY_THEME = registerSounds("music_bluey_theme");
+    /* 创建方块声音 */
+    public static final SoundEvent MAGIC_BLOCK_BREAK = registerSounds("magic_block_break");
+    public static final SoundEvent MAGIC_BLOCK_STEP = registerSounds("magic_block_step");
+    public static final SoundEvent MAGIC_BLOCK_PLACE = registerSounds("magic_block_place");
+    public static final SoundEvent MAGIC_BLOCK_HIT = registerSounds("magic_block_hit");
+    public static final SoundEvent MAGIC_BLOCK_FALL = registerSounds("magic_block_fall");
 
     public static final RegistryKey<JukeboxSong> ONESIES = registerJukeboxSong("onesies");
     public static final RegistryKey<JukeboxSong> OCTOPUS = registerJukeboxSong("octopus");
     public static final RegistryKey<JukeboxSong> BLUEY_THEME = registerJukeboxSong("bluey_theme");
+
+    // 声音组
+    public static final BlockSoundGroup MAGIC_BLOCK_SOUNDS = new BlockSoundGroup(1f, 1f,
+            MAGIC_BLOCK_BREAK, MAGIC_BLOCK_STEP, MAGIC_BLOCK_PLACE, MAGIC_BLOCK_HIT, MAGIC_BLOCK_FALL);
 
     /**
      * 注册物体音效，环境音乐等方法

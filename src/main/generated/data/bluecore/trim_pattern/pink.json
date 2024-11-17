@@ -1,0 +1,8 @@
+{
+  "asset_id": "bluecore:pink",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.bluecore.pink"
+  },
+  "template_item": "bluecore:pink_armor_trim_smithing_template"
+}

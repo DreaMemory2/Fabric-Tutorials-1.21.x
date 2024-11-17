@@ -12,6 +12,11 @@ import net.minecraft.util.math.Direction;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>创建锤子物品</p>
+ * @see <a href=”https://youtu.be/-EuJTKoLzlM?si=cETOwk9ImPBP4S_-“>Custom Hammer Item</a>
+ * @author Modding By Kaupenjoe
+ */
 public class HammerItem extends MiningToolItem {
 
     public HammerItem(ToolMaterial material, Settings settings) {

@@ -24,7 +24,17 @@ import java.util.Map;
 import java.util.Objects;
 
 public class ChiselItem extends Item {
-    // 转变配方
+    /**
+     * <p>自定义配方Map合集</p>
+     * <p>K：需要被转换的方块；V：转换后的方块</p>
+     * <p>例如：</p>
+     * <ul>
+     *     <li>石头(Stone)转换为石砖(Stone Bricks)</li>
+     *     <li>末地石(End Stone)转换为末地石砖(End Stone Bricks)</li>
+     *     <li>下界岩(Netherrack)转换为下界砖块(Nether Bricks)</li>
+     *     <li>粗粉红色宝石块(Raw Pink Gemstone Block)转换为粉红色宝石块(Pink Gemstone Block)</li>
+     * </ul>
+     */
     private static final Map<Block, Block> CHISEL_MAP = Map.of(
             Blocks.STONE, Blocks.STONE_BRICKS,
             Blocks.END_STONE, Blocks.END_STONE_BRICKS,
@@ -38,14 +48,16 @@ public class ChiselItem extends Item {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        // 获取世界信息
+        // 获取世界
         World world = context.getWorld();
-        // 被点击的方块（获取方块状态，方块位置）
+        // 通过目前世界获取方块默认状态，在通过方块默认状态获取方块
+        // 需要被转换的方块
         Block clickBlock = world.getBlockState(context.getBlockPos()).getBlock();
-
+        // 判断是否可以转换
         if (CHISEL_MAP.containsKey(clickBlock)) {
             // 在服务端上，将被点击的方块转换为CHISEL_MAP上的方块
             if (!world.isClient) {
+                // 转换方块
                 world.setBlockState(context.getBlockPos(), CHISEL_MAP.get(clickBlock).getDefaultState());
                 // 配置装备栏，位于主手位置
                 /*
@@ -66,7 +78,7 @@ public class ChiselItem extends Item {
     }
 
     /**
-     * 获取使用方式
+     * 更改使用方式
      * @param stack 物品栏中的物品
      * @return 更改使用方式
      */
@@ -85,7 +97,7 @@ public class ChiselItem extends Item {
         }
 
         if (stack.get(ModDataComponentTypes.COORDINATES) != null) {
-            // 添加组件文本信息（最后一个方块更改位置）
+            // 添加组件文本信息（显示点击方块的位置信息）
             tooltip.add(Text.literal("Last Block Changed at " + stack.get(ModDataComponentTypes.COORDINATES)));
         }
         super.appendTooltip(stack, context, tooltip, type);

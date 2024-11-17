@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bluecore:block/frost_grass_block"
+      },
+      {
+        "model": "bluecore:block/frost_grass_block",
+        "y": 90
+      },
+      {
+        "model": "bluecore:block/frost_grass_block",
+        "y": 180
+      },
+      {
+        "model": "bluecore:block/frost_grass_block",
+        "y": 270
+      }
+    ]
+  }
+}

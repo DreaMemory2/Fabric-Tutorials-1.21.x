@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "minecraft:stone_bricks"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BWB",
+    "BBB"
+  ],
+  "result": {
+    "count": 8,
+    "id": "bluecore:white_stone_bricks"
+  }
+}
