@@ -61,7 +61,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "BlueCore-1.21.1-1.0.0"}
+		rename { "BlueCore-1.21.1-${project.mod_version}"}
 	}
 }
 
