@@ -8,7 +8,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
@@ -16,10 +15,9 @@ import net.minecraft.world.dimension.DimensionTypes;
 import java.util.OptionalLong;
 
 public class ModDimensions {
-    public static final RegistryKey<World> SNOWFLAKE_CRYSTAL_WORLD = RegistryKey.of(RegistryKeys.WORLD,
-            Identifier.of(BlueCore.MOD_ID, "snowflake_crystal"));
     // 雪花晶体维度
-    public static final RegistryKey<DimensionOptions> SNOWFLAKE_CRYSTAL = RegistryKeys.toDimensionKey(SNOWFLAKE_CRYSTAL_WORLD);
+    public static final RegistryKey<DimensionOptions> SNOWFLAKE_CRYSTAL = RegistryKey.of(RegistryKeys.DIMENSION,
+            Identifier.of(BlueCore.MOD_ID, "snowflake_crystal"));
     // 雪花晶体维度类型
     public static final RegistryKey<DimensionType> SNOWFLAKE_CRYSTAL_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
             Identifier.of(BlueCore.MOD_ID, "snowflake_crystal_type"));
@@ -29,7 +27,6 @@ public class ModDimensions {
     }
 
     public static void bootstrapDimension(Registerable<DimensionOptions> context) {
-        // this.overworldDimensionType = registryEntryLookup.getOrThrow(DimensionTypes.OVERWORLD);
         context.register(SNOWFLAKE_CRYSTAL, SnowflakeCrystalDimension.snowflakeCrystalDimension(context));
     }
 
@@ -69,7 +66,7 @@ public class ModDimensions {
     private static DimensionType snowflakeCrystal() {
         DimensionType.MonsterSettings type = new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0);
         return new DimensionType(OptionalLong.empty(),
-                true, false, false, true, 1.0, true, false, 0, 256, 256,
+                true, false, false, true, 1.0, true, false, -64, 256, 256,
                 BlockTags.INFINIBURN_OVERWORLD, DimensionTypes.OVERWORLD_ID, 0.0f, type);
     }
 }

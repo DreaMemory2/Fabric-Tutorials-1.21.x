@@ -2,7 +2,7 @@
   "type": "bluecore:snowflake_crystal_type",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:overworld",
+    "settings": "bluecore:snowflake_crystal",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [

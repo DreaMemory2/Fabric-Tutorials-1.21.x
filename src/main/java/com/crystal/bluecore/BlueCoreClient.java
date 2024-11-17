@@ -61,5 +61,15 @@ public class BlueCoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MEDIUM_FROST_BUD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_FROST_BUD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FROST_CLUSTER, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                ModBlocks.FROZEN_GRASS,
+                ModBlocks.FROZEN_ROSE,
+                ModBlocks.FANBRUSH,
+                ModBlocks.FIR_LEAVES,
+                ModBlocks.FIR_SAPLING,
+                ModBlocks.FROZEN_SAPLING,
+                ModBlocks.FROZEN_LEAVES,
+                ModBlocks.FROZEN_DANDELION);
     }
 }

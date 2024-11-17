@@ -1,5 +1,6 @@
 package com.crystal.bluecore.world.biome;
 
+import com.crystal.bluecore.registry.worldgen.ModPlacedFeatures;
 import com.crystal.bluecore.world.biome.feature.ModBiomeFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKeys;
@@ -7,6 +8,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep.Feature;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 public class ColdestForestBiome {
@@ -40,7 +42,7 @@ public class ColdestForestBiome {
         // 生成可驯养的动物
         /* DefaultBiomeFeatures.addFarmAnimals(spawnSettings); */
         // 生成蝙蝠和敌对生物（例如：僵尸和小白）
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+        /* DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings); */
         /* 生成地物和雕刻器 */
         // 生成世界的地形，提供放置地物PlacedFeatures和配置地物ConfiguredCarver
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(
@@ -65,6 +67,12 @@ public class ColdestForestBiome {
         /* DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);*/
         // 生成植被（比如甘泽和南瓜）
         /* DefaultBiomeFeatures.addDefaultVegetation(generationSettings);*/
+        // 生成树木植被
+        generationSettings.feature(Feature.VEGETAL_DECORATION, ModPlacedFeatures.FROZEN_FIR);
+        // 添加植被斑块
+        generationSettings.feature(Feature.VEGETAL_DECORATION, ModPlacedFeatures.PATCH_FROZEN_GRASS);
+        generationSettings.feature(Feature.VEGETAL_DECORATION, ModPlacedFeatures.PATCH_FANBRUSH);
+        generationSettings.feature(Feature.VEGETAL_DECORATION, ModPlacedFeatures.FROZEN_FLOWER_DEFAULT);
         BiomeEffects.Builder builder = new BiomeEffects.Builder();
         // 天空颜色、雾气颜色、水体颜色、水雾颜色
         builder.skyColor(0xA1B4E8)

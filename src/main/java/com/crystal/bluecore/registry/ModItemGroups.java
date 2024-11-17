@@ -89,8 +89,15 @@ public class ModItemGroups {
             containers.add(ModBlocks.BASIC_FLUID_TANK);
             containers.add(ModBlocks.EBONY_CRAFTING_TABLE);
             containers.add(ModBlocks.CONVERSION_TABLE);
+            // 树木系列
             containers.add(ModBlocks.MAPLE_LOG);
             containers.add(ModBlocks.MAPLE_LEAVES);
+            containers.add(ModBlocks.FROZEN_LEAVES);
+            containers.add(ModBlocks.FIR_LOG);
+            containers.add(ModBlocks.FIR_LEAVES);
+            containers.add(ModBlocks.FROZEN_SAPLING);
+            containers.add(ModBlocks.FIR_SAPLING);
+            // 白色系列
             containers.add(ModBlocks.WHITE_STONE_BRICK);
             containers.add(ModBlocks.FROZEN_DIRT);
             containers.add(ModBlocks.FROST_GRASS_BLOCK);
@@ -107,6 +114,11 @@ public class ModItemGroups {
             containers.add(ModItems.DIAMOND_SPEAR);
             containers.add(ModBlocks.MAPLE_SAPLING);
             containers.add(ModItems.ENTROPY_MANIPULATOR);
+            // 植物
+            containers.add(ModBlocks.FROZEN_ROSE);
+            containers.add(ModBlocks.FROZEN_DANDELION);
+            containers.add(ModBlocks.FROZEN_GRASS);
+            containers.add(ModBlocks.FANBRUSH);
         });
     }
 

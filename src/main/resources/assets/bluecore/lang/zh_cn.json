@@ -55,7 +55,7 @@
   "sounds.bluecore.magic_block_step": "在魔法方块上的脚步声",
   "sounds.bluecore.magic_block_place": "魔法方块：被放置",
   "sounds.bluecore.magic_block_hit": "魔法方块：损坏中",
-  "sounds.bluecore.magic_block_fall": "Something falls on a block",
+  "sounds.bluecore.magic_block_fall": "某物：摔落到方块上",
 
   "effect.bluecore.slime": "粘稠",
 
@@ -92,6 +92,15 @@
   "block.bluecore.frost_grass_block": "寒霜草方块",
   "block.bluecore.frozen_dirt": "寒霜冻土",
   "block.bluecore.frozen_stone": "寒霜冻石",
+  "block.bluecore.frozen_sapling": "冰霜树苗",
+  "block.bluecore.frozen_leaves": "冰霜树叶",
+  "block.bluecore.fir_leaves": "冷杉树叶",
+  "block.bluecore.fir_log": "冷杉原木",
+  "block.bluecore.fir_sapling": "冷杉树苗",
+  "block.bluecore.frozen_grass": "霜冻草",
+  "block.bluecore.frozen_rose": "冰冻玫瑰",
+  "block.bluecore.frozen_dandelion": "冰冻蒲公英",
+  "block.bluecore.fanbrush": "法尔兰",
 
   "item.bluecore.diamond_spear": "钻石矛",
   "item.bluecore.entropy_manipulator": "熵变机械臂",

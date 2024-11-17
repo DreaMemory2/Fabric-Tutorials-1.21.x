@@ -39,8 +39,18 @@ public class ModBlockTagProvider extends BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE).add(ModBlocks.OAK_CHEST);
         getOrCreateTagBuilder(BlockTags.FEATURES_CANNOT_REPLACE).add(ModBlocks.OAK_CHEST);
         // 原木和树叶标签，防止树叶腐烂作用
-        getOrCreateTagBuilder(BlockTags.LEAVES).add(ModBlocks.MAPLE_LEAVES);
-        getOrCreateTagBuilder(BlockTags.LOGS).add(ModBlocks.MAPLE_LOG);
+        getOrCreateTagBuilder(BlockTags.LEAVES)
+                .add(ModBlocks.MAPLE_LEAVES)
+                .add(ModBlocks.FIR_LEAVES)
+                .add(ModBlocks.FROZEN_LEAVES);
+        getOrCreateTagBuilder(BlockTags.LOGS)
+                .add(ModBlocks.MAPLE_LOG)
+                .add(ModBlocks.FIR_LOG);
+        // 树苗标签
+        getOrCreateTagBuilder(BlockTags.SAPLINGS)
+                .add(ModBlocks.MAPLE_SAPLING)
+                .add(ModBlocks.FIR_SAPLING)
+                .add(ModBlocks.FROZEN_SAPLING);
         // 添加泥土标签
         getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.FROST_GRASS_BLOCK).add(ModBlocks.FROZEN_DIRT);
     }

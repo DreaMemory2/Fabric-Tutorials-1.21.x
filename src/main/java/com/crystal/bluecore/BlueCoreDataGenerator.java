@@ -9,6 +9,7 @@ import com.crystal.bluecore.registry.worldgen.ModConfiguredFeatures;
 import com.crystal.bluecore.registry.worldgen.ModPlacedFeatures;
 import com.crystal.bluecore.trim.ModTrimMaterials;
 import com.crystal.bluecore.trim.ModTrimPatterns;
+import com.crystal.bluecore.world.gen.chunk.ModChunkGeneratorSettings;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -47,5 +48,7 @@ public class BlueCoreDataGenerator implements DataGeneratorEntrypoint {
 		// 自定义维度
 		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.DIMENSION, ModDimensions::bootstrapDimension);
+		// 自定义噪声设置
+		registryBuilder.addRegistry(RegistryKeys.CHUNK_GENERATOR_SETTINGS, ModChunkGeneratorSettings::bootstrap);
 	}
 }

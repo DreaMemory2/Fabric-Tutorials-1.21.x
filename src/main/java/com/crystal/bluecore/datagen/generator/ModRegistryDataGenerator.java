@@ -25,7 +25,10 @@ public class ModRegistryDataGenerator extends FabricDynamicRegistryProvider {
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.BIOME));
         // 数据生成维度类型
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.DIMENSION_TYPE));
+        // 自定义噪音设置
+        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.CHUNK_GENERATOR_SETTINGS));
         // 异常： Registry minecraft:dimension is not loaded from datapacks
+        // RegistryEntries<?> regEntries = queuedEntries.get(key.getRegistry());  // regEntries = null
         // entries.addAll(registries.getWrapperOrThrow(RegistryKeys.DIMENSION));
     }
 

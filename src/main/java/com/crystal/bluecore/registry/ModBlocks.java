@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -56,6 +57,12 @@ public class ModBlocks {
     public static final Block MAPLE_LOG = registerModBlocks("maple_log", new PillarBlock(Settings.copy(Blocks.OAK_LOG)));
     public static final Block MAPLE_LEAVES = registerModBlocks("maple_leaves", new LeavesBlock(Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block MAPLE_SAPLING = registerModBlocks("maple_sapling", new SaplingBlock(ModSaplingGenerator.MAPLE, Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block FROZEN_LEAVES = registerModBlocks("frozen_leaves", new PillarBlock(Settings.copy(Blocks.OAK_LEAVES)));
+    public static final Block FIR_LEAVES = registerModBlocks("fir_leaves", new LeavesBlock(Settings.copy(Blocks.SPRUCE_LEAVES)));
+    public static final Block FIR_LOG = registerModBlocks("fir_log", new PillarBlock(Settings.copy(Blocks.SPRUCE_LOG)));
+    public static final Block FROZEN_SAPLING = registerModBlocks("frozen_sapling", new SaplingBlock(ModSaplingGenerator.FROZEN, Settings.copy(Blocks.SPRUCE_SAPLING)));
+    public static final Block FIR_SAPLING = registerModBlocks("fir_sapling", new SaplingBlock(ModSaplingGenerator.FIR, Settings.copy(Blocks.OAK_SAPLING)));
+    // 粉红色红石灯
     public static final Block PINK_GEMSTONE_LAMP = registerModBlocks("pink_gemstone_lamp",
             new PinkGemStoneLamp(Settings.copy(Blocks.REDSTONE_LAMP)
                     // 设置粉色宝石灯的亮度（当粉色宝石灯被点击时），最大为15，最小为0
@@ -78,6 +85,11 @@ public class ModBlocks {
     public static final Block MEDIUM_FROST_BUD = registerModBlocks("medium_frost_bud", new FrostClusterBlock(4.0F, 3.0F, Settings.copy(Blocks.MEDIUM_AMETHYST_BUD)));
     public static final Block LARGE_FROST_BUD = registerModBlocks("large_frost_bud", new FrostClusterBlock(5.0F, 3.0F, Settings.copy(Blocks.LARGE_AMETHYST_BUD)));
     public static final Block FROST_CLUSTER = registerModBlocks("frost_cluster", new FrostClusterBlock(7.0F, 3.0F, Settings.copy(Blocks.AMETHYST_CLUSTER)));
+    // 植物
+    public static final Block FROZEN_ROSE = registerModBlocks("frozen_rose", new FlowerBlock(StatusEffects.NIGHT_VISION, 5.0F,  Settings.copy(Blocks.POPPY)));
+    public static final Block FROZEN_DANDELION = registerModBlocks("frozen_dandelion", new FlowerBlock(StatusEffects.SATURATION, 0.35F, Settings.copy(Blocks.DANDELION)));
+    public static final Block FROZEN_GRASS = registerModBlocks("frozen_grass", new ShortPlantBlock(Settings.copy(Blocks.SHORT_GRASS)));
+    public static final Block FANBRUSH = registerModBlocks("fanbrush", new ShortPlantBlock(Settings.copy(Blocks.FERN)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
