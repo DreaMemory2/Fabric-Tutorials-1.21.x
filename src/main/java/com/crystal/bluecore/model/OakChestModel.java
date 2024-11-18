@@ -3,9 +3,7 @@ package com.crystal.bluecore.model;
 import com.crystal.bluecore.BlueCore;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class OakChestModel extends Model {
@@ -18,7 +16,7 @@ public class OakChestModel extends Model {
 
 	public OakChestModel(ModelPart root) {
 		// 渲染图层
-		super(RenderLayer::getEntitySolid);
+		super(root, RenderLayer::getEntitySolid);
 		this.main = root.getChild("main");
 		this.lid = this.main.getChild("lid");
 	}
@@ -42,18 +40,6 @@ public class OakChestModel extends Model {
 						new Dilation(0.0F)),
 				ModelTransform.pivot(0.0F, 4.0F, 7.0F));
 		return TexturedModelData.of(modelData, 64, 64);
-	}
-
-	/**
-	 * @param matrices 矩阵
-	 * @param vertexConsumer 顶点
-	 * @param light the lightmap coordinates used for this model rendering
-	 * @param overlay 图层
-	 * @param color 颜色
-	 */
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-		main.render(matrices, vertexConsumer, light, overlay, color);
 	}
 
 	/**

@@ -7,7 +7,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class OakChest extends Block implements BlockEntityProvider {
     // 方向属性：facing，箱子正面始终朝向玩家方向
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     /* 设置判定箱 ，添加实际形状，解决方块实心问题（黑色方块） */
     private static final VoxelShape SHAPE = VoxelShapes.cuboid(0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375).simplify();
     // 设置真实正确方向的形状
@@ -72,7 +72,7 @@ public class OakChest extends Block implements BlockEntityProvider {
                 player.openHandledScreen(inventoryBlockEntity);
             }
         }
-        return ActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Nullable

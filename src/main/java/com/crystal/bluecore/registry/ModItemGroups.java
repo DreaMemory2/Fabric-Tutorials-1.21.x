@@ -39,7 +39,7 @@ public class ModItemGroups {
             // Items
             containers.add(ModItems.RAW_PINK_GEMSTONE);
             containers.add(ModItems.PINK_GEMSTONE);
-            containers.add(ModItems.PINK_TORCH);
+            // containers.add(ModItems.PINK_TORCH);
             containers.add(ModItems.CHISEL);
             containers.add(ModItems.ONESIES_DISC);
             containers.add(ModItems.OCTOPUS_DISC);

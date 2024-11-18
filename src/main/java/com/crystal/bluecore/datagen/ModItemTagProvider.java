@@ -38,6 +38,9 @@ public class ModItemTagProvider extends ItemTagProvider {
                 .add(ModItems.PINK_GEMSTONE_CHESTPLATE)
                 .add(ModItems.PINK_GEMSTONE_LEGGING)
                 .add(ModItems.PINK_GEMSTONE_BOOST);
+        // 工具维修物品标签
+        getOrCreateTagBuilder(ModTags.Items.PINK_GEMSTONE_REPAIR)
+                .add(ModItems.PINK_GEMSTONE);
         // 添加盔甲纹饰模板
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(ModItems.PINK_GEMSTONE);
         getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES).add(ModItems.PINK_SMITHING_TEMPLATE);

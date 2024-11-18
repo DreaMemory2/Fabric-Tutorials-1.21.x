@@ -19,8 +19,16 @@ import java.util.List;
  */
 public class HammerItem extends MiningToolItem {
 
-    public HammerItem(ToolMaterial material, Settings settings) {
-        super(material, BlockTags.PICKAXE_MINEABLE, settings);
+    /**
+     * 游戏版本：1.21.3
+     * @param material 工具材料
+     * @param attackDamage 攻击伤害
+     * @param attackSpeed 攻击速度
+     * @param settings 物品设置
+     * @since 1.0.2
+     */
+    public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+        super(material, BlockTags.PICKAXE_MINEABLE, attackDamage, attackSpeed, settings);
     }
 
     /**

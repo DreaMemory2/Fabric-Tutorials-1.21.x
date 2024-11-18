@@ -13,7 +13,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.minecraft.item.Items;
@@ -73,14 +73,14 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ModBiomes.registerBiomeInfo();
 		ModBiomeModifications.registerBiomeInfo();
 		// 传送门登记处
-		ModCustomPortal.registerPortal();
+		// ModCustomPortal.registerPortal();
 		// 效果初始化
 		ModEffects.registerEffectsInfo();
 		// 药水初始化
 		ModPotions.registerPotionInfo();
 
-		// 注册物品燃料（物品，燃烧时间）
-		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
+		// 注册物品燃料（物品，燃烧时间），游戏版本：1.21.3
+		FuelRegistryEvents.BUILD.register(((builder, context) -> builder.add(ModItems.STARLIGHT_ASHES, 600)));
 		// 注册方块实体的存储系统
 		ItemStorage.SIDED.registerForBlockEntity(OakChestBlockEntity::getInventoryProvider, ModBlockEntities.OAK_CHEST_BLOCK_ENTITY);
 		ItemStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getInventoryProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);

@@ -52,7 +52,7 @@ public class BasicFluidTank extends Block implements BlockEntityProvider {
                 player.openHandledScreen(fluidTank);
             }
         }
-        return ActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Nullable

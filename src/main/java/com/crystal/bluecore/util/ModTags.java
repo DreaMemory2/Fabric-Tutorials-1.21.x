@@ -21,6 +21,7 @@ public class ModTags {
     public static class Items {
         public static final TagKey<Item> GEMSTONE_ITEM = createItemTags("gemstone_item");
         public static final TagKey<Item> HAMMER = createItemTags("hammer");
+        public static final TagKey<Item> PINK_GEMSTONE_REPAIR = createItemTags("pink_gemstone_repair");
 
         private static TagKey<Item> createItemTags(String name) {
             // 注册物品标签

@@ -54,7 +54,7 @@ public class PigGenerator extends Block implements BlockEntityProvider {
             }
         }
         // 只要服务器获取记数，则客户端才能完成挥手动作
-        return ActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Nullable

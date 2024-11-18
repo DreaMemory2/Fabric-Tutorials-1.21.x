@@ -8,15 +8,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.*;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -111,15 +108,10 @@ public class EntropyManipulatorItem extends Item {
         List<ItemStack> outItems = new ArrayList<>();
 
         for (ItemStack in : drops) {
-            SingleStackRecipeInput tempInv = new SingleStackRecipeInput(in);
-            var optional = level.getRecipeManager().getFirstMatch(RecipeType.SMELTING, tempInv, level);
 
-            if (optional.isEmpty()) return false;
+            if (in.getItem() instanceof BlockItem) {
 
-            ItemStack result = optional.get().value().craft(tempInv, level.getRegistryManager());
-
-            if (result.getItem() instanceof BlockItem) {
-                Block candidate = Block.getBlockFromItem(result.getItem());
+                Block candidate = Block.getBlockFromItem(in.getItem());
 
                 if (candidate == state.getBlock()) continue;
 
@@ -128,7 +120,7 @@ public class EntropyManipulatorItem extends Item {
                     continue;
                 }
             }
-            outItems.add(result);
+            outItems.add(in);
         }
         if (outBlock == null && outItems.isEmpty()) {
             return false;
@@ -160,15 +152,15 @@ public class EntropyManipulatorItem extends Item {
 
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public ActionResult use(World world, PlayerEntity player, Hand hand) {
         BlockHitResult result = raycast(world, player, RaycastContext.FluidHandling.ANY);
         if (result.getType() != HitResult.Type.BLOCK)
-            return new TypedActionResult<>(ActionResult.FAIL, player.getStackInHand(hand));
+            return new ActionResult.Fail();
         BlockPos pos = result.getBlockPos();
         BlockState state = world.getBlockState(pos);
         if (!state.getFluidState().isEmpty())
             useOnBlock(new ItemUsageContext(player, hand, result));
-        return new TypedActionResult<>(ActionResult.success(world.isClient), player.getStackInHand(hand));
+        return new ActionResult.Success(ActionResult.SwingSource.CLIENT, new ActionResult.ItemContext(false, player.getStackInHand(hand)));
     }
 
     private void setPower(ItemStack stack, int power) {

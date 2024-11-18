@@ -10,8 +10,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootWorldContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
@@ -108,7 +108,7 @@ public class VerticalExcavationProcessorBlockEntity extends BlockEntity implemen
             // 获取掉落物方块列表
             List<ItemStack> drops = new ArrayList<>(state.getDroppedStacks(
                     // 构建一个战利品上下文参数列表，获取两个重要参数，一个是用工具挖掘的方块，一个是在原始位置采集方块
-                    new LootContextParameterSet.Builder((ServerWorld) this.world)
+                    new LootWorldContext.Builder((ServerWorld) this.world)
                             // 给予一个类似钻石镐的挖掘方块效果
                             .add(LootContextParameters.TOOL, Items.DIAMOND_PICKAXE.getDefaultStack())
                             // 提供挖掘方块的原始位置

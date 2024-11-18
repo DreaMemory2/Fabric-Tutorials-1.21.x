@@ -20,7 +20,7 @@ public class BasicFluidTankScreen extends HandledScreen<BasicFluidTankScreenHand
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         // 绘画
-        context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        // context.drawTexture(context, Identifier.of(""), this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, 0, 0, 0xFFFFF);
 
         // TODO: Draw fluid tank
     }

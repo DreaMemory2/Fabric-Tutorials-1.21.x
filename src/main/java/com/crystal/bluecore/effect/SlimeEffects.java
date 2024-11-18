@@ -3,6 +3,7 @@ package com.crystal.bluecore.effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
 /**
@@ -23,7 +24,7 @@ public class SlimeEffects extends StatusEffect {
      * @return 是否应用效果
      */
     @Override
-    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
         // 如果实体有水平碰撞，如果真，则玩家正在与墙面相碰
         if (entity.horizontalCollision) {
             // 获取玩家初速度
@@ -34,7 +35,7 @@ public class SlimeEffects extends StatusEffect {
             entity.setVelocity(climbVec.multiply(0.96D));
             return true;
         }
-        return super.applyUpdateEffect(entity, amplifier);
+        return super.applyUpdateEffect(world, entity, amplifier);
     }
 
     /**

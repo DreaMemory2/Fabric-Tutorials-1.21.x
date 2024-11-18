@@ -21,8 +21,8 @@ public class AttackEntityEvent implements AttackEntityCallback {
         if (entity instanceof SheepEntity sheep && !world.isClient()) {
             // 绵羊被攻击，且玩家主手有剪刀
             if (player.getMainHandStack().getItem() == Items.SHEARS) {
-                player.sendMessage(Text.literal("The Player just hit a sheep with an END ROD! YOU SICK FRICK!"));
-                player.sendMessage(Text.literal("请你右键使用剪刀！"));
+                player.sendMessage(Text.literal("The Player just hit a sheep with an END ROD! YOU SICK FRICK!"), false);
+                player.sendMessage(Text.literal("请你右键使用剪刀！"), false);
                 // 剪刀耐久减一
                 player.getMainHandStack().decrement(1);
                 // 并且绵羊有“中毒”效果

@@ -7,7 +7,8 @@ import com.crystal.bluecore.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.equipment.EquipmentModel;
 import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -96,10 +97,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HAMMER, Models.HANDHELD);
         // 装备和马铠模型
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_LEGGING));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_BOOST));
+        // 游戏版本：1.21.3注册方式
+        itemModelGenerator.registerArmor(ModItems.PINK_GEMSTONE_HELMET, BlueCore.of("pink_gemstone"),
+                EquipmentModel.builder().addHumanoidLayers(BlueCore.of("pink_gemstone")).build(), EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(ModItems.PINK_GEMSTONE_CHESTPLATE, BlueCore.of("pink_gemstone"),
+                EquipmentModel.builder().addHumanoidLayers(BlueCore.of("pink_gemstone")).build(), EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(ModItems.PINK_GEMSTONE_LEGGING, BlueCore.of("pink_gemstone"),
+                EquipmentModel.builder().addHumanoidLayers(BlueCore.of("pink_gemstone")).build(), EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(ModItems.PINK_GEMSTONE_BOOST, BlueCore.of("pink_gemstone"),
+                EquipmentModel.builder().addHumanoidLayers(BlueCore.of("pink_gemstone")).build(), EquipmentSlot.HEAD);
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HORSE_ARMOR, Models.GENERATED);
     }
 

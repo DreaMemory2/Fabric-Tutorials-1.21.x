@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bluecore:pink"
+        "recipe": "minecraft:pink_armor_trim_smithing_template.smithing_trim"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bluecore:pink"
+      "minecraft:pink_armor_trim_smithing_template.smithing_trim"
     ]
   }
 }

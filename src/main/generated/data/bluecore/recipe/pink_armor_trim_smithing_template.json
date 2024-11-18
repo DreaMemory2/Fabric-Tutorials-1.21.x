@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "B": {
-      "item": "bluecore:pink_gemstone_block"
-    },
-    "D": {
-      "item": "minecraft:diamond"
-    },
-    "P": {
-      "item": "bluecore:pink_armor_trim_smithing_template"
-    }
+    "B": "bluecore:pink_gemstone_block",
+    "D": "minecraft:diamond",
+    "P": "bluecore:pink_armor_trim_smithing_template"
   },
   "pattern": [
     "DPD",

@@ -22,7 +22,7 @@ public class OakChestInventoryBlockScreen extends HandledScreen<OakChestScreenHa
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         // 绘画GUI材质
-        context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        // context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
     }
 
     @Override

@@ -11,7 +11,7 @@ public class ModPotions {
 
     public static final RegistryEntry<Potion> SLIME_POTION = registerPotions("slime_potion",
             // 饮用后的效果：粘稠，时间1200游戏刻，等级为I
-            new Potion(new StatusEffectInstance(ModEffects.SLIME, 1200, 0)));
+            new Potion("slime_potion", new StatusEffectInstance(ModEffects.SLIME, 1200, 0)));
 
     /**
      * 用于注册药水的方法

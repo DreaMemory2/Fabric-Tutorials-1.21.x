@@ -14,7 +14,7 @@ public class ModEffects {
 
     public static final RegistryEntry<StatusEffect> SLIME = registerEffects("slime", new SlimeEffects(StatusEffectCategory.NEUTRAL, 0x36EBAB)
             // 影响实体的移动速度，添加粘稠效果，并玩家速度降低25%，最后数值相乘在求和
-            .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, BlueCore.of("slime"), -0.25F, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+            .addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, BlueCore.of("slime"), -0.25F, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     /**
      * <p>注册效果</p>

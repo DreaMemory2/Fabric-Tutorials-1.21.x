@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "bluecore:pink_gemstone"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "bluecore:pink_gemstone"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "bluecore:pink_gemstone"
+      }
+    ]
+  }
+}

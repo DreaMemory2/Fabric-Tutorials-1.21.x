@@ -37,9 +37,9 @@ public class VerticalExcavationProcessor extends Block implements BlockEntityPro
         if (!world.isClient) {
             if (world.getBlockEntity(pos) instanceof VerticalExcavationProcessorBlockEntity blockEntity)
                 // 发送一个消息说明正在向下挖掘方块
-                player.sendMessage(Text.of("Mining at: " + blockEntity.getMiningPos().toString()));
+                player.sendMessage(Text.of("Mining at: " + blockEntity.getMiningPos().toString()), false);
         }
-        return ActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Nullable

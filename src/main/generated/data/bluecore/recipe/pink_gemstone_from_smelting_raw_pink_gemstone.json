@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 0.25,
   "group": "pink_gemstone_smelting",
-  "ingredient": {
-    "item": "bluecore:raw_pink_gemstone"
-  },
+  "ingredient": "bluecore:raw_pink_gemstone",
   "result": {
     "id": "bluecore:pink_gemstone"
   }

@@ -1,76 +1,25 @@
 package com.crystal.bluecore.item;
 
-import com.crystal.bluecore.registry.ModItems;
 import com.crystal.bluecore.util.ModTags;
-import com.google.common.base.Suppliers;
-import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.tag.TagKey;
 
-import java.util.function.Supplier;
-
-// 工具与武器
-public enum ModToolMaterials implements ToolMaterial {
-    PINK_GEMSTONE(ModTags.Blocks.INCORRECT_FOR_PINK_GEMSTONE_TOOL, 1200, 5.0F, 4.0F, 22, () -> Ingredient.ofItems(ModItems.PINK_GEMSTONE));;
-
-    // 反向标签
-    private final TagKey<Block> inverseTag;
-    // 物品的耐久值
-    private final int itemDurability;
-    // 最小攻击速度
-    private final float miningSpeed;
-    // 攻击伤害
-    private final float attackDamage;
-    // 附魔能力
-    private final int enchantability;
-    // 维修物品
-    private final Supplier<Ingredient> repairIngredient;
-
+/**
+ * <p>1.21.3：自定义工具</p>
+ * @author <a href="https://www.youtube.com/@ModdingByKaupenjoe">Modding By Kaupenjoe</a>
+ * @see <a href="https://youtu.be/W_8RNYYv5IE?si=THLVmcJLVLZxNRiv">自定义工具</a><br>
+ * <a href="https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X/blob/29-update-1-21-3/src/main/java/net/kaupenjoe/tutorialmod/item/ModToolMaterials.java">ModToolMaterials</a>
+ */
+public class ModToolMaterials {
     /**
-     * @param inverseTag 反向标签
-     * @param itemDurability 物品的耐久值
-     * @param miningSpeed 最小攻击速度
-     * @param attackDamage 攻击伤害
-     * @param enchantability 附魔能力
-     * @param repairIngredient 维修物品
+     * 游戏版本1.21.3：自定义工具
+     * @since 1.21.3-1.0.2
      */
-    ModToolMaterials(final TagKey<Block> inverseTag, final int itemDurability, final float miningSpeed, final float attackDamage, final int enchantability, final Supplier<Ingredient> repairIngredient){
-        this.inverseTag = inverseTag;
-        this.itemDurability = itemDurability;
-        this.miningSpeed = miningSpeed;
-        this.attackDamage = attackDamage;
-        this.enchantability = enchantability;
-        this.repairIngredient = Suppliers.memoize(repairIngredient::get);
-    }
-
-    @Override
-    public int getDurability() {
-        return this.itemDurability;
-    }
-
-    @Override
-    public float getMiningSpeedMultiplier() {
-        return this.miningSpeed;
-    }
-
-    @Override
-    public float getAttackDamage() {
-        return this.attackDamage;
-    }
-
-    @Override
-    public TagKey<Block> getInverseTag() {
-        return this.inverseTag;
-    }
-
-    @Override
-    public int getEnchantability() {
-        return this.enchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
-    }
+    public static final ToolMaterial PINK_GEMSTONE = new ToolMaterial(
+            ModTags.Blocks.NEEDS_PINK_GEMSTONE, // 需要使用粉红色工具挖掘方块标签
+            1500, // durability：工具使用耐久
+            7.0f, // speed：工具使用速度
+            2.0f, // attackDamageBonus：工具伤害加成
+            22, //enchantmentValue：附魔能力值
+            ModTags.Items.PINK_GEMSTONE_REPAIR // 需要修理粉红色工具的物品标签
+    );
 }

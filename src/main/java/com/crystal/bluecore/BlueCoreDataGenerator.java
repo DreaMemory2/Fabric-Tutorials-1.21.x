@@ -1,7 +1,6 @@
 package com.crystal.bluecore;
 
 import com.crystal.bluecore.datagen.*;
-import com.crystal.bluecore.datagen.generator.ModRegistryDataGenerator;
 import com.crystal.bluecore.registry.ModBiomes;
 import com.crystal.bluecore.registry.ModDimensions;
 import com.crystal.bluecore.registry.ModSounds;

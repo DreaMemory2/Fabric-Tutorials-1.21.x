@@ -48,8 +48,8 @@ public class FrostGrassBlock extends Block {
             return false;
         } else {
             // 获取区块亮度等级，如果区块小于最大亮度等级，则返回true
-            int i = ChunkLightProvider.getRealisticOpacity(world, state, pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
-            return i < world.getMaxLightLevel();
+            int i = ChunkLightProvider.getRealisticOpacity(state, blockState, Direction.UP, blockState.getOpacity());
+            return i < 15;
         }
     }
 

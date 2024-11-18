@@ -1,14 +1,16 @@
 package com.crystal.bluecore.item;
 
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -21,23 +23,23 @@ import java.util.Map;
  */
 public class ModArmorItem extends ArmorItem {
     // 药水效果的Map集合
-    private static final Map<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>>())
+    private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
+            (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.PINK_GEMSTONE_ARMOR,
                             // 急迫III，持续时间：400刻(00:20)；跳跃提升II，持续时间：400刻(00:20)
                             List.of(new StatusEffectInstance(StatusEffects.HASTE, 400, 2, false, false),
                                     new StatusEffectInstance(StatusEffects.JUMP_BOOST, 400, 1, false, false))).build();
 
-    public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
+    public ModArmorItem(ArmorMaterial material, EquipmentType type, Settings settings) {
         super(material, type, settings);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(!world.isClient()) {
-            if(entity instanceof PlayerEntity player) {
+        if (!world.isClient()) {
+            if (entity instanceof PlayerEntity player) {
                 // 是否穿戴完整
-                if(hasFullSuitOfArmorOn(player)) {
+                if (hasFullSuitOfArmorOn(player)) {
                     // 添加套装效果
                     evaluateArmorEffects(player);
                 }
@@ -49,14 +51,15 @@ public class ModArmorItem extends ArmorItem {
 
     /**
      * 药水效果与玩家、套装进行结合
+     *
      * @param player 玩家
      */
     private void evaluateArmorEffects(PlayerEntity player) {
-        for (Map.Entry<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
-            RegistryEntry<ArmorMaterial> mapArmorMaterial = entry.getKey();
+        for (Map.Entry<ArmorMaterial, List<StatusEffectInstance>> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
+            ArmorMaterial mapArmorMaterial = entry.getKey();
             List<StatusEffectInstance> mapStatusEffects = entry.getValue();
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if (hasCorrectArmorOn(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapStatusEffects);
             }
         }
@@ -64,13 +67,14 @@ public class ModArmorItem extends ArmorItem {
 
     /**
      * 给套装添加效果
-     * @param player 玩家
+     *
+     * @param player          玩家
      * @param mapStatusEffect 状态效果，List集合
      */
     private void addStatusEffectForMaterial(PlayerEntity player, List<StatusEffectInstance> mapStatusEffect) {
         boolean hasPlayerEffect = mapStatusEffect.stream().allMatch(statusEffectInstance -> player.hasStatusEffect(statusEffectInstance.getEffectType()));
 
-        if(!hasPlayerEffect) {
+        if (!hasPlayerEffect) {
             for (StatusEffectInstance instance : mapStatusEffect) {
                 player.addStatusEffect(new StatusEffectInstance(instance.getEffectType(),
                         instance.getDuration(), instance.getAmplifier(), instance.isAmbient(), instance.shouldShowParticles()));
@@ -80,6 +84,7 @@ public class ModArmorItem extends ArmorItem {
 
     /**
      * 判断是否玩家穿戴完整套装
+     *
      * @param player 玩家
      * @return 返回True表示穿戴完整
      */
@@ -96,23 +101,31 @@ public class ModArmorItem extends ArmorItem {
 
     /**
      * 判断是否穿戴正确的套装
+     *
      * @param material 盔甲套装
-     * @param player 玩家
+     * @param player   玩家
      * @return 返回True表示穿戴正确
      */
-    private boolean hasCorrectArmorOn(RegistryEntry<ArmorMaterial> material, PlayerEntity player) {
-        for (ItemStack armorStack: player.getInventory().armor) {
-            if(!(armorStack.getItem() instanceof ArmorItem)) {
+    private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
+        for (ItemStack armorStack : player.getInventory().armor) {
+            if (!(armorStack.getItem() instanceof ArmorItem)) {
                 return false;
             }
         }
         // 靴子、护腿、胸甲、头盔
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmorStack(0).getItem());
-        ArmorItem leggings = ((ArmorItem)player.getInventory().getArmorStack(1).getItem());
-        ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmorStack(2).getItem());
-        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmorStack(3).getItem());
+        ArmorItem boots = ((ArmorItem) player.getInventory().getArmorStack(0).getItem());
+        ArmorItem leggings = ((ArmorItem) player.getInventory().getArmorStack(1).getItem());
+        ArmorItem breastplate = ((ArmorItem) player.getInventory().getArmorStack(2).getItem());
+        ArmorItem helmet = ((ArmorItem) player.getInventory().getArmorStack(3).getItem());
 
-        return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
-                leggings.getMaterial() == material && boots.getMaterial() == material;
+        EquippableComponent equippableComponentBoots = boots.getComponents().get(DataComponentTypes.EQUIPPABLE);
+        EquippableComponent equippableComponentLeggings = leggings.getComponents().get(DataComponentTypes.EQUIPPABLE);
+        EquippableComponent equippableComponentBreastplate = breastplate.getComponents().get(DataComponentTypes.EQUIPPABLE);
+        EquippableComponent equippableComponentHelmet = helmet.getComponents().get(DataComponentTypes.EQUIPPABLE);
+
+        return  equippableComponentBoots.model().get().equals(material.modelId()) &&
+                equippableComponentLeggings.model().get().equals(material.modelId()) &&
+                equippableComponentBreastplate.model().get().equals(material.modelId()) &&
+                equippableComponentHelmet.model().get().equals(material.modelId());
     }
 }

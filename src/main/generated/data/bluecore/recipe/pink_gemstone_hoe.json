@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "P": {
-      "item": "bluecore:pink_gemstone"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "P": "bluecore:pink_gemstone",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "PP ",

@@ -3,7 +3,7 @@ package com.crystal.bluecore.trim;
 import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.registry.ModItems;
 import net.minecraft.item.Item;
-import net.minecraft.item.trim.ArmorTrimPattern;
+import net.minecraft.item.equipment.trim.ArmorTrimPattern;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;

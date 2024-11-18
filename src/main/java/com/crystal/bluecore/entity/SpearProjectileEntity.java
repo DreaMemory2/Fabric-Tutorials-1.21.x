@@ -4,10 +4,7 @@ import com.crystal.bluecore.registry.ModBlockEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -81,10 +78,10 @@ public class SpearProjectileEntity extends PersistentProjectileEntity {
 
         Entity entity = this.getOwner();
         if ((this.dealtDamage || this.isNoClip()) && entity != null) {
-            int i = (Byte)this.dataTracker.get(LOYALTY);
+            int i = this.dataTracker.get(LOYALTY);
             if (i > 0 && !this.isOwnerAlive()) {
                 if (!this.getWorld().isClient && this.pickupType == PersistentProjectileEntity.PickupPermission.ALLOWED) {
-                    this.dropStack(this.asItemStack(), 0.1F);
+                    this.dropStack((ServerWorld) getWorld(), this.asItemStack(), 0.1F);
                 }
 
                 this.remove(RemovalReason.DISCARDED);
@@ -154,7 +151,7 @@ public class SpearProjectileEntity extends PersistentProjectileEntity {
 
         this.dealtDamage = true;
         SoundEvent hitSound = SoundEvents.ITEM_TRIDENT_HIT;
-        if (target.damage(damageSource, damage)) {
+        if (target.damage((ServerWorld) getWorld(), damageSource, damage)) {
             if (target.getType() == EntityType.ENDERMAN) {
                 return;
             }
@@ -186,7 +183,7 @@ public class SpearProjectileEntity extends PersistentProjectileEntity {
         if (getWorld() instanceof ServerWorld && getWorld().isThundering() && EnchantmentHelper.canHaveEnchantments(this.stack)) {
             BlockPos blockPos = target.getBlockPos();
             if (getWorld().isSkyVisible(blockPos)) {
-                @Nullable LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(getWorld());
+                @Nullable LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(getWorld(), SpawnReason.EVENT);
                 if(lightning != null) {
                     lightning.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(blockPos));
                     lightning.setChanneler(spearOwner instanceof ServerPlayerEntity ? (ServerPlayerEntity) spearOwner : null);
