@@ -2,6 +2,7 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
 import com.crystal.bluecore.block.entity.OakChestBlockEntity;
+import com.crystal.bluecore.enchantment.ModEnchantmentEffects;
 import com.crystal.bluecore.event.AttackEntityEvent;
 import com.crystal.bluecore.event.HammerUsageEvent;
 import com.crystal.bluecore.registry.*;
@@ -78,6 +79,8 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ModEffects.registerEffectsInfo();
 		// 药水初始化
 		ModPotions.registerPotionInfo();
+		// 附魔初始化
+		ModEnchantmentEffects.registerEntityEffectInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);

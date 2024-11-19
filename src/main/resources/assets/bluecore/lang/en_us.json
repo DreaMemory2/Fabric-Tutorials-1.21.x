@@ -48,6 +48,7 @@
   "jukebox_song.bluecore.onesies": "Bluey - Onesies",
   "jukebox_song.bluecore.octopus": "Bluey - Octopus",
   "jukebox_song.bluecore.bluey_theme": "Bluey - Theme Sing",
+
   "sounds.bluecore.magic_block_break": "Magic Block broken",
   "sounds.bluecore.magic_block_step": "Magic Block Footsteps",
   "sounds.bluecore.magic_block_place": "Magic Block placed",
@@ -64,15 +65,20 @@
 
   "tag.item.bluecore.gemstone_item": "Gemstone Item",
   "tag.item.bluecore.hammer": "Hammer",
+
   "container.bluecore.oak_chest_inventory": "Oak Chest",
   "container.bluecore.basic_fluid_tank": "Basic Fluid Tank",
+
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
   "tooltip.bluecore.chisel.shift_down": "This item chisels blocks into Bricks!",
   "tooltip.bluecore.chisel.text": "Press §eShift§r for more Information",
   "tooltip.bluecore.cauliflower.tooltip": "This is delicious!",
 
   "biome.bluecore.coldest_forest": "Coldest Forest",
+
   "dimension.bluecore.snowflake_crystal": "Snowflake Crystal",
+
+  "enchantment.bluecore.lightning_striker": "Lightning Striker",
 
   "block.bluecore.pink_torch": "Pink Torch",
   "block.bluecore.pig_generator": "Pig Generator",

@@ -2,6 +2,7 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.datagen.*;
 import com.crystal.bluecore.datagen.generator.ModRegistryDataGenerator;
+import com.crystal.bluecore.enchantment.ModEnchantments;
 import com.crystal.bluecore.registry.ModBiomes;
 import com.crystal.bluecore.registry.ModDimensions;
 import com.crystal.bluecore.registry.ModSounds;
@@ -45,10 +46,13 @@ public class BlueCoreDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 		// 自定义群系
 		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
-		// 自定义维度
+		// 自定义维度类型
 		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrap);
+		// 自定义维度
 		registryBuilder.addRegistry(RegistryKeys.DIMENSION, ModDimensions::bootstrapDimension);
 		// 自定义噪声设置
 		registryBuilder.addRegistry(RegistryKeys.CHUNK_GENERATOR_SETTINGS, ModChunkGeneratorSettings::bootstrap);
+		// 自定义附魔
+		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
 	}
 }

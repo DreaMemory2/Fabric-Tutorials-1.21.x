@@ -30,6 +30,8 @@ public class ModRegistryDataGenerator extends FabricDynamicRegistryProvider {
         // 异常： Registry minecraft:dimension is not loaded from datapacks
         // RegistryEntries<?> regEntries = queuedEntries.get(key.getRegistry());  // regEntries = null
         // entries.addAll(registries.getWrapperOrThrow(RegistryKeys.DIMENSION));
+        // 自定义附魔设置
+        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT));
     }
 
     @Override
