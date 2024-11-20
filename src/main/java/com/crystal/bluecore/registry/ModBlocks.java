@@ -80,6 +80,8 @@ public class ModBlocks {
             Settings.create().noCollision().breakInstantly().luminance(state -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PINK_TORCH).pistonBehavior(PistonBehavior.DESTROY)));
     // 练习onSteppedOn()方法
     public static final Block CONVERSION_TABLE = registerModBlocks("conversion_table", new ConversionTableBlock(Settings.copy(Blocks.IRON_BLOCK)));
+    // 自定义液体
+    public static final Block GELID_CRYOTHEUM = registerWithoutBlockItem("gelid_cryotheum", new FluidBlock(ModFluids.GELID_CRYOTHEUM, Settings.copy(Blocks.WATER)));
     // 晶洞中的晶体芽
     public static final Block SMALL_FROST_BUD = registerModBlocks("small_frost_bud", new FrostClusterBlock(3.0F, 4.0F, Settings.copy(Blocks.SMALL_AMETHYST_BUD)));
     public static final Block MEDIUM_FROST_BUD = registerModBlocks("medium_frost_bud", new FrostClusterBlock(4.0F, 3.0F, Settings.copy(Blocks.MEDIUM_AMETHYST_BUD)));

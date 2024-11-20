@@ -8,7 +8,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.GenerationStep.Feature;
+import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 public class ColdestForestBiome {
@@ -17,7 +19,9 @@ public class ColdestForestBiome {
      */
     public static void biomeFeatures(GenerationSettings.LookupBackedBuilder builder) {
         // 添加洞穴湖雕刻器
-        DefaultBiomeFeatures.addLandCarvers(builder);
+        builder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
+        builder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
+        builder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         // 添加寒霜晶洞
         ModBiomeFeatures.addFrostGeodes(builder);
         // 添加地牢

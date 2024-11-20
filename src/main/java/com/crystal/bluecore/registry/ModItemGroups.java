@@ -114,6 +114,7 @@ public class ModItemGroups {
             containers.add(ModItems.DIAMOND_SPEAR);
             containers.add(ModBlocks.MAPLE_SAPLING);
             containers.add(ModItems.ENTROPY_MANIPULATOR);
+            containers.add(ModItems.GELID_CRYOTHEUM_BUCKET);
             // 植物
             containers.add(ModBlocks.FROZEN_ROSE);
             containers.add(ModBlocks.FROZEN_DANDELION);

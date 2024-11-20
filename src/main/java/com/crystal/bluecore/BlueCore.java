@@ -81,6 +81,8 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ModPotions.registerPotionInfo();
 		// 附魔初始化
 		ModEnchantmentEffects.registerEntityEffectInfo();
+		// 液体初始化
+		ModFluids.registerFluidInfo();
 
 		// 注册物品燃料（物品，燃烧时间）
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);

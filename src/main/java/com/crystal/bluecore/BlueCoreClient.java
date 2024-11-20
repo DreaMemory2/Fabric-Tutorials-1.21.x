@@ -2,10 +2,7 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.model.OakChestModel;
 import com.crystal.bluecore.particle.PinkFlameParticle;
-import com.crystal.bluecore.registry.ModBlockEntities;
-import com.crystal.bluecore.registry.ModBlocks;
-import com.crystal.bluecore.registry.ModParticleTypes;
-import com.crystal.bluecore.registry.ModScreenHandlerTypes;
+import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
 import com.crystal.bluecore.renderer.OakChestRender;
 import com.crystal.bluecore.renderer.SpearProjectileEntityRenderer;
@@ -15,6 +12,8 @@ import com.crystal.bluecore.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.MinecraftClient;
@@ -46,6 +45,11 @@ public class BlueCoreClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
         // 渲染粉红色火焰粒子
         ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
+        // 渲染液体材质文件
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.GELID_CRYOTHEUM, ModFluids.FLOWING_GELID_CRYOTHEUM, new SimpleFluidRenderHandler(
+                BlueCore.of("block/fluid/gelid_cryotheum_still"), // 静态液体材质
+                BlueCore.of("block/fluid/gelid_cryotheum_flow") // 动态流体材质
+        ));
     }
 
     public void renderLayers() {
@@ -71,5 +75,9 @@ public class BlueCoreClient implements ClientModInitializer {
                 ModBlocks.FROZEN_SAPLING,
                 ModBlocks.FROZEN_LEAVES,
                 ModBlocks.FROZEN_DANDELION);
+
+        // 渲染液体效果，半透明材质
+        BlockRenderLayerMap.INSTANCE.putFluid(ModFluids.FLOWING_GELID_CRYOTHEUM, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putFluid(ModFluids.GELID_CRYOTHEUM, RenderLayer.getTranslucent());
     }
 }

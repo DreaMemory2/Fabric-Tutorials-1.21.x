@@ -110,9 +110,11 @@
   "block.bluecore.frozen_rose": "冰冻玫瑰",
   "block.bluecore.frozen_dandelion": "冰冻蒲公英",
   "block.bluecore.fanbrush": "法尔兰",
+  "block.bluecore.gelid_cryotheum": "极寒之凛冰",
 
   "item.bluecore.diamond_spear": "钻石矛",
   "item.bluecore.entropy_manipulator": "熵变机械臂",
+  "item.bluecore.gelid_cryotheum_bucket": "极寒之凛冰桶",
 
   "trim_material.bluecore.pink_gemstone": "粉红色宝石质",
   "trim_pattern.bluecore.pink": "粉红色盔甲纹饰"

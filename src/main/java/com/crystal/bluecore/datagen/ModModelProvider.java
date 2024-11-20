@@ -70,6 +70,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.FANBRUSH, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
+        // 液体
+        blockStateModelGenerator.registerSimpleState(ModBlocks.GELID_CRYOTHEUM);
 
         // 构造晶体模型
         registerCrystal(blockStateModelGenerator);
@@ -79,6 +81,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.PINK_GEMSTONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_PINK_GEMSTONE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GELID_CRYOTHEUM_BUCKET, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.CAULIFLOWER, Models.GENERATED);
         // itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED); 使用Json文件实现动态模型

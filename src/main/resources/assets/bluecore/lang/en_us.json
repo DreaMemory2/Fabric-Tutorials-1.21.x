@@ -110,10 +110,12 @@
   "block.bluecore.frozen_rose": "Frozen Rose",
   "block.bluecore.frozen_dandelion": "Frozen Dandelion",
   "block.bluecore.fanbrush": "FanBrush",
+  "block.bluecore.gelid_cryotheum": "Gelid Cryotheum",
 
 
   "item.bluecore.diamond_spear": "Diamond Spear",
   "item.bluecore.entropy_manipulator": "Entropy Manipulator",
+  "item.bluecore.gelid_cryotheum_bucket": "Gelid Cryotheum Bucket",
 
   "trim_material.bluecore.pink_gemstone": "Pink Gemstone Material",
   "trim_pattern.bluecore.pink": "Pink Armor Pattern"

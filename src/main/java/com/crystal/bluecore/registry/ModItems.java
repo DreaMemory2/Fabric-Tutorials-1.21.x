@@ -73,6 +73,9 @@ public class ModItems {
     public static final Item PINK_GEMSTONE_BOW = registerModItems("pink_gemstone_bow", new BowItem(new Item.Settings().maxDamage(10)));
     // 熵变机械臂
     public static final Item ENTROPY_MANIPULATOR = registerModItems("entropy_manipulator", new EntropyManipulatorItem(new Item.Settings()));
+    // 自定义流体容器：极寒之凛冰桶：使用配方剩余则返回空桶，最大堆叠数量为1
+    public static final Item GELID_CRYOTHEUM_BUCKET = registerModItems("gelid_cryotheum_bucket", new BucketItem(ModFluids.GELID_CRYOTHEUM, new Item.Settings()
+            .recipeRemainder(Items.BUCKET).maxCount(1)));
 
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
