@@ -118,5 +118,22 @@
   "item.bluecore.gelid_cryotheum_bucket": "Gelid Cryotheum Bucket",
 
   "trim_material.bluecore.pink_gemstone": "Pink Gemstone Material",
-  "trim_pattern.bluecore.pink": "Pink Armor Pattern"
+  "trim_pattern.bluecore.pink": "Pink Armor Pattern",
+
+  "block.minecraft.banner.bluecore.gear.black": "Black Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.red": "Red Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.green": "Green Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.brown": "Brown Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.blue": "Blue Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.purple": "Purple Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.cyan": "Cyan Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.light_gray": "Silver Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.gray": "Gray Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.pink": "Pink Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.lime": "Lime Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.yellow": "Yellow Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.light_blue": "Light Blue Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.magenta": "Magenta Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.orange": "Orange Gear Pattern",
+  "block.minecraft.banner.bluecore.gear.white": "White Gear Pattern"
 }

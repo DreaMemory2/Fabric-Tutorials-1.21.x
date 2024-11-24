@@ -1,36 +1,32 @@
 package com.crystal.bluecore.world.biome;
 
 import com.crystal.bluecore.registry.worldgen.ModPlacedFeatures;
-import com.crystal.bluecore.world.biome.feature.ModBiomeFeatures;
+import com.crystal.bluecore.world.gen.feature.ModBiomeFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.GenerationStep.Feature;
-import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 public class ColdestForestBiome {
     /**
-     * <p>群系当中地物的生成器</p>
+     * <p>设置基本生态群系地物配置</p>
      */
     public static void biomeFeatures(GenerationSettings.LookupBackedBuilder builder) {
         // 添加洞穴湖雕刻器
-        builder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        builder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-        builder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        ModBiomeFeatures.addLandCarvers(builder);
         // 添加寒霜晶洞
         ModBiomeFeatures.addFrostGeodes(builder);
-        // 添加地牢
-        DefaultBiomeFeatures.addDungeons(builder);
         // 添加矿石
         /* DefaultBiomeFeatures.addMineables(builder); */
-        // 添加温泉（隔水层）
+        // 添加涌泉
+        // 涌泉（Spring）是随机生成单个液体方块的地物，通常会流向外部空间
         DefaultBiomeFeatures.addSprings(builder);
-        // 添加冰面
+        // 添加冰冻顶层
+        // 冰冻顶层（Freeze Top Layer）是主世界中由雪和冰组成的一种地物
         DefaultBiomeFeatures.addFrozenTopLayer(builder);
     }
 

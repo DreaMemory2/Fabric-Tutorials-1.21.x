@@ -2,7 +2,7 @@ package com.crystal.bluecore.registry.worldgen;
 
 import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.registry.ModBlocks;
-import com.crystal.bluecore.world.biome.feature.FrostGeodeFeatureConfig;
+import com.crystal.bluecore.world.gen.feature.FrostGeodeFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -41,6 +41,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PATCH_FROZEN_GRASS = registryKey("patch_frozen_grass");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PATCH_FANBRUSH = registryKey("patch_fanbrush");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FROZEN_FLOWER_DEFAULT = registryKey("frozen_flower_default");
+    // 凛冰湖
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LAKE_CRYOTHEUM = registryKey("lake_cryotheum");
 
     /**
      * 构建树木模型
@@ -123,6 +125,12 @@ public class ModConfiguredFeatures {
         // 冰霜树和冷杉结合生成
         ConfiguredFeatures.register(context, FROZEN_FIR, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfig(List.of(new RandomFeatureEntry(firTree, 0.2F), new RandomFeatureEntry(frozenTree, 0.1F)), firTree));
+        // 凛冰湖组成成分：凛冰湖会将周围的方块替换为冻石，并在上方创造一个洞穴空气
+        ConfiguredFeatures.register(context, LAKE_CRYOTHEUM, Feature.LAKE, new LakeFeature.Config(
+                // 液体：凛冰，方块：冻石
+                BlockStateProvider.of(ModBlocks.GELID_CRYOTHEUM.getDefaultState()),
+                BlockStateProvider.of(ModBlocks.FROZEN_STONE.getDefaultState())
+        ));
     }
 
     /**

@@ -9,6 +9,7 @@ import com.crystal.bluecore.item.custom.EntropyManipulatorItem;
 import com.crystal.bluecore.item.custom.HammerItem;
 import com.crystal.bluecore.item.custom.SpearItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
@@ -72,14 +73,22 @@ public class ModItems {
     // 粉红色宝石弓
     public static final Item PINK_GEMSTONE_BOW = registerModItems("pink_gemstone_bow", new BowItem(new Item.Settings().maxDamage(10)));
     // 熵变机械臂
-    public static final Item ENTROPY_MANIPULATOR = registerModItems("entropy_manipulator", new EntropyManipulatorItem(new Item.Settings()));
+    public static final Item ENTROPY_MANIPULATOR = registerModItems("entropy_manipulator", new EntropyManipulatorItem(new Item.Settings().maxDamage(50)));
     // 自定义流体容器：极寒之凛冰桶：使用配方剩余则返回空桶，最大堆叠数量为1
     public static final Item GELID_CRYOTHEUM_BUCKET = registerModItems("gelid_cryotheum_bucket", new BucketItem(ModFluids.GELID_CRYOTHEUM, new Item.Settings()
             .recipeRemainder(Items.BUCKET).maxCount(1)));
 
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
-    public static final Item DIAMOND_SPEAR = registerModItems("diamond_spear", new SpearItem(ToolMaterials.DIAMOND, 7.0f, 1.1f, new Item.Settings().maxCount(1)));
+    // 自定义钻石矛
+    public static final Item DIAMOND_SPEAR = registerModItems("diamond_spear",
+            new SpearItem(ToolMaterials.DIAMOND,
+                    new Item.Settings()
+                            .maxCount(1)
+                            .maxDamage(250)
+                            .attributeModifiers(SpearItem.getAttributeModifiers(7.0f, 1.1f))
+                            .component(DataComponentTypes.TOOL, SpearItem.createToolComponent())));
+
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {
         // 注册物品的ID和模组命名空间“Bluecore”

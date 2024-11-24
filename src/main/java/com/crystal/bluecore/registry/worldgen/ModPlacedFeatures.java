@@ -10,12 +10,15 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
@@ -35,6 +38,9 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> PATCH_FROZEN_GRASS = registerKey("patch_frozen_grass");
     public static final RegistryKey<PlacedFeature> PATCH_FANBRUSH = registerKey("patch_fanbrush");
     public static final RegistryKey<PlacedFeature> FROZEN_FLOWER_DEFAULT = registerKey("frozen_flower_default");
+    // 湖泊：地下凛冰湖和表面凛冰湖
+    public static final RegistryKey<PlacedFeature> LAKE_CRYOTHEUM_UNDERGROUND = registerKey("lake_cryotheum_underground");
+    public static final RegistryKey<PlacedFeature> LAKE_CRYOTHEUM_SURFACE = registerKey("lake_cryotheum_surface");
 
     private static final PlacementModifier NOT_IN_SURFACE_WATER_MODIFIER = SurfaceWaterDepthFilterPlacementModifier.of(0);
 
@@ -119,6 +125,21 @@ public class ModPlacedFeatures {
                 RarityFilterPlacementModifier.of(32),
                 SquarePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+        // 地下凛冰湖：有1⁄9的概率在地表5格以下、Y=0以上出现一个地下熔岩湖
+        PlacedFeatures.register(context, LAKE_CRYOTHEUM_UNDERGROUND, registryLookup.getOrThrow(ModConfiguredFeatures.LAKE_CRYOTHEUM),
+                RarityFilterPlacementModifier.of(9),
+                SquarePlacementModifier.of(),
+                HeightRangePlacementModifier.of(UniformHeightProvider.create(YOffset.fixed(0), YOffset.getTop())),
+                EnvironmentScanPlacementModifier.of(Direction.DOWN,
+                        BlockPredicate.bothOf(BlockPredicate.not(BlockPredicate.IS_AIR), BlockPredicate.insideWorldBounds(new BlockPos(0, -5, 0))), 32),
+                SurfaceThresholdFilterPlacementModifier.of(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -5),
+                BiomePlacementModifier.of());
+        // 表面凛冰湖：每个区块有1⁄200的概率在地表出现一个熔岩湖
+        PlacedFeatures.register(context, LAKE_CRYOTHEUM_SURFACE, registryLookup.getOrThrow(ModConfiguredFeatures.LAKE_CRYOTHEUM),
+                RarityFilterPlacementModifier.of(200),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
                 BiomePlacementModifier.of());
     }
 

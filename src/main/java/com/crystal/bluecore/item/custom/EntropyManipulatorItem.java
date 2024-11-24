@@ -5,11 +5,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.*;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -21,45 +23,17 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class EntropyManipulatorItem extends Item {
-    public static final int MAX_POWER = 50;
-    private static final int BAR_COLOR = MathHelper.hsvToRgb(1.0F / 3.0F, 1.0F, 1.0F);
 
     public EntropyManipulatorItem(Settings settings) {
         super(settings);
-    }
-
-    /**
-     * 是否可以显示耐久度条
-     * @param stack 物品
-     * @return 是否可以显示耐久度条
-     */
-    @Override
-    public boolean isItemBarVisible(ItemStack stack) {
-        return true;
-    }
-
-    /**
-     * 设置耐久度条颜色
-     * @param stack 物品
-     * @return 设置耐久度条颜色
-     */
-    @Override
-    public int getItemBarColor(ItemStack stack) {
-        return BAR_COLOR;
-    }
-
-    @Override
-    public int getItemBarStep(ItemStack stack) {
-        double filled = getPower(stack) / (double) MAX_POWER;
-        return MathHelper.clamp((int)filled * 13, 0, 13);
     }
 
     @Override
@@ -69,11 +43,13 @@ public class EntropyManipulatorItem extends Item {
         BlockPos blockPos = ctx.getBlockPos();
         PlayerEntity player = ctx.getPlayer();
         Direction face = ctx.getSide();
-        int power = getPower(stack);
 
-        if (power == 0) return ActionResult.PASS;
         if (player == null) return ActionResult.FAIL;
         if (world.isClient()) return ActionResult.SUCCESS;
+
+        // 如果对方块右键后，耐久值减一
+        ctx.getStack().damage(1, (ServerWorld) world, (ServerPlayerEntity) ctx.getPlayer(),
+                item -> Objects.requireNonNull(ctx.getPlayer()).sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
 
         BlockHitResult result = raycast(world, player, RaycastContext.FluidHandling.ANY);
         if (result != null && result.getType() == HitResult.Type.BLOCK) blockPos = result.getBlockPos();
@@ -82,13 +58,12 @@ public class EntropyManipulatorItem extends Item {
 
     private boolean tryApplyEffect(World world, ItemStack stack, BlockPos pos, PlayerEntity player, Direction face) {
 
-        if (canReplace(stack, world, pos)) return true;
+        if (canReplace(world, pos)) return true;
         if (tryApplySmeltingRecipes(stack, world, player, pos)) return true;
-        return trySpawnFire(world, stack, pos, face);
+        return trySpawnFire(world, pos, face);
     }
 
-    private boolean canReplace(ItemStack stack, World world, BlockPos pos) {
-        extractPower(stack);
+    private boolean canReplace(World world, BlockPos pos) {
         FluidState fluidState = world.getFluidState(pos);
         int level = fluidState.getLevel();
         if (level > 0) {
@@ -133,8 +108,7 @@ public class EntropyManipulatorItem extends Item {
         if (outBlock == null && outItems.isEmpty()) {
             return false;
         }
-        // 耐久值-1
-        extractPower(heldItem);
+
         level.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, 0.8F);
 
         if (outBlock == null) {
@@ -147,12 +121,12 @@ public class EntropyManipulatorItem extends Item {
         return true;
     }
 
-    private boolean trySpawnFire(World level, ItemStack item, BlockPos pos, Direction side) {
+    private boolean trySpawnFire(World level, BlockPos pos, Direction side) {
         pos = pos.offset(side);
         if (!FireBlock.canPlaceAt(level, pos, side) || !level.isAir(pos)) {
             return false;
         }
-        extractPower(item);
+
         level.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, 0.8F);
         level.setBlockState(pos, Blocks.FIRE.getDefaultState());
         return true;
@@ -169,18 +143,5 @@ public class EntropyManipulatorItem extends Item {
         if (!state.getFluidState().isEmpty())
             useOnBlock(new ItemUsageContext(player, hand, result));
         return new TypedActionResult<>(ActionResult.success(world.isClient), player.getStackInHand(hand));
-    }
-
-    private void setPower(ItemStack stack, int power) {
-        stack.setDamage(power);
-    }
-
-    private int getPower(ItemStack stack) {
-        stack.setDamage(MAX_POWER);
-        return MAX_POWER;
-    }
-
-    private void extractPower(ItemStack stack) {
-        setPower(stack, getPower(stack) - 1);
     }
 }

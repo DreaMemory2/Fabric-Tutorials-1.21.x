@@ -4,6 +4,7 @@ import com.crystal.bluecore.api.EnchantmentHandler;
 import com.crystal.bluecore.entity.SpearProjectileEntity;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.component.type.ToolComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
@@ -32,14 +33,9 @@ import java.util.List;
  * @see <a href="https://github.com/Draylar/gate-of-babylon/blob/dc6007da7cca924ef635167d34deb8344e8bbc7c/src/main/java/draylar/gateofbabylon/item/SpearItem.java#L4">SpearItem</a>
  */
 public class SpearItem extends ToolItem implements EnchantmentHandler {
-    private final float effectiveDamage;
-    private final float effectiveSpeed;
 
-    public SpearItem(ToolMaterial material, float effectiveDamage, float effectiveSpeed, Settings settings) {
+    public SpearItem(ToolMaterial material, Settings settings) {
         super(material, settings);
-
-        this.effectiveDamage = effectiveDamage - 1;
-        this.effectiveSpeed = -4 + effectiveSpeed;
     }
 
     @Override
@@ -68,6 +64,10 @@ public class SpearItem extends ToolItem implements EnchantmentHandler {
             user.setCurrentHand(hand);
             return TypedActionResult.consume(itemStack);
         }
+    }
+
+    public static ToolComponent createToolComponent() {
+        return new ToolComponent(List.of(), 1.0F, 2);
     }
 
     @Override
@@ -106,24 +106,22 @@ public class SpearItem extends ToolItem implements EnchantmentHandler {
         return Arrays.asList(EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM);
     }
 
-    @Override
-    public boolean isInvalid(RegistryKey<Enchantment> enchantment) {
-        return Enchantments.SWEEPING_EDGE == enchantment;
-    }
+    public static AttributeModifiersComponent getAttributeModifiers(float effectiveDamage, float effectiveSpeed) {
 
-    @Deprecated
-    @Override
-    public AttributeModifiersComponent getAttributeModifiers() {
         AttributeModifiersComponent.Builder builder = AttributeModifiersComponent.builder();
 
         builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, 8.0, EntityAttributeModifier.Operation.ADD_VALUE),
-                        AttributeModifierSlot.MAINHAND)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED,
-                        new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, -2.9F, EntityAttributeModifier.Operation.ADD_VALUE),
-                        AttributeModifierSlot.MAINHAND)
-                .build();
+                new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, effectiveDamage - 1, EntityAttributeModifier.Operation.ADD_VALUE),
+                AttributeModifierSlot.MAINHAND);
+        builder.add(EntityAttributes.GENERIC_ATTACK_SPEED,
+                new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, -4 + effectiveSpeed, EntityAttributeModifier.Operation.ADD_VALUE),
+                AttributeModifierSlot.MAINHAND);
 
         return builder.build();
+    }
+
+    @Override
+    public boolean isInvalid(RegistryKey<Enchantment> enchantment) {
+        return enchantment == Enchantments.SWEEPING_EDGE;
     }
 }

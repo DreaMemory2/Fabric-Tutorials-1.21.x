@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 // 工具与武器
 public enum ModToolMaterials implements ToolMaterial {
-    PINK_GEMSTONE(ModTags.Blocks.INCORRECT_FOR_PINK_GEMSTONE_TOOL, 1200, 5.0F, 4.0F, 22, () -> Ingredient.ofItems(ModItems.PINK_GEMSTONE));;
+    PINK_GEMSTONE(ModTags.Blocks.INCORRECT_FOR_PINK_GEMSTONE_TOOL, 1200, 5.0F, 4.0F, 22, () -> Ingredient.ofItems(ModItems.PINK_GEMSTONE));
 
     // 反向标签
     private final TagKey<Block> inverseTag;
@@ -28,6 +28,7 @@ public enum ModToolMaterials implements ToolMaterial {
     private final Supplier<Ingredient> repairIngredient;
 
     /**
+     * <p>itemDurability：使用这个材料做的工具全都设置固定的耐久值</p>
      * @param inverseTag 反向标签
      * @param itemDurability 物品的耐久值
      * @param miningSpeed 最小攻击速度

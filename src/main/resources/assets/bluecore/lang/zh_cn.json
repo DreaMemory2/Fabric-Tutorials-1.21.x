@@ -117,5 +117,22 @@
   "item.bluecore.gelid_cryotheum_bucket": "极寒之凛冰桶",
 
   "trim_material.bluecore.pink_gemstone": "粉红色宝石质",
-  "trim_pattern.bluecore.pink": "粉红色盔甲纹饰"
+  "trim_pattern.bluecore.pink": "粉红色盔甲纹饰",
+
+  "block.minecraft.banner.bluecore.gear.black": "黑色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.red": "红色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.green": "绿色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.brown": "棕色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.blue": "蓝色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.purple": "紫色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.cyan": "青色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.light_gray": "淡灰色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.gray": "灰色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.pink": "粉色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.lime": "黄绿色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.yellow": "黄色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.light_blue": "淡蓝色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.magenta": "品红色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.orange": "橙色齿轮图案",
+  "block.minecraft.banner.bluecore.gear.white": "白色齿轮图案"
 }

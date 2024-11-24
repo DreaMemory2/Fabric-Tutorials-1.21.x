@@ -2,6 +2,7 @@ package com.crystal.bluecore;
 
 import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
 import com.crystal.bluecore.block.entity.OakChestBlockEntity;
+import com.crystal.bluecore.data.ModResourceReloadListener;
 import com.crystal.bluecore.enchantment.ModEnchantmentEffects;
 import com.crystal.bluecore.event.AttackEntityEvent;
 import com.crystal.bluecore.event.HammerUsageEvent;
@@ -15,10 +16,12 @@ import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,6 +94,8 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		ItemStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getInventoryProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
 		// 注册方块实体的流体系统
 		FluidStorage.SIDED.registerForBlockEntity(BasicFluidTankBlockEntity::getFluidTankProvider, ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY);
+		// 自定义数据包
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new ModResourceReloadListener());
 	}
 
 	private void eventInitialize() {

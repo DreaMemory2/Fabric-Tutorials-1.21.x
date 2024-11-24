@@ -1,4 +1,4 @@
-package com.crystal.bluecore.world.biome.feature;
+package com.crystal.bluecore.world.gen.feature;
 
 import com.crystal.bluecore.registry.ModBlocks;
 import net.minecraft.block.Blocks;
