@@ -1,6 +1,7 @@
 package com.crystal.bluecore.datagen;
 
 import com.crystal.bluecore.BlueCore;
+import com.crystal.bluecore.block.custom.HoneyBerryBushBlock;
 import com.crystal.bluecore.block.custom.PinkGemStoneLamp;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
@@ -72,6 +73,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.FROZEN_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
         // 液体
         blockStateModelGenerator.registerSimpleState(ModBlocks.GELID_CRYOTHEUM);
+        /* 灌木丛模型 */
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
+                HoneyBerryBushBlock.AGE, 0, 1, 2, 3);
 
         // 构造晶体模型
         registerCrystal(blockStateModelGenerator);

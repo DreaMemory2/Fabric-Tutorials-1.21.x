@@ -20,6 +20,11 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+/*
+* <p>多功能性方块之魔法方块</p>
+* <p>本次目标是：能将钻石转化为粉红色钻石的方块</p>
+* @author Crystal
+* */
 public class MagicBlock extends Block {
 
     public MagicBlock(Settings settings) {
@@ -28,7 +33,7 @@ public class MagicBlock extends Block {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        // 播放方块成功转变的音效（玩家与紫水晶互动时播放的轻音效）
+        // 播放方块成功转化的音效（玩家与紫水晶互动时播放的轻音效）
         world.playSound(player, pos, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.BLOCKS, 1f, 1f);
         return ActionResult.SUCCESS;
     }

@@ -88,6 +88,8 @@ public class ModItems {
                             .maxDamage(250)
                             .attributeModifiers(SpearItem.getAttributeModifiers(7.0f, 1.1f))
                             .component(DataComponentTypes.TOOL, SpearItem.createToolComponent())));
+    public static final Item HONEY_BERRIES = registerModItems("honey_berries", new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings()
+            .food(ModFoodComponents.HONEY_BERRY)));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {

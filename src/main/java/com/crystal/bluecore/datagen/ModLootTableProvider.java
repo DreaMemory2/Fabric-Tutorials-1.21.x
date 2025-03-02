@@ -1,5 +1,6 @@
 package com.crystal.bluecore.datagen;
 
+import com.crystal.bluecore.datagen.generator.ModBlockLootTableGenerator;
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -26,6 +27,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+
         addDrop(ModBlocks.PINK_GEMSTONE_BLOCK);
         addDrop(ModBlocks.RAW_PINK_GEMSTONE_BLOCK);
         addDrop(ModBlocks.MAGIC_BLOCK);
@@ -46,6 +49,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PINK_GEMSTONE_TRAPDOOR);
 
         addDrop(ModBlocks.PINK_TORCH);
+
+        /* 灌木丛挖掘掉落设置 */
+        addDrop(ModBlocks.HONEY_BERRY_BUSH, block -> this.applyExplosionDecay(block,
+                ModBlockLootTableGenerator.honeyBerryBuilder(
+                    ModBlocks.HONEY_BERRY_BUSH,
+                    ModItems.HONEY_BERRIES,
+                    impl.getOrThrow(Enchantments.FORTUNE))));
     }
 
     // 深板岩矿石配方

@@ -14,6 +14,7 @@ import com.crystal.bluecore.world.region.ColdestForestRegion;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -102,6 +103,9 @@ public class BlueCore implements ModInitializer, TerraBlenderApi {
 		// 注册事件
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 		AttackEntityCallback.EVENT.register(new AttackEntityEvent());
+
+		/* 甜蜜浆果出现的概率 */
+		CompostingChanceRegistry.INSTANCE.add(ModItems.HONEY_BERRIES, 0.15f);
 	}
 
 	private void brewingRecipes() {

@@ -47,6 +47,7 @@ public class ModItemGroups {
             containers.add(ModItems.CAULIFLOWER);
             containers.add(ModItems.STARLIGHT_ASHES);
             containers.add(ModItems.PINK_SMITHING_TEMPLATE);
+            containers.add(ModItems.HONEY_BERRIES);
 
             containers.add(ModItems.PINK_GEMSTONE_SWORD);
             containers.add(ModItems.PINK_GEMSTONE_PICKAXE);

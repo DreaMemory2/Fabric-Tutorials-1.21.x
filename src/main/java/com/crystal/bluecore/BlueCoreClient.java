@@ -74,7 +74,9 @@ public class BlueCoreClient implements ClientModInitializer {
                 ModBlocks.FIR_SAPLING,
                 ModBlocks.FROZEN_SAPLING,
                 ModBlocks.FROZEN_LEAVES,
-                ModBlocks.FROZEN_DANDELION);
+                ModBlocks.FROZEN_DANDELION,
+                ModBlocks.HONEY_BERRY_BUSH
+        );
 
         // 渲染液体效果，半透明材质
         BlockRenderLayerMap.INSTANCE.putFluid(ModFluids.FLOWING_GELID_CRYOTHEUM, RenderLayer.getTranslucent());

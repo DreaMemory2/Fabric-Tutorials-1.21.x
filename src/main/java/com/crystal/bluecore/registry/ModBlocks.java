@@ -93,6 +93,7 @@ public class ModBlocks {
     public static final Block FROZEN_DANDELION = registerModBlocks("frozen_dandelion", new FlowerBlock(StatusEffects.SATURATION, 0.35F, Settings.copy(Blocks.DANDELION)));
     public static final Block FROZEN_GRASS = registerModBlocks("frozen_grass", new ShortPlantBlock(Settings.copy(Blocks.SHORT_GRASS)));
     public static final Block FANBRUSH = registerModBlocks("fanbrush", new ShortPlantBlock(Settings.copy(Blocks.FERN)));
+    public static final Block HONEY_BERRY_BUSH = registerWithoutBlockItem("honey_berry_bush", new HoneyBerryBushBlock(Settings.copy(Blocks.SWEET_BERRY_BUSH)));
 
     // 用于注册方块的方法
     private static Block registerModBlocks(String id, Block block) {
