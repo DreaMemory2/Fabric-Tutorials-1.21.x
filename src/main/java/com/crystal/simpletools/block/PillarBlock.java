@@ -29,12 +29,15 @@ public class PillarBlock extends Block {
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         switch (state.get(AXIS)) {
-            case X -> state.with(AXIS, Direction.Axis.Z);
-            case Z -> state.with(AXIS, Direction.Axis.X);
+            case X -> state.with(AXIS, Direction.Axis.X);
+            case Z -> state.with(AXIS, Direction.Axis.Z);
         }
         return state;
     }
 
+    /**
+     * Getting the placed state
+     */
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return getDefaultState().with(AXIS, ctx.getSide().getAxis());

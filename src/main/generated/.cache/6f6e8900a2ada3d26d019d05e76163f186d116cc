@@ -1,6 +1,13 @@
 // 1.21.5	-999999999-01-01T00:00:00	Simple Tools/Model Definitions
+05b9e30012de24253365d4e39eca9c165a8f382e assets/simpletools/blockstates/azalea_leaves.json
+d6c7c4ae00730edfef9f269904aafb39f7cf8435 assets/simpletools/blockstates/azalea_log.json
 46eac9eafb5f9277aa5be9cea3d937315453e9e2 assets/simpletools/blockstates/blast_furnace.json
+039568f336651380655ebb87e43bd017557761c2 assets/simpletools/items/azalea_leaves.json
+bd1c1833d6674f66b92f8038d521dd3791f87da7 assets/simpletools/items/azalea_log.json
 a8081466a78def4ff785ca1cc12fdde74bf51b07 assets/simpletools/items/blast_furnace.json
 bebc5ec9eb35f6c95e6ff30f3255acac6294d819 assets/simpletools/items/diamond_apple.json
+34ca745d1f4656f06f4bd6a4401bd637719c034a assets/simpletools/models/block/azalea_leaves.json
+ce3ad634f04ed06a092db9d690584f4bc4ee0e0a assets/simpletools/models/block/azalea_log.json
+c18c307a949ceb3821792bdbf86a326deef20ad5 assets/simpletools/models/block/azalea_log_horizontal.json
 92acb73434c5261069d2f2ccb20efd1db70c4fe8 assets/simpletools/models/block/blast_furnace.json
 6e9693fab1d9425972674bb692e215d55500e0f2 assets/simpletools/models/item/diamond_apple.json

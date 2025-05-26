@@ -22,6 +22,8 @@ public class TutorialModelGenerator extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator create) {
         create.registerSimpleCubeAll(ModBlocks.BLAST_FURNACE);
+        create.registerSimpleCubeAll(ModBlocks.AZALEA_LEAVES);
+        create.createLogTexturePool(ModBlocks.AZALEA_LOG).log(ModBlocks.AZALEA_LOG);
     }
 
     @Override

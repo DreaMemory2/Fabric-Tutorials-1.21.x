@@ -18,6 +18,9 @@ import java.util.function.Function;
 public class ModBlocks {
 
     public static final Block BLAST_FURNACE = register("blast_furnace", Settings.copy(Blocks.STONE));
+    /* 参考：丰富生态 https://www.mcmod.cn/class/6198.html */
+    public static final Block AZALEA_LOG = register("azalea_log", PillarBlock::new, Settings.copy(Blocks.OAK_LOG));
+    public static final Block AZALEA_LEAVES = register("azalea_leaves", LeavesBlock::new, Settings.copy(Blocks.AZALEA_LEAVES));
 
     /**
      * 如果是简单方块，不用新建方块类，直接采用Block方块注册即可
