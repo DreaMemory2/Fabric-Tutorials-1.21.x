@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:entropy",
+  "input": {
+    "block": {
+      "id": {
+        "Name": "minecraft:ice"
+      }
+    }
+  },
+  "mode": "heat",
+  "output": {
+    "fluid": {
+      "id": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "falling": "true"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:entropy",
+  "input": {
+    "block": {
+      "id": {
+        "Name": "minecraft:snow",
+        "Properties": {
+          "layers": "1"
+        }
+      }
+    }
+  },
+  "mode": "heat",
+  "output": {
+    "fluid": {
+      "id": {
+        "Name": "minecraft:flowing_water",
+        "Properties": {
+          "falling": "true",
+          "level": "1"
+        }
+      }
+    }
+  }
+}

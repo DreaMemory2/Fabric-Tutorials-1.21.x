@@ -1,6 +1,7 @@
 package com.crystal.simpletools.item;
 
 import com.crystal.simpletools.SimpleToolsMod;
+import com.crystal.simpletools.item.custom.EntropyManipulatorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Settings;
 import net.minecraft.item.Items;
@@ -17,6 +18,7 @@ import java.util.function.Function;
 public class ModItems {
 
     public static final Item DIAMOND_APPLE = register("diamond_apple", new Settings());
+    public static final Item ENTROPY_MANIPULATOR = register("entropy_manipulator", EntropyManipulatorItem::new, new Settings());
 
     /**
      * 如果是简单物品，不用新建物品类，直接采用Item物品注册即可

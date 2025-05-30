@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:entropy",
+  "input": {
+    "fluid": {
+      "id": {
+        "Name": "minecraft:flowing_water",
+        "Properties": {
+          "falling": "true",
+          "level": "1"
+        }
+      }
+    }
+  },
+  "mode": "cool",
+  "output": {
+    "drops": [
+      {
+        "count": 1,
+        "id": "minecraft:snowball"
+      }
+    ]
+  }
+}

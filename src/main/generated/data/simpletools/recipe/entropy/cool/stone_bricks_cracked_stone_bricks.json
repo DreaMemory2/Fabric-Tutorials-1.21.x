@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:entropy",
+  "input": {
+    "block": {
+      "id": {
+        "Name": "minecraft:stone_bricks"
+      }
+    }
+  },
+  "mode": "cool",
+  "output": {
+    "block": {
+      "id": {
+        "Name": "minecraft:cracked_stone_bricks"
+      }
+    }
+  }
+}

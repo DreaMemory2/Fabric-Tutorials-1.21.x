@@ -29,5 +29,6 @@ public class TutorialModelGenerator extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator create) {
         create.register(ModItems.DIAMOND_APPLE, Models.GENERATED);
+        create.register(ModItems.ENTROPY_MANIPULATOR, Models.GENERATED);
     }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:entropy",
+  "input": {
+    "block": {
+      "id": {
+        "Name": "minecraft:grass_block",
+        "Properties": {
+          "snowy": "false"
+        }
+      }
+    }
+  },
+  "mode": "cool",
+  "output": {
+    "block": {
+      "id": {
+        "Name": "minecraft:dirt"
+      }
+    }
+  }
+}

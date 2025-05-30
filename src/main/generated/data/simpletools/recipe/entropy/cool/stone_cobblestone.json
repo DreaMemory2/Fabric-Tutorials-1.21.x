@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:entropy",
+  "input": {
+    "block": {
+      "id": {
+        "Name": "minecraft:stone"
+      }
+    }
+  },
+  "mode": "cool",
+  "output": {
+    "block": {
+      "id": {
+        "Name": "minecraft:cobblestone"
+      }
+    }
+  }
+}
