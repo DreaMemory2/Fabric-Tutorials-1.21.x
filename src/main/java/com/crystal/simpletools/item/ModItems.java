@@ -1,6 +1,7 @@
 package com.crystal.simpletools.item;
 
 import com.crystal.simpletools.SimpleToolsMod;
+import com.crystal.simpletools.item.custom.DiamondAppleItem;
 import com.crystal.simpletools.item.custom.EntropyManipulatorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Settings;
@@ -17,7 +18,8 @@ import java.util.function.Function;
  */
 public class ModItems {
 
-    public static final Item DIAMOND_APPLE = register("diamond_apple", new Settings());
+    public static final Item DIAMOND_APPLE_CORE = register("diamond_apple_core", new Settings());
+    public static final Item DIAMOND_APPLE = register("diamond_apple", DiamondAppleItem::new, new Settings());
     public static final Item ENTROPY_MANIPULATOR = register("entropy_manipulator", EntropyManipulatorItem::new, new Settings());
 
     /**
