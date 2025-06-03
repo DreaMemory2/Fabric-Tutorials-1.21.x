@@ -3,6 +3,7 @@ package com.crystal.simpletools;
 import com.crystal.simpletools.block.ModBlocks;
 import com.crystal.simpletools.item.ModItems;
 import com.crystal.simpletools.recipe.ModRecipes;
+import com.crystal.simpletools.registry.ModItemGroups;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -17,7 +18,9 @@ public class SimpleToolsMod implements ModInitializer {
 		/* 直接引用方块注册类和物品注册类即可 */
 		ModBlocks.init();
 		ModItems.init();
-
+		/* 物品组初始化 */
+		ModItemGroups.init();
+		/* 食谱初始化 */
 		ModRecipes.init();
 
 		LOGGER.info("Hello Fabric world!");

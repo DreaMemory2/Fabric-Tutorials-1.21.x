@@ -1,6 +1,6 @@
 package com.crystal.simpletools;
 
-import com.crystal.simpletools.datagen.TutorialModelGenerator;
+import com.crystal.simpletools.datagen.*;
 import com.crystal.simpletools.datagen.recipes.EntropyRecipes;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -18,7 +18,10 @@ public class SimpleToolsModDataGenerator implements DataGeneratorEntrypoint {
 		// 获取数据构造器的打包器，进行类名封装处理
 		FabricDataGenerator.Pack pack = generator.createPack();
 		// 添加名单
-		pack.addProvider(TutorialModelGenerator::new);
+		pack.addProvider(ModModelGenerator::new);
+		pack.addProvider(ModBlockTagProvider::new);
+		pack.addProvider(ModItemTagProvider::new);
+		pack.addProvider(ChineseLanguageProvider::new);
 
 		// Recipes
 		pack.addProvider(bindRegistries(EntropyRecipes::new, registries));

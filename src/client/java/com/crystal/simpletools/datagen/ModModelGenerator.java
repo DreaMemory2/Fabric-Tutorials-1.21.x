@@ -13,9 +13,9 @@ import net.minecraft.client.data.Models;
  * @version 1.0
  * @since 1.0
  */
-public class TutorialModelGenerator extends FabricModelProvider {
+public class ModModelGenerator extends FabricModelProvider {
 
-    public TutorialModelGenerator(FabricDataOutput output) {
+    public ModModelGenerator(FabricDataOutput output) {
         super(output);
     }
 
