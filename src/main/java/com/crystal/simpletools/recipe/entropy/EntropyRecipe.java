@@ -164,7 +164,7 @@ public class EntropyRecipe implements Recipe<RecipeInput> {
 
             if (block.isPresent()) {
                 var inputBlock = block.get().block();
-                return blockState.getBlock() != inputBlock.getBlock();
+                return blockState.getBlock() == inputBlock.getBlock();
             }
 
             if (fluid.isPresent()) {

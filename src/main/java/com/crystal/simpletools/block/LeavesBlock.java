@@ -77,7 +77,8 @@ public class LeavesBlock extends Block implements Waterloggable {
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         /* 如果两个条件都为真，结果都为真 */
         /* 当树叶距离原木为7且能够不能持续存在时，树叶可以枯萎 */
-        boolean isDecay = state.get(DISTANCE) == 7 && !(Boolean) state.get(PERSISTENT);
+        /* 注意：2025.6.2更改 */
+        boolean isDecay = !(Boolean) state.get(PERSISTENT) && state.get(DISTANCE) == 7;
         // 移除树叶
         if (isDecay) {
             dropStacks(state, world, pos);
@@ -89,16 +90,7 @@ public class LeavesBlock extends Block implements Waterloggable {
      * <p>第一步：执行getStateForNeighborUpdate方法，判断该方块状态值</p>
      */
     @Override
-    protected BlockState getStateForNeighborUpdate(
-            BlockState state,
-            WorldView world,
-            ScheduledTickView tickView,
-            BlockPos pos,
-            Direction direction,
-            BlockPos neighborPos,
-            BlockState neighborState,
-            Random random
-    ) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         /* 判断该方块是否含水 */
         if (state.get(WATERLOGGED)) {
             tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
