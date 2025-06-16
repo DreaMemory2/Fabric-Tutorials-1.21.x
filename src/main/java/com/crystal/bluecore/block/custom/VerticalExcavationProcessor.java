@@ -2,7 +2,7 @@ package com.crystal.bluecore.block.custom;
 
 import com.crystal.bluecore.api.TickableBlockEntity;
 import com.crystal.bluecore.block.entity.VerticalExcavationProcessorBlockEntity;
-import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -29,7 +29,7 @@ public class VerticalExcavationProcessor extends Block implements BlockEntityPro
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return ModBlockEntities.VERTICAL_EXCAVATION_PROCESSOR_BLOCK_ENTITY.instantiate(pos, state);
+        return ModBlockEntityType.VERTICAL_EXCAVATION_PROCESSOR_BLOCK_ENTITY.instantiate(pos, state);
     }
 
     @Override

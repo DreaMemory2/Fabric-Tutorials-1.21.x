@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "bluecore:item/diamond_spear"
+    "layer0": "bluecore:item/netherite_spear"
   },
   "display": {
     "thirdperson_righthand": {

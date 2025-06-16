@@ -11,6 +11,8 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
+
 public class ModModelProvider extends FabricModelProvider {
 
     public ModModelProvider(FabricDataOutput output) {
@@ -54,8 +56,6 @@ public class ModModelProvider extends FabricModelProvider {
         // 创建不规整方块
         // 基础液体储罐
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASIC_FLUID_TANK, Identifier.of(BlueCore.MOD_ID, "block/custom/basic_fluid_tank"));
-        // 橡木箱子
-        blockStateModelGenerator.registerParentedItemModel(ModBlocks.OAK_CHEST, Identifier.of(BlueCore.MOD_ID, "block/custom/oak_chest"));
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONVERSION_TABLE);
         // 原木、树叶和树苗的模型
         blockStateModelGenerator.registerLog(ModBlocks.MAPLE_LOG).log(ModBlocks.MAPLE_LOG);
@@ -108,6 +108,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_LEGGING));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GEMSTONE_BOOST));
         itemModelGenerator.register(ModItems.PINK_GEMSTONE_HORSE_ARMOR, Models.GENERATED);
+        // 刷怪蛋模型
+        itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
     }
 
     /**

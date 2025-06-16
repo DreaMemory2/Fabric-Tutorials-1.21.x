@@ -1,8 +1,6 @@
-package com.crystal.bluecore.util;
+package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
-import com.crystal.bluecore.registry.ModItems;
-import com.crystal.bluecore.registry.component.ModDataComponentTypes;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;

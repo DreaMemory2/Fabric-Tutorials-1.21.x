@@ -1,7 +1,7 @@
 package com.crystal.bluecore.block.entity;
 
 import com.crystal.bluecore.api.TickableBlockEntity;
-import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlockEntityType;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
@@ -29,7 +29,7 @@ public class VerticalExcavationProcessorBlockEntity extends BlockEntity implemen
     private BlockPos miningPos = this.pos.down();
 
     public VerticalExcavationProcessorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.VERTICAL_EXCAVATION_PROCESSOR_BLOCK_ENTITY, pos, state);
+        super(ModBlockEntityType.VERTICAL_EXCAVATION_PROCESSOR_BLOCK_ENTITY, pos, state);
     }
 
     /**

@@ -2,7 +2,7 @@ package com.crystal.bluecore.block.custom;
 
 import com.crystal.bluecore.api.TickableBlockEntity;
 import com.crystal.bluecore.block.entity.BasicFluidTankBlockEntity;
-import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -58,7 +58,7 @@ public class BasicFluidTank extends Block implements BlockEntityProvider {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY.instantiate(pos, state);
+        return ModBlockEntityType.BASIC_FLUID_TANK_BLOCK_ENTITY.instantiate(pos, state);
     }
 
     @Nullable

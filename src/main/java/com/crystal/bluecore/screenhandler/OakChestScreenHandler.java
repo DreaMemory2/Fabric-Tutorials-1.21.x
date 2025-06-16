@@ -27,16 +27,16 @@ public class OakChestScreenHandler extends ScreenHandler {
 
     // Main Constructor - (Directly called from server)
     public OakChestScreenHandler(int syncId, PlayerInventory playerInventory, OakChestBlockEntity blockEntity) {
-        super(ModScreenHandlerTypes.OAK_CHEST_INVENTORY_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlerTypes.OAK_CHEST_SCREEN_HANDLER, syncId);
 
         // 屏幕处理器的实体
         this.blockEntity = blockEntity;
         // 屏幕处理器上下文（获取世界和位置）
-        this.context = ScreenHandlerContext.create(this.blockEntity.getWorld(), this.blockEntity.getPos());
+        context = ScreenHandlerContext.create(this.blockEntity.getWorld(), this.blockEntity.getPos());
 
         SimpleInventory inventory = this.blockEntity.getInventory();
         // 36 being replaced by the number of slots in your block entity's inventory
-        checkSize(inventory, 36);
+        checkSize(inventory, 27);
         // 当玩家打开箱子时
         inventory.onOpen(playerInventory.player);
 
@@ -68,7 +68,7 @@ public class OakChestScreenHandler extends ScreenHandler {
             if (slotIndex < 36) {
                 // 如果没有填满，则继续添加物品
                 // 如果已经填满，则紧张添加物品
-                if (!insertItem(inSlot, 36, this.slots.size(), true)) {
+                if (!insertItem(inSlot, 36, slots.size(), true)) {
                     return ItemStack.EMPTY;
                 } else if (!insertItem(inSlot, 0, 36, false)) {
                     return ItemStack.EMPTY;
@@ -125,7 +125,7 @@ public class OakChestScreenHandler extends ScreenHandler {
     @Override
     public boolean canUse(PlayerEntity player) {
         // 通过上下文和玩家来打开橡木箱子
-        return canUse(this.context, player, ModBlocks.OAK_CHEST);
+        return canUse(context, player, ModBlocks.OAK_CHEST);
     }
 
     /**
@@ -136,6 +136,6 @@ public class OakChestScreenHandler extends ScreenHandler {
     @Override
     public void onClosed(PlayerEntity player) {
         super.onClosed(player);
-        this.blockEntity.getInventory().onClose(player);
+        blockEntity.getInventory().onClose(player);
     }
 }

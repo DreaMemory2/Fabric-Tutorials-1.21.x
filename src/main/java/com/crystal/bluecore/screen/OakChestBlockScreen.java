@@ -8,21 +8,21 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class OakChestInventoryBlockScreen extends HandledScreen<OakChestScreenHandler> {
+public class OakChestBlockScreen extends HandledScreen<OakChestScreenHandler> {
     // 获取GUI纹理
-    private static final Identifier TEXTURE = Identifier.of(BlueCore.MOD_ID, "textures/gui/container/oak_chest_inventory_block.png");
+    private static final Identifier TEXTURE = Identifier.of(BlueCore.MOD_ID, "textures/gui/container/oak_chest_screen.png");
 
-    public OakChestInventoryBlockScreen(OakChestScreenHandler handler, PlayerInventory inventory, Text title) {
+    public OakChestBlockScreen(OakChestScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-        this.backgroundWidth = 176;
-        this.backgroundHeight = 184;
-        this.playerInventoryTitleY = this.backgroundHeight - 94;
+        backgroundWidth = 176;
+        backgroundHeight = 184;
+        playerInventoryTitleY = backgroundHeight - 94;
     }
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         // 绘画GUI材质
-        context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
 
     @Override

@@ -9,6 +9,7 @@
   "item.bluecore.starlight_ashes": "Starlight Ashes",
   "item.bluecore.pink_armor_trim_smithing_template": "Smithing Template",
   "item.bluecore.honey_berries": "Honey Berries",
+  "item.bluecore.mantis_spawn_egg": "Mantis Spawn Egg",
 
   "item.bluecore.pink_gemstone_sword": "Pink Gemstone Sword",
   "item.bluecore.pink_gemstone_pickaxe": "Pink Gemstone Pickaxe",
@@ -69,6 +70,7 @@
   "tag.item.bluecore.hammer": "Hammer",
 
   "container.bluecore.oak_chest_inventory": "Oak Chest",
+  "container.bluecore.oak_chest": "Oak Chest",
   "container.bluecore.basic_fluid_tank": "Basic Fluid Tank",
 
   "tooltip.bluecore.magic_block.tooltip": "This Block very, very §9MAGICAL",
@@ -81,6 +83,8 @@
   "dimension.bluecore.snowflake_crystal": "Snowflake Crystal",
 
   "enchantment.bluecore.lightning_striker": "Lightning Striker",
+
+  "entity.bluecore.mantis": "Mantis",
 
   "block.bluecore.pink_torch": "Pink Torch",
   "block.bluecore.pig_generator": "Pig Generator",
@@ -115,7 +119,7 @@
   "block.bluecore.gelid_cryotheum": "Gelid Cryotheum",
 
 
-  "item.bluecore.diamond_spear": "Diamond Spear",
+  "item.bluecore.netherite_spear": "Netherite Spear",
   "item.bluecore.entropy_manipulator": "Entropy Manipulator",
   "item.bluecore.gelid_cryotheum_bucket": "Gelid Cryotheum Bucket",
 

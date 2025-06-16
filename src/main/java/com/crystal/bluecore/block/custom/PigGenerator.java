@@ -1,7 +1,7 @@
 package com.crystal.bluecore.block.custom;
 
 import com.crystal.bluecore.block.entity.PigGeneratorBlockEntity;
-import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -63,6 +63,6 @@ public class PigGenerator extends Block implements BlockEntityProvider {
         // 创建一个方块实体
         // 或者也可以new PigGeneratorBlockEntity(pos, state);
         // 这种方法考虑模组兼容性
-        return ModBlockEntities.PIG_GENERATOR_BLOCK_ENTITY.instantiate(pos, state);
+        return ModBlockEntityType.PIG_GENERATOR_BLOCK_ENTITY.instantiate(pos, state);
     }
 }

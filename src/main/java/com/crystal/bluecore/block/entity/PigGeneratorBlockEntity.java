@@ -1,7 +1,7 @@
 package com.crystal.bluecore.block.entity;
 
 import com.crystal.bluecore.BlueCore;
-import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlockEntityType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
@@ -17,7 +17,7 @@ public class PigGeneratorBlockEntity extends BlockEntity {
     private int counter;
 
     public PigGeneratorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.PIG_GENERATOR_BLOCK_ENTITY, pos, state);
+        super(ModBlockEntityType.PIG_GENERATOR_BLOCK_ENTITY, pos, state);
     }
 
     /**

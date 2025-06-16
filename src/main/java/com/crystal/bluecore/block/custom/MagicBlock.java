@@ -1,6 +1,6 @@
 package com.crystal.bluecore.block.custom;
 
-import com.crystal.bluecore.util.ModTags;
+import com.crystal.bluecore.registry.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;

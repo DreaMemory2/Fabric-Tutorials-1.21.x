@@ -2,7 +2,7 @@ package com.crystal.bluecore.datagen;
 
 import com.crystal.bluecore.registry.ModBlocks;
 import com.crystal.bluecore.registry.ModItems;
-import com.crystal.bluecore.util.ModTags;
+import com.crystal.bluecore.registry.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.ItemTagProvider;
 import net.minecraft.item.Items;

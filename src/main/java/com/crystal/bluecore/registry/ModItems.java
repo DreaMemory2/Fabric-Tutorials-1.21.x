@@ -81,7 +81,7 @@ public class ModItems {
     public static final Item PINK_TORCH = registerModItems("pink_torch",
             new VerticallyAttachableBlockItem(ModBlocks.PINK_TORCH, ModBlocks.WALL_PINK_TORCH, new Item.Settings(), Direction.DOWN));
     // 自定义钻石矛
-    public static final Item DIAMOND_SPEAR = registerModItems("diamond_spear",
+    public static final Item NETHERITE_SPEAR = registerModItems("netherite_spear",
             new SpearItem(ToolMaterials.DIAMOND,
                     new Item.Settings()
                             .maxCount(1)
@@ -90,6 +90,9 @@ public class ModItems {
                             .component(DataComponentTypes.TOOL, SpearItem.createToolComponent())));
     public static final Item HONEY_BERRIES = registerModItems("honey_berries", new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings()
             .food(ModFoodComponents.HONEY_BERRY)));
+    // 螳螂刷怪蛋
+    public static final Item MANTIS_SPAWN_EGG = registerModItems("mantis_spawn_egg",
+            new SpawnEggItem(ModEntity.MANTIS, 0x9DC783, 0xBFAF5F, new Item.Settings()));
 
     // 提供注册你的物品方法（物品ID，物品类）
     private static Item registerModItems(String id, Item item) {

@@ -1,4 +1,4 @@
-package com.crystal.bluecore.util;
+package com.crystal.bluecore.registry;
 
 import com.crystal.bluecore.BlueCore;
 import net.minecraft.block.Block;

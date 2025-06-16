@@ -1,7 +1,10 @@
 package com.crystal.bluecore.item.custom;
 
 import com.crystal.bluecore.api.EnchantmentHandler;
-import com.crystal.bluecore.entity.SpearProjectileEntity;
+import com.crystal.bluecore.entity.NetheriteSpearEntity;
+import com.crystal.bluecore.entity.SpearEntity;
+import com.crystal.bluecore.registry.ModEntity;
+import com.crystal.bluecore.registry.ModItems;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
@@ -73,14 +76,17 @@ public class SpearItem extends ToolItem implements EnchantmentHandler {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (user instanceof PlayerEntity player) {
-            int currentUseTime = this.getMaxUseTime(stack, user) - remainingUseTicks;
+            int currentUseTime = getMaxUseTime(stack, user) - remainingUseTicks;
 
             if (currentUseTime >= 10) {
                 if (!world.isClient) {
                     stack.damage(1, player, EquipmentSlot.MAINHAND);
 
                     // Create initial Spear entity
-                    SpearProjectileEntity spearEntity = new SpearProjectileEntity(world, player, stack);
+                    SpearEntity spearEntity = new NetheriteSpearEntity(ModEntity.NETHERITE_SPEAR, world, player, stack);
+                    if (stack.isOf(ModItems.NETHERITE_SPEAR)) {
+                        spearEntity = new NetheriteSpearEntity(ModEntity.NETHERITE_SPEAR, world, player, stack);
+                    }
                     spearEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 2.5F, 1.0F);
                     if (player.getAbilities().creativeMode) {
                         spearEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;

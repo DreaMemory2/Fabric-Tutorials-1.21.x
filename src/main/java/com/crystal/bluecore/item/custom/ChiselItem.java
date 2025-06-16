@@ -1,7 +1,7 @@
 package com.crystal.bluecore.item.custom;
 
 import com.crystal.bluecore.registry.ModBlocks;
-import com.crystal.bluecore.registry.component.ModDataComponentTypes;
+import com.crystal.bluecore.registry.ModDataComponentTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;

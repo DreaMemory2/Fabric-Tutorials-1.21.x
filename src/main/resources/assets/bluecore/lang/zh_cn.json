@@ -9,6 +9,7 @@
   "item.bluecore.starlight_ashes": "星光灰烬",
   "item.bluecore.pink_armor_trim_smithing_template": "锻造模板",
   "item.bluecore.honey_berries": "甜蜜浆果",
+  "item.bluecore.mantis_spawn_egg": "螳螂刷怪蛋",
 
   "item.bluecore.pink_gemstone_sword": "粉红色宝石剑",
   "item.bluecore.pink_gemstone_pickaxe": "粉红色宝石镐",
@@ -72,6 +73,7 @@
   "tag.item.bluecore.hammer": "锤子",
 
   "container.bluecore.oak_chest_inventory": "橡木箱子",
+  "container.bluecore.oak_chest": "橡木箱子",
   "container.bluecore.basic_fluid_tank": "基础液体储罐",
 
   "tooltip.bluecore.magic_block.tooltip": "这个方块非常有§9魔力",
@@ -84,6 +86,8 @@
   "dimension.bluecore.snowflake_crystal": "雪花晶界",
 
   "enchantment.bluecore.lightning_striker": "闪射",
+
+  "entity.bluecore.mantis": "螳螂",
 
   "block.bluecore.pink_torch": "粉红色火把",
   "block.bluecore.pig_generator": "小猪生成器",
@@ -114,7 +118,7 @@
   "block.bluecore.fanbrush": "法尔兰",
   "block.bluecore.gelid_cryotheum": "极寒之凛冰",
 
-  "item.bluecore.diamond_spear": "钻石矛",
+  "item.bluecore.netherite_spear": "下界合金矛",
   "item.bluecore.entropy_manipulator": "熵变机械臂",
   "item.bluecore.gelid_cryotheum_bucket": "极寒之凛冰桶",
 

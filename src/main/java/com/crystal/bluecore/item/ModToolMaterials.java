@@ -1,7 +1,7 @@
 package com.crystal.bluecore.item;
 
 import com.crystal.bluecore.registry.ModItems;
-import com.crystal.bluecore.util.ModTags;
+import com.crystal.bluecore.registry.ModTags;
 import com.google.common.base.Suppliers;
 import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
@@ -47,31 +47,31 @@ public enum ModToolMaterials implements ToolMaterial {
 
     @Override
     public int getDurability() {
-        return this.itemDurability;
+        return itemDurability;
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return this.miningSpeed;
+        return miningSpeed;
     }
 
     @Override
     public float getAttackDamage() {
-        return this.attackDamage;
+        return attackDamage;
     }
 
     @Override
     public TagKey<Block> getInverseTag() {
-        return this.inverseTag;
+        return inverseTag;
     }
 
     @Override
     public int getEnchantability() {
-        return this.enchantability;
+        return enchantability;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
+        return repairIngredient.get();
     }
 }

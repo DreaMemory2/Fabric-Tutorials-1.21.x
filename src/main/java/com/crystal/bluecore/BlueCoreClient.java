@@ -1,14 +1,15 @@
 package com.crystal.bluecore;
 
+import com.crystal.bluecore.model.MantisModel;
 import com.crystal.bluecore.model.OakChestModel;
 import com.crystal.bluecore.particle.PinkFlameParticle;
 import com.crystal.bluecore.registry.*;
 import com.crystal.bluecore.renderer.BasicFluidTankRenderer;
-import com.crystal.bluecore.renderer.OakChestRender;
-import com.crystal.bluecore.renderer.SpearProjectileEntityRenderer;
+import com.crystal.bluecore.renderer.MantisEntityRenderer;
+import com.crystal.bluecore.renderer.OakChestRenderer;
+import com.crystal.bluecore.renderer.SpearEntityRenderer;
 import com.crystal.bluecore.screen.BasicFluidTankScreen;
-import com.crystal.bluecore.screen.OakChestInventoryBlockScreen;
-import com.crystal.bluecore.util.ModModelPredicates;
+import com.crystal.bluecore.screen.OakChestBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -16,7 +17,6 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -33,16 +33,18 @@ public class BlueCoreClient implements ClientModInitializer {
         ModModelPredicates.registerModelPredicates();
         // Moder Layers 模型图层
         EntityModelLayerRegistry.registerModelLayer(OakChestModel.LAYER_LOCATION, OakChestModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
 
         // Bind Screens to Handlers 屏幕和处理器绑定
-        HandledScreens.register(ModScreenHandlerTypes.OAK_CHEST_INVENTORY_SCREEN_HANDLER, OakChestInventoryBlockScreen::new);
+        HandledScreens.register(ModScreenHandlerTypes.OAK_CHEST_SCREEN_HANDLER, OakChestBlockScreen::new);
         HandledScreens.register(ModScreenHandlerTypes.BASIC_FLUID_TANK_SCREEN_HANDLER, BasicFluidTankScreen::new);
 
         // Block Entity Render 方块实体渲染
-        BlockEntityRendererFactories.register(ModBlockEntities.OAK_CHEST_BLOCK_ENTITY, OakChestRender::new);
-        BlockEntityRendererFactories.register(ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY, BasicFluidTankRenderer::new);
-        // Entity Renders 钻石矛实体渲染
-        EntityRendererRegistry.register(ModBlockEntities.SPEAR, dispatcher -> new SpearProjectileEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
+        BlockEntityRendererFactories.register(ModBlockEntityType.OAK_CHEST, OakChestRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntityType.BASIC_FLUID_TANK_BLOCK_ENTITY, BasicFluidTankRenderer::new);
+        // Entity Renders 实体渲染
+        EntityRendererRegistry.register(ModEntity.NETHERITE_SPEAR, SpearEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntity.MANTIS, MantisEntityRenderer::new);
         // 渲染粉红色火焰粒子
         ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PINK_FLAME, PinkFlameParticle.Factory::new);
         // 渲染液体材质文件

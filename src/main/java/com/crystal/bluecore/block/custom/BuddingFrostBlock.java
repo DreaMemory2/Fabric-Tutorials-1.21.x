@@ -1,6 +1,7 @@
 package com.crystal.bluecore.block.custom;
 
 import com.crystal.bluecore.registry.ModBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.AmethystBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,6 +17,8 @@ import net.minecraft.util.math.random.Random;
  * @author Crystal
  */
 public class BuddingFrostBlock extends AmethystBlock {
+    private static final MapCodec<BuddingFrostBlock> CODEC = createCodec(BuddingFrostBlock::new);
+
     public BuddingFrostBlock(Settings settings) {
         super(settings);
     }
@@ -23,16 +26,29 @@ public class BuddingFrostBlock extends AmethystBlock {
     /**
      * <p>晶体可以生长在空气或者等级为8的静态水里</p>
      * @param state 方块状态
-     * @return 可以生长
+     * @return 满足生长的条件，返回布尔类型
      */
     public static boolean canGrowIn(BlockState state) {
         return state.isAir() || state.isOf(Blocks.WATER) && state.getFluidState().getLevel() == 8;
     }
 
     @Override
+    public MapCodec<? extends AmethystBlock> getCodec() {
+        return CODEC;
+    }
+
+    /**
+     *
+     * @param state 方块状态
+     * @param world 世界
+     * @param pos 方块位置
+     * @param random 随机刻
+     */
+    @Override
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         // 随机生长状态：0~5
         if (random.nextInt(5) == 0) {
+            /* 如果生长状态为0 */
             // 生长方向四面八方
             Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
             // 方块位置和状态
@@ -48,7 +64,7 @@ public class BuddingFrostBlock extends AmethystBlock {
                 block = ModBlocks.LARGE_FROST_BUD;
             else if (blockState.isOf(ModBlocks.LARGE_FROST_BUD) && blockState.get(FrostClusterBlock.FACING) == direction)
                 block = ModBlocks.FROST_CLUSTER;
-            // 如果方块为寒霜晶簇，则停止生长
+            // 如果方块为寒霜晶簇(Frost Cluster)，则说明生长完全
             if (block != null) {
                 BlockState frostCluster = block.getDefaultState()
                         .with(FrostClusterBlock.FACING, direction)

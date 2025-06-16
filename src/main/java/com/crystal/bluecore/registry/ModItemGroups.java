@@ -48,6 +48,7 @@ public class ModItemGroups {
             containers.add(ModItems.STARLIGHT_ASHES);
             containers.add(ModItems.PINK_SMITHING_TEMPLATE);
             containers.add(ModItems.HONEY_BERRIES);
+            containers.add(ModItems.MANTIS_SPAWN_EGG);
 
             containers.add(ModItems.PINK_GEMSTONE_SWORD);
             containers.add(ModItems.PINK_GEMSTONE_PICKAXE);
@@ -112,7 +113,7 @@ public class ModItemGroups {
             containers.add(ModBlocks.LARGE_FROST_BUD);
             containers.add(ModBlocks.FROST_CLUSTER);
 
-            containers.add(ModItems.DIAMOND_SPEAR);
+            containers.add(ModItems.NETHERITE_SPEAR);
             containers.add(ModBlocks.MAPLE_SAPLING);
             containers.add(ModItems.ENTROPY_MANIPULATOR);
             containers.add(ModItems.GELID_CRYOTHEUM_BUCKET);

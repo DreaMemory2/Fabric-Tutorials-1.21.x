@@ -1,4 +1,4 @@
-package com.crystal.bluecore.trim;
+package com.crystal.bluecore.registry.trim;
 
 import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.registry.ModItems;

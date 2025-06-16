@@ -2,7 +2,7 @@ package com.crystal.bluecore.block.entity;
 
 import com.crystal.bluecore.BlueCore;
 import com.crystal.bluecore.api.TickableBlockEntity;
-import com.crystal.bluecore.registry.ModBlockEntities;
+import com.crystal.bluecore.registry.ModBlockEntityType;
 import com.crystal.bluecore.screenhandler.BasicFluidTankScreenHandler;
 import com.crystal.bluecore.util.BlockPosPayload;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
@@ -59,7 +59,7 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
     private final SingleFluidStorage fluidStorage = SingleFluidStorage.withFixedCapacity(FluidConstants.BUCKET * 14, this::update);
 
     public BasicFluidTankBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BASIC_FLUID_TANK_BLOCK_ENTITY, pos, state);
+        super(ModBlockEntityType.BASIC_FLUID_TANK_BLOCK_ENTITY, pos, state);
     }
 
     @Override
