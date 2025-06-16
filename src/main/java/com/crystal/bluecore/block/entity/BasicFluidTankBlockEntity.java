@@ -54,7 +54,7 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
 
     private final InventoryStorage inventoryStorage = InventoryStorage.of(inventory, null);
     // 设置可以放入水桶，且输入液体的物品槽的功能
-    private final ContainerItemContext fluidItemContext = ContainerItemContext.ofSingleSlot(this.inventoryStorage.getSlot(0));
+    private final ContainerItemContext fluidItemContext = ContainerItemContext.ofSingleSlot(inventoryStorage.getSlot(0));
     // 设置单向流体存储器（存储100桶液体）
     private final SingleFluidStorage fluidStorage = SingleFluidStorage.withFixedCapacity(FluidConstants.BUCKET * 14, this::update);
 
@@ -64,10 +64,10 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
 
     @Override
     public void tick() {
-        if(this.world == null || this.world.isClient) return;
-        if(this.inventory.isEmpty() || !isValid(this.inventory.getStack(0), 0)) return;
+        if(world == null || world.isClient) return;
+        if(inventory.isEmpty() || !isValid(inventory.getStack(0), 0)) return;
         // 判断该物品是否可以存储到储罐里
-        Storage<FluidVariant> itemFluidStorage = this.fluidItemContext.find(FluidStorage.ITEM);
+        Storage<FluidVariant> itemFluidStorage = fluidItemContext.find(FluidStorage.ITEM);
         if(itemFluidStorage == null) return;
 
         FluidVariant match = null;
@@ -76,7 +76,7 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
             if(storageView.isResourceBlank()) continue;
             // 将液体存入储罐中
             try(Transaction transaction = Transaction.openOuter()) {
-                if(this.fluidStorage.insert(storageView.getResource(), FluidConstants.BUCKET, transaction) > 0) {
+                if(fluidStorage.insert(storageView.getResource(), FluidConstants.BUCKET, transaction) > 0) {
                     match = storageView.getResource();
                     break;
                 }
@@ -86,21 +86,21 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
         if(match == null || match.isBlank()) return;
         try(Transaction transaction = Transaction.openOuter()) {
             // 输入液体
-            long inserted = this.fluidStorage.insert(match, FluidConstants.BUCKET, transaction);
+            long inserted = fluidStorage.insert(match, FluidConstants.BUCKET, transaction);
             // 输出液体
             long extracted = itemFluidStorage.extract(match, inserted, transaction);
             // 向外输出液体的减少量
             if(extracted < FluidConstants.BUCKET) {
                 long extra = FluidConstants.BUCKET - extracted;
                 // Take any extra fluid
-                this.fluidStorage.extract(match, extra, transaction);
+                fluidStorage.extract(match, extra, transaction);
             }
             // 结束交易
             transaction.commit();
         }
 
-        BlueCore.LOGGER.info("Fluid: {}, Amount: {}", this.fluidStorage.getResource().getRegistryEntry().getIdAsString(), this.fluidStorage.getAmount());
-        BlueCore.LOGGER.info("液体: {}, 容量: {}", this.fluidStorage.getResource().getRegistryEntry().getIdAsString(), this.fluidStorage.getAmount());
+        BlueCore.LOGGER.info("Fluid: {}, Amount: {}", fluidStorage.getResource().getRegistryEntry().getIdAsString(), fluidStorage.getAmount());
+        BlueCore.LOGGER.info("液体: {}, 容量: {}", fluidStorage.getResource().getRegistryEntry().getIdAsString(), fluidStorage.getAmount());
     }
 
     @Override
@@ -115,11 +115,11 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
         super.readNbt(nbt, registryLookup);
 
         if(nbt.contains("Inventory", NbtElement.COMPOUND_TYPE)) {
-            Inventories.readNbt(nbt.getCompound("Inventory"), this.inventory.getHeldStacks(), registryLookup);
+            Inventories.readNbt(nbt.getCompound("Inventory"), inventory.getHeldStacks(), registryLookup);
         }
 
         if(nbt.contains("FluidTank", NbtElement.COMPOUND_TYPE)) {
-            this.fluidStorage.readNbt(nbt.getCompound("FluidTank"), registryLookup);
+            fluidStorage.readNbt(nbt.getCompound("FluidTank"), registryLookup);
         }
     }
 
@@ -128,11 +128,11 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
         super.writeNbt(nbt, registryLookup);
 
         var inventoryNbt = new NbtCompound();
-        Inventories.writeNbt(inventoryNbt, this.inventory.getHeldStacks(), registryLookup);
+        Inventories.writeNbt(inventoryNbt, inventory.getHeldStacks(), registryLookup);
         nbt.put("Inventory", inventoryNbt);
 
         var fluidNbt = new NbtCompound();
-        this.fluidStorage.writeNbt(fluidNbt, registryLookup);
+        fluidStorage.writeNbt(fluidNbt, registryLookup);
         nbt.put("FluidTank", fluidNbt);
     }
 
@@ -174,7 +174,7 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
 
     @Override
     public BlockPosPayload getScreenOpeningData(ServerPlayerEntity player) {
-        return new BlockPosPayload(this.pos);
+        return new BlockPosPayload(pos);
     }
 
     @Override
@@ -183,18 +183,18 @@ public class BasicFluidTankBlockEntity extends BlockEntity implements TickableBl
     }
 
     public InventoryStorage getInventoryProvider(Direction direction) {
-        return this.inventoryStorage;
+        return inventoryStorage;
     }
 
     public SingleFluidStorage getFluidTankProvider(Direction direction) {
-        return this.fluidStorage;
+        return fluidStorage;
     }
 
     public SimpleInventory getInventory() {
-        return this.inventory;
+        return inventory;
     }
 
     public SingleFluidStorage getFluidTank() {
-        return this.fluidStorage;
+        return fluidStorage;
     }
 }
