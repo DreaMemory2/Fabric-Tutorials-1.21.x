@@ -9,7 +9,7 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 /**
-* ClassName: ChineseLanguageProvider<br>
+* ClassName: Chinese Language Provider<br>
 * Description: <br>
 * Datetime: 2025/6/3 18:22<br>
 * @author Crystal
@@ -30,6 +30,18 @@ public class ChineseLanguageProvider extends FabricLanguageProvider {
 
         builder.add(ModItems.ENTROPY_MANIPULATOR, "熵变机械臂");
         builder.add(ModItems.DIAMOND_APPLE_CORE, "钻石苹果核");
+        builder.add(ModItems.FLUIX_CRYSTAL, "福鲁伊克斯水晶");
+        /* 工具 */
+        builder.add(ModItems.FLUIX_SWORD, "福鲁伊克斯剑");
+        builder.add(ModItems.FLUIX_SHOVEL, "福鲁伊克斯锹");
+        builder.add(ModItems.FLUIX_PICKAXE, "福鲁伊克斯镐");
+        builder.add(ModItems.FLUIX_AXE, "福鲁伊克斯斧");
+        builder.add(ModItems.FLUIX_HOE, "福鲁伊克斯锄");
+        /* 盔甲 */
+        builder.add(ModItems.AMETHYST_HELMET, "紫水晶头盔");
+        builder.add(ModItems.AMETHYST_CHESTPLATE, "紫水晶胸甲");
+        builder.add(ModItems.AMETHYST_LEGGINGS, "紫水晶护腿");
+        builder.add(ModItems.AMETHYST_BOOTS, "紫水晶靴子");
 
         /* 高级设置 */
         builder.add("itemgroup.simpletools.simple_groups", "简单工具");

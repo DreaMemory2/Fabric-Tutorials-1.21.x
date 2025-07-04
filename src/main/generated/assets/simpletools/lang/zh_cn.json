@@ -2,7 +2,17 @@
   "block.simpletools.azalea_leaves": "杜鹃树叶",
   "block.simpletools.azalea_log": "杜鹃原木",
   "block.simpletools.blast_furnace": "高炉砖",
+  "item.simpletools.amethyst_boots": "紫水晶靴子",
+  "item.simpletools.amethyst_chestplate": "紫水晶胸甲",
+  "item.simpletools.amethyst_helmet": "紫水晶头盔",
+  "item.simpletools.amethyst_leggings": "紫水晶护腿",
   "item.simpletools.diamond_apple_core": "钻石苹果核",
   "item.simpletools.entropy_manipulator": "熵变机械臂",
+  "item.simpletools.fluix_axe": "福鲁伊克斯斧",
+  "item.simpletools.fluix_crystal": "福鲁伊克斯水晶",
+  "item.simpletools.fluix_hoe": "福鲁伊克斯锄",
+  "item.simpletools.fluix_pickaxe": "福鲁伊克斯镐",
+  "item.simpletools.fluix_shovel": "福鲁伊克斯锹",
+  "item.simpletools.fluix_sword": "福鲁伊克斯剑",
   "itemgroup.simpletools.simple_groups": "简单工具"
 }

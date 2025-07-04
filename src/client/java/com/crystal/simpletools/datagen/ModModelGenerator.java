@@ -31,5 +31,17 @@ public class ModModelGenerator extends FabricModelProvider {
         create.register(ModItems.DIAMOND_APPLE_CORE, Models.GENERATED);
         create.register(ModItems.DIAMOND_APPLE, Models.GENERATED);
         create.register(ModItems.ENTROPY_MANIPULATOR, Models.GENERATED);
+        create.register(ModItems.FLUIX_CRYSTAL, Models.GENERATED);
+        /* 工具 */
+        create.register(ModItems.FLUIX_SWORD, Models.HANDHELD);
+        create.register(ModItems.FLUIX_SHOVEL, Models.HANDHELD);
+        create.register(ModItems.FLUIX_PICKAXE, Models.HANDHELD);
+        create.register(ModItems.FLUIX_AXE, Models.HANDHELD);
+        create.register(ModItems.FLUIX_HOE, Models.HANDHELD);
+        /* 盔甲 */
+        create.register(ModItems.AMETHYST_HELMET, Models.GENERATED);
+        create.register(ModItems.AMETHYST_CHESTPLATE, Models.GENERATED);
+        create.register(ModItems.AMETHYST_LEGGINGS, Models.GENERATED);
+        create.register(ModItems.AMETHYST_BOOTS, Models.GENERATED);
     }
 }
