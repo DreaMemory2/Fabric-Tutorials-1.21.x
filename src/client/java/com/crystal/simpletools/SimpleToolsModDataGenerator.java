@@ -1,7 +1,7 @@
 package com.crystal.simpletools;
 
 import com.crystal.simpletools.datagen.*;
-import com.crystal.simpletools.datagen.recipes.EntropyRecipes;
+import com.crystal.simpletools.datagen.recipes.EntropyRecipeGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataOutput;
@@ -24,7 +24,7 @@ public class SimpleToolsModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ChineseLanguageProvider::new);
 
 		// Recipes
-		pack.addProvider(bindRegistries(EntropyRecipes::new, registries));
+		pack.addProvider(bindRegistries(EntropyRecipeGenerator::new, registries));
 	}
 
 	private static <T extends DataProvider> DataProvider.Factory<T> bindRegistries(

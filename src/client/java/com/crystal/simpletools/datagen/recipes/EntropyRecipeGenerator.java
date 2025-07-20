@@ -21,9 +21,9 @@ import java.util.concurrent.CompletableFuture;
 * @version 1.0
 * @since 1.0
 */
-public class EntropyRecipes extends RecipeGenerator.RecipeProvider {
+public class EntropyRecipeGenerator extends RecipeGenerator.RecipeProvider {
 
-    public EntropyRecipes(DataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> future) {
+    public EntropyRecipeGenerator(DataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> future) {
         super(output, future);
     }
 
@@ -38,36 +38,36 @@ public class EntropyRecipes extends RecipeGenerator.RecipeProvider {
         };
     }
 
-    private void buildCoolRecipes(RecipeExporter consumer) {
+    private void buildCoolRecipes(RecipeExporter output) {
         EntropyRecipeBuilder.cool()
                 .setInputFluid(Fluids.FLOWING_WATER.getDefaultState())
                 .setDrops(new ItemStack(Items.SNOWBALL))
-                .save(consumer, SimpleToolsMod.of("entropy/cool/flowing_water_snowball"));
+                .save(output, SimpleToolsMod.of("entropy/cool/flowing_water_snowball"));
 
         EntropyRecipeBuilder.cool()
                 .setInputBlock(Blocks.GRASS_BLOCK.getDefaultState())
                 .setOutputBlock(Blocks.DIRT.getDefaultState())
-                .save(consumer, SimpleToolsMod.of("entropy/cool/grass_block_dirt"));
+                .save(output, SimpleToolsMod.of("entropy/cool/grass_block_dirt"));
 
         EntropyRecipeBuilder.cool()
                 .setInputFluid(Fluids.LAVA.getDefaultState())
                 .setOutputBlock(Blocks.OBSIDIAN.getDefaultState())
-                .save(consumer, SimpleToolsMod.of("entropy/cool/lava_obsidian"));
+                .save(output, SimpleToolsMod.of("entropy/cool/lava_obsidian"));
 
         EntropyRecipeBuilder.cool()
                 .setInputBlock(Blocks.STONE_BRICKS.getDefaultState())
                 .setOutputBlock(Blocks.CRACKED_STONE_BRICKS.getDefaultState())
-                .save(consumer, SimpleToolsMod.of("entropy/cool/stone_bricks_cracked_stone_bricks"));
+                .save(output, SimpleToolsMod.of("entropy/cool/stone_bricks_cracked_stone_bricks"));
 
         EntropyRecipeBuilder.cool()
                 .setInputBlock(Blocks.STONE.getDefaultState())
                 .setOutputBlock(Blocks.COBBLESTONE.getDefaultState())
-                .save(consumer, SimpleToolsMod.of("entropy/cool/stone_cobblestone"));
+                .save(output, SimpleToolsMod.of("entropy/cool/stone_cobblestone"));
 
         EntropyRecipeBuilder.cool()
                 .setInputFluid(Fluids.WATER.getDefaultState())
                 .setOutputBlock(Blocks.ICE.getDefaultState())
-                .save(consumer, SimpleToolsMod.of("entropy/cool/water_ice"));
+                .save(output, SimpleToolsMod.of("entropy/cool/water_ice"));
     }
 
     private void buildHeatRecipes(RecipeExporter consumer) {

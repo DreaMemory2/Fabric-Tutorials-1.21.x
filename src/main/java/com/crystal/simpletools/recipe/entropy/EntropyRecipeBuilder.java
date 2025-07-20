@@ -33,7 +33,15 @@ public class EntropyRecipeBuilder {
         return new EntropyRecipeBuilder().setMode(EntropyMode.HEAT);
     }
 
-    public EntropyRecipeBuilder setMode(EntropyMode mode) {
+    /* Setter方法 */
+
+    /**
+     * <p>加热模式：{@link EntropyRecipeBuilder#heat()}</p>
+     * <p>冷却模式：{@link EntropyRecipeBuilder#cool()}</p>
+     * @param mode 模式
+     * @return 设置模式，主要分为加热模式和冷却模式
+     */
+    private EntropyRecipeBuilder setMode(EntropyMode mode) {
         this.mode = mode;
         return this;
     }
@@ -52,14 +60,13 @@ public class EntropyRecipeBuilder {
         this.outputBlock = Objects.requireNonNull(outputBlock, "outputBlock must not be null");
         return this;
     }
-
-    public EntropyRecipeBuilder setOutputBlockKeep(boolean outputBlockKeep) {
-        this.outputBlockKeep = outputBlockKeep;
+    public EntropyRecipeBuilder setOutputFluid(FluidState outputFluid) {
+        this.outputFluid = Objects.requireNonNull(outputFluid, "outputFluid must not be null");
         return this;
     }
 
-    public EntropyRecipeBuilder setOutputFluid(FluidState outputFluid) {
-        this.outputFluid = Objects.requireNonNull(outputFluid, "outputFluid must not be null");
+    public EntropyRecipeBuilder setOutputBlockKeep(boolean outputBlockKeep) {
+        this.outputBlockKeep = outputBlockKeep;
         return this;
     }
 
@@ -102,8 +109,7 @@ public class EntropyRecipeBuilder {
             fluidOutput = new EntropyRecipe.FluidOutput(outputFluid, outputFluidKeep, outputFluidStateAppliers);
         }
 
-        var output = new EntropyRecipe.Output(Optional.ofNullable(blockOutput), Optional.ofNullable(fluidOutput),
-                drops);
+        var output = new EntropyRecipe.Output(Optional.ofNullable(blockOutput), Optional.ofNullable(fluidOutput), drops);
 
         return new EntropyRecipe(mode, input, output);
     }
